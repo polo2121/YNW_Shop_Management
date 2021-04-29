@@ -1,0 +1,184 @@
+.title{
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 20px;
+ 
+}
+.sub_title p{
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    
+}
+label{
+    font-size: 1.2rem;
+}
+/* Left Content */
+#grid-1{
+    grid-area: header;
+
+}
+#grid-2{
+    grid-area: A4;
+  
+}
+#grid-3{
+    grid-area: A4_back;
+}
+#grid-4{
+    grid-area: legal;
+}
+#grid-5{
+    grid-area: legal_back;
+}
+#grid-6{
+    grid-area: A3;
+}
+#grid-7{
+    grid-area: A3_back;
+}
+#grid-8{
+    grid-area: A4_pass;
+}
+p{
+    margin: 0;
+}
+.amount_filling{
+    
+    display: grid;
+    padding: 20px 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr;
+    grid-template-areas: 
+    "header header header header"
+    "A4 A4 A4_back A4_back"
+    "legal legal legal_back legal_back"
+    "A3 A3 A3_back A3_back"
+    "A4_pass A4_pass computer computer";
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.3)
+      );
+      border-radius: 2rem;
+      z-index: 2;
+    
+    backdrop-filter: blur(2rem);
+    box-shadow: 10px 10px 10px  rgba(46, 54, 68, 0.03);
+    border: solid 4px transparent;
+    width: 65%;
+    margin-right: 10px;
+
+
+}
+.amount_filling input
+{
+
+    opacity: 0.7;
+
+}
+
+/* Right Content */
+#item-a
+{
+    grid-area: title;
+}
+#item-b{
+    grid-area: sub_title;
+}
+#A4_item{
+    grid-area: A4;
+}
+#A4_back_item{
+    grid-area: A4_back;
+
+}
+#legal_item{
+    grid-area: legal;
+
+}
+#legal_back_item{
+    grid-area: legal_back;
+
+}
+#A3_item{
+    grid-area: A3;
+}
+#A3_back_item{
+    grid-area: A3_back;
+}
+#A4_pass_item{
+    grid-area: A4_pass;
+}
+
+#total_price{
+    grid-area: total_price;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#item-b{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+#A4_item,#A4_back_item,#legal_item,
+#legal_back_item,#A3_item,#A3_back_item,#A4_pass_item
+{
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+ 
+}
+.calculation{
+    display: grid;
+   
+    grid-template-columns: 4fr 4fr 4fr;
+    grid-template-rows: 0.2fr 0.2fr 0.2fr 0.2fr;
+    grid-template-areas: 
+    "title title title"
+    "sub_title sub_title sub_title"
+    "A4 A4 A4"
+    "A4_back A4_back A4_back"
+    "legal legal legal"
+    "legal_back legal_back legal_back"
+    "A3 A3 A3"
+    "A3_back A3_back A3_back"
+    "A4_pass A4_pass A4_pass"
+    "total_price total_price total_price";
+
+    margin: auto;
+    height: auto;
+    width: 35%;
+    padding: 10px 10px;
+    background: white;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0.3)
+      );
+      border-radius: 3rem;
+      z-index: 2;
+      backdrop-filter: blur(2rem);
+
+    box-shadow: 10px 10px 10px  rgba(46, 54, 68, 0.03);
+    border: solid 4px transparent;
+
+}
+.calculation label{
+    margin: 0;
+    font-size: 1em;
+}
+
+.calculation input{
+    
+    font-size: 1.2rem;
+    color: #031d44;
+    border-bottom: 2px solid #031d44;   
+    border-radius: 8px;
+    width: 50%;
+    margin-left: auto;
+    text-align: right;
+    margin-bottom: 20px;
+    
+}
+
+
