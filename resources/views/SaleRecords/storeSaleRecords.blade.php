@@ -14,7 +14,7 @@
     <div class="location">
         <a>Application</a> 
             > 
-        <a herf="{{route('ssr')}}">  
+        <a herf="">  
             <span>Sale Records</span> 
         </a>
     </div>
@@ -41,7 +41,7 @@
         </div>
 
         <!-- Copyer Form -->
-        <form  id="copyer" class="hide tc animate__animated" action="{{route('ssr.copy.insert')}}" method="POST">
+        <form  id="copyer" class="hide tc animate__animated" action="" method="POST">
             @csrf
             @method('POST')
             
@@ -80,7 +80,7 @@
             
         </form>
 
-        <form class="hide animate__animated" id="stationaryItems" action="{{route('ssr.billing.insert')}}" method="POST" >
+        <form class="hide animate__animated" id="stationaryItems" action="" method="POST" >
             @csrf
             @method('POST')
             
@@ -140,7 +140,7 @@
         </form>
 
         <!-- Stationary Form -->
-        <form class="hide animate__animated" id="stationaryItems" action="{{route('ssr.stationary.insert')}}" method="POST" >
+        <form class="hide animate__animated" id="stationaryItems" action="" method="POST" >
             @csrf
             @method('POST')
             
@@ -219,14 +219,6 @@
                         <th>Amount</th>
                         <th>Price</th>
                     </tr>
-                    @foreach ($copySaleRecords as $copySaleRecord)
-                        <tr>
-                            <td>{{$copySaleRecord->paperType}}</td>
-                            <td>{{$copySaleRecord->amount}}</td>
-                            <td>{{$copySaleRecord->price}}</td>
-                        </tr>
-
-                    @endforeach
                 </table>
             </div>
 
@@ -238,14 +230,7 @@
                         <th></th>
                         <th>Price</th>
                     </tr>
-                    @foreach ($copySaleRecords as $copySaleRecord)
-                        <tr>
-                            <td>{{$copySaleRecord->paperType}}</td>
-                            <td>{{$copySaleRecord->amount}}</td>
-                            <td>{{$copySaleRecord->price}}</td>
-                        </tr>
 
-                    @endforeach
 
                     <tr>
                         <td></td>
@@ -263,19 +248,9 @@
                         <th>Amount</th>
                         <th>Price</th>
                     </tr>
-                    @foreach ($copySaleRecords as $copySaleRecord)
-                        <tr>
-                            <td>{{$copySaleRecord->paperType}}</td>
-                            <td>{{$copySaleRecord->amount}}</td>
-                            <td>{{$copySaleRecord->price}}</td>
-                        </tr>
 
-                    @endforeach
                 </table>
             </div>
-
-            
-
 
 
         </div>

@@ -21,7 +21,7 @@
             <div class="devider mb4"></div>
 
             
-            <a href="">
+            <a href="{{route('sa.home')}}">
                 <div class="nav_icons">
                     <img class="" src="../images/record.svg" alt="" width="25" height="25">
                 </div>

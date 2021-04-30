@@ -1,16 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class StoreSaleRecordsController extends Controller
-{
 
+class saleRecordsManagement extends Controller
+{
     public function  storeSaleRecords() {
 
-        $copySaleRecords = DB::table('copy')->where('date', date("Y-m-d"))->get();
-        return view('storeSaleRecords', ['copySaleRecords'=> $copySaleRecords]);
+        // $copySaleRecords = DB::table('copy')->where('date', date("Y-m-d"))->get();
+        return view('saleRecords/storeSaleRecords');
     }
     
     //queries for copy
@@ -74,5 +75,4 @@ class StoreSaleRecordsController extends Controller
     }
 
 
-    
 }
