@@ -20,35 +20,43 @@
     </div>
 @endsection
 @section('content')
-    <h2 class="title">
-        Sale Records Management
-    </h2>
 
-    <div class="form_panel">
-        <div class="form_btn_panel" >
-            <!-- <h3>စာရင်းသွင်းမည်</h3> -->
-            <div class="icon_fname">
-                <img class="form_entry_icon" src="../images/form_entry.svg" alt="" width="40" height="40">
-                <label for="" class="form_name">စာရင်းသွင်းမည်</label>
-            </div>
-
-            <div class="form_selection_btn">
-                <button id="copy"       class="selectBtn">Copy</button>
-                <button id="computer"   class="selectBtn js-s">Computer</button>
-                <button id="stationary" class="selectBtn">Stationary</button>
-                <button id="phone"      class="selectBtn js-s">Phone Bill</button>
-            </div>
+    <h2 class="title">Sale Records Management</h2>
+    <div class="form-entry-buttons">
+        <div class="form-entry">
+            <img class="form_entry_icon" src="../images/form_entry.svg" alt="" width="40" height="40">
+            <label for="" class="form_name">စာရင်းသွင်းမည်</label>
         </div>
+        <div class="btn-groups">
+            <button type="button" id="copy"       class="blue">
+                <i class="far fa-copy fa-lg"></i>    
+                Copy
+            </button>
+            <button type="button" id="computer"   class="blue">
+                <i class="fas fa-laptop fa-lg"></i>
+                Computer
+            </button>
+            <button type="button" id="stationary" class="blue">
+                <i class="fas fa-pencil-ruler fa-lg"></i>
+                Stationary
+            </button>
+            <button type="button" id="phone" class="blue">
+                <i class="fas fa-mobile-alt"></i>
+                Phone Bill
+            </button>
+        </div>
+    </div>
 
+    <div class="form">   
         <!-- Copyer Form -->
         <form  id="copyer" class="hide tc animate__animated" action="" method="POST">
             @csrf
             @method('POST')
             
-            <div class="form_header"><h3 for="" class="form_title">Copyer Sale Record Form</h3></div>
+            <div class="form_header"><h3 for="" class="form_title">Print Sale Record Form</h3></div>
             <div class="form_header_icon"></div>
             
-            <div class="form_input_panel">
+            <div class="form_inputs_group">
                 <div class="input_groups">
                     <label for="">Date</label>
                     <input type="date" name="date" id="date" placeholder="e.g 20/12/2021">
@@ -79,6 +87,9 @@
 
             
         </form>
+
+    </div>
+
 
         <form class="hide animate__animated" id="stationaryItems" action="" method="POST" >
             @csrf
@@ -193,7 +204,7 @@
         </div>
     @endif
     
-    <div class="table_panel mb2" id = "">
+    <div class="store-records mb2" id = "">
         <div class="show_info">
             <div class="date_And_price">
                 <h2 class="sale_record_title">
@@ -211,51 +222,8 @@
                 </div>
             </div>
 
-            <div class="tables">
-                <h3 class="pl-2">Copyer Records</h3>
-                <table id="copyerTable">
-                    <tr>
-                        <th>Paper Type</th>
-                        <th>Amount</th>
-                        <th>Price</th>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="tables">
-                <h3 class="pl-2">Computer Records</h3>
-                <table id="computerTable">
-                    <tr>
-                        <th>Services</th>
-                        <th></th>
-                        <th>Price</th>
-                    </tr>
-
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>Total</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="tables">
-                <h3 class="pl-2">Stationary Records</h3>
-                <table id="stationaryTable" class="mb2">
-                    <tr>
-                        <th>Stationary Name</th>
-                        <th>Amount</th>
-                        <th>Price</th>
-                    </tr>
-
-                </table>
-            </div>
-
-
         </div>
         <!-- end Show Info Section -->
-
 
     </div> 
     <!-- end Info Dashboard Section -->
