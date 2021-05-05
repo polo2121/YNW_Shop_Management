@@ -1,53 +1,30 @@
 
-let record_form = ""
-const today = new Date()
-document.getElementById("tdyDate").innerHTML = today.toDateString()
 
-let selectBtn = document.querySelectorAll    (".selectBtn")
-let forms = document.querySelectorAll    ("form")
+let forms              = document.querySelectorAll('.form')
+let entry_form_buttons = document.querySelectorAll('.btn-groups button')
 
-selectBtn.forEach( (btn,num) => {
-    // console.log(input)
-    btn.addEventListener('click',  () => {
-        selectBtn.forEach(btn => {
-            btn.classList.remove('active')
-        })
-        forms.forEach(form => {
-            form.classList.add('hide')
-            form.classList.remove('animate__fadeInDown')
-        })
-        btn.classList.add('active')
-        forms[num].classList.remove("hide");
-        forms[num].classList.add("animate__fadeInDown")
+console.log(entry_form_buttons)
+// console.log(forms)
+
+const hide_show = (form_id,btn_id) =>{
+
+    forms.forEach(form => {
+        form.classList.add('hide')
     })
-})
-// Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close");
 
-// window.onclick = function(event) {
+    entry_form_buttons.forEach(btn => {
+        btn.classList.remove("active")
+    })
 
-//     if(event.target === CopyModal)            { CopyModal.style.display         ="none";  }
-//     else if(event.target == computerModal)    { computerModal.style.display     ="none";  }
-//     else if(event.target === stationaryModal) { stationaryModal.style.display   ="none";  }
-//     else if(event.target === phoneModal)      { phoneModal.style.display        = "none"; }
+    let form_name = document.getElementById(form_id)
+    form_name.classList.remove("hide")
 
-// }
-
-const getPaperType = id => {
-    document.querySelector('input[name = "paperType"]').value =  id
+    document.getElementById(btn_id).classList.add("active")
 }
-
-const getBillingMethod  = id => { document.querySelector('input[name="billing_method"]').value = id; console.log(id)}
-const getOperator       = id => { document.querySelector('input[name="operator"]').value = id;console.log(id) }
-const getPredefinedBill = id => { document.querySelector('input[name="predefined_bill"]').value = id;console.log(id) }
-
-
-const removeAlert = () => {
-    document.getElementById('alertMessage').classList.remove("animate__slideInUp")
-    document.getElementById('alertMessage').classList.add("animate__slideOutDown")
+const close_form = form_id => {
+    entry_form_buttons.forEach(btn => {
+        btn.classList.remove("active")
+    })
+    form = document.getElementById(form_id)
+    form.classList.add('hide')
 }
-
-window.onload = function() {
-    setTimeout(removeAlert, 4000)
-}
-

@@ -5,8 +5,6 @@ let secBtns            = document.querySelectorAll     ('.btnBgColor')
 let date_inputs        = document.querySelectorAll    ('input[type="date"]')
 let number_inputs      = document.querySelectorAll    ('input[type="number"]')
 
-
-
 let operator_images    = document.querySelectorAll    ('.circle')
 let predefined_bills   = document.querySelectorAll    (".predefined_bill input")
 let sections           = document.querySelectorAll    ('section')

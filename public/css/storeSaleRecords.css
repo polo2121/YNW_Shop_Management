@@ -1,7 +1,14 @@
+:root {
+    --blue: #03045e;
+}
+section{
+    width: 80%;
+}
 *{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 button{
     /* width: 30%; */
     text-transform: uppercase;
@@ -12,12 +19,20 @@ button{
     font-size: .9rem;
     line-height: 1.5;
     background-color: #ffffff;
-
+    color: #03045e;
     border-width: .125rem;
     border-style: solid;
+    border-color:var(--blue);
     padding: 6px 16px;
     border-radius: 1rem;
     cursor: pointer;
+}
+button:hover, button:hover i{
+    background-color: #15155ee7;
+    color: #ffffff;
+}
+button:focus-visible{
+    outline: none !important;
 }
 .title{
     margin-left: 30px;
@@ -30,24 +45,41 @@ button{
 }
 .form, .form-entry-buttons{
     margin-left: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     padding: 20px 20px;
 
 }
 .form-entry-buttons{
     width: 60%;
     background-color: #ffffff;
-    border-bottom: 3px solid #03045e;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    border-bottom: 3px solid var(--blue);
+    box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
+    margin-right: 10px;
 }
-.btn-groups button:hover{
-    background-color: #03045e;
-    color: #ffffff;
-}
+    .form-entry{
+        margin-bottom: 20px;
+    }
+    .btn-groups button{
+        margin-right: 10px;
+    }
+
 .form{
     width: 60%;
     background-color: #ffffff;
+    border-bottom: 3px solid var(--blue);    
+    box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
 }
+    .form_header{
+        position: relative;
+        border-bottom: 3px solid var(--blue);
+        padding: 4px;
+        margin-bottom: 20px;
+    }
+        .close{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
     .form_inputs_group{
         display: grid;
         grid-template-columns: 2fr 2fr;
@@ -69,6 +101,11 @@ button{
             border-bottom: 1px solid rgba(0, 0, 0, 0.11);
             
         }
+        .input_groups input:hover{
+            border-width: 3px;
+            border-color: var(--blue);
+            color: var(--blue);
+        }
         .input_groups input:focus-visible{
             color: #212529;
             background-color: #fff;
@@ -76,24 +113,103 @@ button{
             border-bottom: 3px solid black;
             /* box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); */
         }
-.form-entry{
-    padding-bottom: 10px;
-    
-}
-.form-panel{
+            .select{
+                width: 100%;
+                height: 180px;
+                position: absolute;
+                overflow: hidden;
+                overflow-y: scroll;
+                background-color: #ffffff;
+                box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
+                z-index: 5;
+            }
+                .select option{
+                    padding: 10px 10px;
+                    border-bottom: 1px solid #dbd6d68a;
+                    color:black
+                }
+                .select option:hover{
+                    background-color: var(--blue);
+                    color: white;
+                }
+                
+        .paperBtn{
+        }
+        .paperBtn button{
+            
+        }
+        .operator_groups{
+            display: flex;
+        }
+        .circle{
+            margin-right: 10px;
+            border-radius: 40%;
+            border: 3px solid #ced4da;
+            padding: 7px 10px;
+            box-shadow: 0 3px 20px rgb(0 0 0 / 24%);
+            cursor: pointer;
+        }
+        .circle:hover, .circleActive{
+            background-color: #ffffff;
+            border-color:#003f88;
+        }
+        .form_submit{
+            left: 0;
+        }
+            .form_submit button:hover i{
+                color: #ffffff;
+            }
 
+.form-panel{
 
 }
 .btn-groups{
 
 }
-
 .form-groups{
 
 }
+.date_price{
+    display: flex;
+    justify-content: space-between;
+    margin-left:30px;
+}
+    .today_date,.today_total{
+        /* padding: 10px 10px; */
+    }
+    .today_date{
+        margin-right: 10px;
+        /* width: 100%; */
+    }
+    .today_total{
+
+    }
+        .date_price p{
+            font-size: calc(1.9rem - 14px);
+            padding: 8px 10px;
+            background-color: #0c2746;
+            color: #ffffff;
+            border-radius: .5rem;
+        }
+            .date_price i{
+                padding: 10px 8px;
+            }
+.hide{
+    display: none;
+}
+.disFlex{
+    display: flex;
+}
+.active{
+    background-color: var(--blue);
+    color: #ffffff !important;
+}
+.pd-r-8{
+    padding-right: 8px;
+}
 .blue{
-    color: #03045e;
-    border-color: #03045e;
+    color: var(--blue);
+    border-color: var(--blue);
 }
 .red{
     color: #f93154;

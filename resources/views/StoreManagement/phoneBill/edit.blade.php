@@ -8,7 +8,7 @@
     <a href="">Store Management</a>
         >
     <a href="{{route('sm.pb.home')}}">Phone Bills</a>
-    >
+    >  
     <a href=""><span>Edit</span></a>
 
 </div>

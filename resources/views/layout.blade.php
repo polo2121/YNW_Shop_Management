@@ -63,6 +63,6 @@
 
     
     @stack('scripts')
-    <script src="{{ asset('../js/storeManagement.js')}}"></script>
+    <!-- <script src="{{ asset('../js/storeManagement.js')}}"></script> -->
 </body>
 </html>
