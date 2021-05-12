@@ -2,7 +2,7 @@
     --blue: #03045e;
 }
 section{
-    width: 80%;
+
 }
 *{
     box-sizing: border-box;
@@ -171,8 +171,7 @@ button:focus-visible{
 }
 .date_price{
     display: flex;
-    justify-content: space-between;
-    margin-left:30px;
+    justify-content: flex-start;
 }
     .today_date,.today_total{
         /* padding: 10px 10px; */
@@ -187,18 +186,141 @@ button:focus-visible{
         .date_price p{
             font-size: calc(1.9rem - 14px);
             padding: 8px 10px;
-            background-color: #0c2746;
+            background-color: #0d3f79;
             color: #ffffff;
             border-radius: .5rem;
         }
             .date_price i{
                 padding: 10px 8px;
             }
+
+.table_panel{
+    margin-left: 30px;
+    background-color: #ffffff;
+    padding: 20px 15px;
+}
+    /* CSS for Title of sale record tables */
+    .table_panel p{
+        width: 35%;
+        position: relative;
+        font-size: 1.4rem;
+        color: #ffffff;
+        padding: 15px 15px;
+        box-shadow: 0 3px 20px rgb(0 0 0 / 24%);
+        font-weight: 700;
+        border: 2px solid;
+    }
+    .table_panel p:before{
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        height: 3px;
+        left: 7px;
+        width: 99%;
+        border-bottom: 3px solid #0d3f79;
+        border-left: 3px solid  #0d3f79;
+    }
+    .table_panel p:after{
+        content: '';
+        position: absolute;
+        height: 90%;
+        right: -8px;
+        top: 11px;
+        width: 3px;
+        border-right: 3px solid;
+        border-top: 3px solid;
+    }
+    /* Print */
+    .print                      { background-color: #011627;}
+
+    .print:after, .print:before { border-color: #011627 !important; }
+
+    /* Stationary */
+    .st                         { background-color: #335e51;}
+    .st:after,.st:before        { border-color: #335e51 !important; }
+    
+    /* Computer */
+    .com                        { background-color: #8d0801;}
+    .com:after, .com:before     { border-color: #8d0801 !important; }
+    
+    /* Phone */
+    .ph                         { background-color: #ac6a0e;}
+    .ph:after,.ph:before        { border-color: #ac6a0e !important; }
+
+    .whole_table_container{
+        /* background-color:red; */
+        width: 90%;
+        margin:auto;
+    }
+        table{
+            table-layout: fixed;
+            width: 100%;
+            border-collapse: collapse;
+            color: #ffffff;
+        }
+        .table-header{
+            /* width:60%; */
+            box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
+        }
+        .table-body{
+            /* width: 60%; */
+
+            max-height: 270px;
+            overflow:hidden;
+            overflow-y: scroll;
+            line-height: 1.4;
+            box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
+        }
+            .table-body table{
+            }
+            .table-header th{
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+
+            /* print */
+            .print-header       { background-color: #011627;}
+            .print-body tr td   { color: #011627 !important;}
+
+            /* stationary */
+            .st-header       { background-color: #335e51;}
+            .st-body tr td   { color: #335e51 !important;}
+
+            /* computer */
+            .com-header       { background-color: #8d0801;}
+            .com-body tr td   { color: #8d0801 !important;}
+
+            /* Phone */
+            .ph-header       { background-color: #ac6a0e;}
+            .ph-body tr td   { color: #ac6a0e !important;}
+
+            .table-body tr:nth-child(even){
+                /* color: white; */
+                /* background-color: #949fb4; */
+            }
+            .table-body td{
+                font-size: 1.1rem;
+                border-bottom: 1px solid #c7bfbf91;
+            }
+            .table-header th, .table-body td{
+                
+                padding-top: 18px;
+                padding-bottom: 18px;
+                text-align: center;
+                width: 216px;
+                /* padding-left: 40px; */
+            }
+            ::-webkit-scrollbar {
+            
+            } 
 .hide{
     display: none;
 }
 .disFlex{
     display: flex;
+}
+.ml-2{
+    margin-left: 20px;
 }
 .active{
     background-color: var(--blue);
@@ -226,4 +348,7 @@ button:focus-visible{
 .warning{
     color: #ffa900;
     border-color: #ffa900;
+}
+.brown{
+    background-color: #7f5539;
 }

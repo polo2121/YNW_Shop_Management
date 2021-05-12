@@ -305,27 +305,147 @@
         </div>
     @endif
     
-
     <section>
         <div class="date_price">
             
-            <h2 class="">Sale Records Table</h2>
+            <h2 class="title">Sale Records Table</h2>
 
-            <div class="disFlex">
+            <div class="disFlex ml-2">
                 <div class="today_date">
                     <p for="" id="tdyDate"><i class="fas fa-calendar-day fa-lg"></i>Hello</p>
                 </div>
 
                 <div class="today_total">
-                    <p class="total_price"><i class="fas fa-wallet fa-lg"></i>100,000</p>
+                    <p class="total_price"><i class="fas fa-wallet fa-lg"></i>100,000 MMK</p>
                 </div>
             </div>
 
         </div>
 
         <div class="table_panel">
-            
+            <div class="whole_table_container">
+                <p class="print">Print Sale Records</p>
+					<div class="table-header print-header">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Print</th>
+									<th class="cell100 column2">Amount</th>
+									<th class="cell100 column3">Price</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table-body print-body js-pscroll ps ps--active-y">
+						<table >
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Like a butterfly</td>
+									<td class="cell100 column2">Boxing</td>
+									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
+								</tr>
+								<tr class="row100 body">
+									<td class="cell100 column1">Like a butterfly</td>
+									<td class="cell100 column2">Boxing</td>
+									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
+								</tr>						
+							</tbody>
+						</table>
+                    </div>
+				</div>
         </div>
+
+        <div class="table_panel">
+            
+            <div class="whole_table_container">
+                <p class="st">Stationary Sale Records</p>
+					<div class="table-header st-header">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Print</th>
+									<th class="cell100 column2">Amount</th>
+									<th class="cell100 column3">Price</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table-body st-body js-pscroll ps ps--active-y">
+						<table >
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Like a butterfly</td>
+									<td class="cell100 column2">Boxing</td>
+									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
+								</tr>
+							</tbody>
+						</table>
+                    </div>
+				</div>
+        </div>
+
+        <div class="table_panel">
+            
+            <div class="whole_table_container">
+                <p class="com">Computer Sale Records</p>
+					<div class="table-header com-header">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Print</th>
+									<th class="cell100 column2">Amount</th>
+									<th class="cell100 column3">Price</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table-body com-body js-pscroll ps ps--active-y">
+						<table >
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Like a butterfly</td>
+									<td class="cell100 column2">Boxing</td>
+									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
+								</tr>
+							</tbody>
+						</table>
+                    </div>
+				</div>
+        </div>
+
+        <div class="table_panel">
+            
+            <div class="whole_table_container">
+                <p class="ph">Phone Bill Sale Records</p>
+					<div class="table-header ph-header">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Print</th>
+									<th class="cell100 column2">Amount</th>
+									<th class="cell100 column3">Price</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table-body ph-body js-pscroll ps ps--active-y">
+						<table >
+							<tbody>
+								<tr class="row100 body">
+									<td class="cell100 column1">Like a butterfly</td>
+									<td class="cell100 column2">Boxing</td>
+									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
+								</tr>
+							</tbody>
+						</table>
+                    </div>
+				</div>
+        </div>
+
     </section>
 
 
