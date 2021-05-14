@@ -26,20 +26,20 @@
             <label for="" class="form_name">စာရင်းသွင်းမည်</label>
         </div>
         <div class="btn-groups">
-            <button type="button" id="print" class="blue" onclick="hide_show('print-form',id)">
+            <button type="button" id="print" class="printBtn" onclick="hide_show('print-form',id)">
                 <i class="far fa-copy fa-lg"></i>    
                 Print
             </button>
-            <button type="button" id="computer"   class="blue" onclick="hide_show('computer-form',id)">
+            <button type="button" id="computer"   class="stBtn" onclick="hide_show('computer-form',id)">
                 <i class="fas fa-laptop fa-lg"></i>
                 Computer
             </button>
-            <button type="button" id="stationary" class="blue" onclick="hide_show('stationary-form',id)">
+            <button type="button" id="stationary" class="comBtn" onclick="hide_show('stationary-form',id)">
                 <i class="fas fa-pencil-ruler fa-lg"></i>
                 Stationary
             </button>
-            <button type="button" id="phone" class="blue" onclick="hide_show('phone-bill-form',id)">
-                <i class="fas fa-mobile-alt"></i>
+            <button type="button" id="phone" class="phBtn" onclick="hide_show('phone-bill-form',id)">
+                <i class="fas fa-mobile-alt fa-lg"></i>
                 Phone Bill
             </button>
         </div>
@@ -47,11 +47,11 @@
 
     <div class="form hide" id="stationary-form">
         <!-- Copyer Form -->
-        <form class="tc animate__animated" action="" method="POST">
+        <form class="tc animate__animated print-form" action="" method="POST">
             @csrf
             @method('POST')
             
-            <div class="form_header">
+            <div class="form_header st-color">
                 <h3 for="" class="form_title">
                     <i class="fas fa-pencil-alt fa-lg"></i>
                     Stationary Record Form
@@ -61,7 +61,7 @@
             
             <div class="form_inputs_group">
                 <div class="input_groups">
-                    <label for="">
+                    <label for="" class="st-color">
                         <i class="far fa-calendar-alt pd-r-8"></i>
                         Date
                     </label>
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="input_groups" style="position:relative;">
-                    <label for=""><i class="fas fa-drafting-compass fa-lg pd-r-8"></i>Stationary</label>
+                    <label for="" class="st-color"><i class="fas fa-drafting-compass fa-lg pd-r-8"></i>Stationary</label>
                     <input type="search" name="stname" id="" placeholder="e.g 12">
                     <div class="select hide">
                         <option value="Hello">dd</option>
@@ -87,14 +87,14 @@
                 </div>
 
                 <div class="input_groups">
-                    <label for=""><i class="fas fa-calculator pd-r-8"></i>
+                    <label for="" class="st-color"><i class="fas fa-calculator pd-r-8"></i>
                         Amount
                     </label>
                     <input type="text" name="amount" id="amount" placeholder="e.g 12">
                 </div>
 
                 <div class="input_groups">
-                    <label for="">
+                    <label for="" class="st-color">
                         <i class="fas fa-money-bill-wave pd-r-8"></i>
                         Price
                     </label>
@@ -121,9 +121,9 @@
             @csrf
             @method('POST')
             
-            <div class="form_header">
-                <i class="fas fa-times close" onclick="close_form('print-form')"></i>
-                <h3 for="" class="form_title">
+            <div class="form_header print-boColor">
+                <i class="fas fa-times close print-color" onclick="close_form('print-form')"></i>
+                <h3 for="" class="form_title print-color">
                     <i class="far fa-file-powerpoint fa-2x"></i>
                     Print Sale Record Form
                 </h3>
@@ -131,7 +131,7 @@
             
             <div class="form_inputs_group">
                 <div class="input_groups">
-                    <label for="">
+                    <label for="" class="print-color">
                         <i class="far fa-calendar-alt pd-r-8"></i>
                         Date
                     </label>
@@ -139,7 +139,7 @@
                 </div>
 
                 <div class="input_groups">
-                    <label for=""><i class="far fa-file pd-r-8"></i>Paper</label>
+                    <label for="" class="print-color"><i class="far fa-file pd-r-8"></i>Paper</label>
                     <div class="paperBtn">
                         <button type="button" class="paperBtn blue" id="A4"    onclick="getPaperType(id)">A4</button>
                         <button type="button" class="paperBtn blue" id="legal" onclick="getPaperType(id)">Legal</button>
@@ -148,14 +148,14 @@
                 </div>
 
                 <div class="input_groups">
-                    <label for=""><i class="fas fa-calculator pd-r-8"></i>
+                    <label for="" class="print-color"><i class="fas fa-calculator pd-r-8"></i>
                         Amount
                     </label>
                     <input type="text" name="amount" id="amount" placeholder="e.g 12">
                 </div>
 
                 <div class="input_groups">
-                    <label for="">
+                    <label for="" class="print-color">
                         <i class="fas fa-money-bill-wave pd-r-8"></i>
                         Price
                     </label>
@@ -183,7 +183,7 @@
             @csrf
             @method('POST')
             
-            <div class="form_header">
+            <div class="form_header ph-color">
                 <h3 for="" class="form_title">
                     <i class="fas fa-mobile-alt fa-lg"></i>
                     Phone Bill Record Form
@@ -193,12 +193,12 @@
 
             <div class="form_inputs_group">   
                 <div class="input_groups" id="select_date">
-                    <label for="">Select Date</label>
+                    <label for="" class="ph-color">Select Date</label>
                     <input type="date" name="date" value="Card" id="date">
                 </div>
                 
                 <div class="input_groups">
-                    <label for="" class="d_b">Operator</label>
+                    <label for="" class="ph-color">Operator</label>
                     <div class="operator_groups">
                         <input type="hidden" name="operator">
                         <div class="circle" onclick="getOperator('telenor')">
@@ -216,7 +216,7 @@
                 </div>
 
                 <div class="input_groups">
-                    <label for="">Bill</label>
+                    <label for="" class="ph-color">Bill</label>
                     <div class="prebill_Btn_group">
                         <button type="button" class="" id="1000"    onclick="getPredefinedBill(id)">1000</button>
                         <button type="button" class="" id="3000"    onclick="getPredefinedBill(id)">3000</button>
@@ -225,13 +225,12 @@
                 </div>
 
                 <div class="input_groups">
-                    <label for="">Amount</label>
+                    <label for="" class="ph-color">Amount</label>
                     <input type="text" name="amount" placeholder="e.g. 10">
                 </div>
                 
                 <div></div>
                 <div class="input_groups">
-                    
                     <button class="subBtn">
                         <i class="fas fa-cloud-upload-alt pd-r-8"></i>
                         Submit
@@ -251,7 +250,7 @@
             @csrf
             @method('POST')
             
-            <div class="form_header">
+            <div class="form_header com-color">
                 <h3 for="" class="form_title">
                     <i class="fas fa-desktop fa-lg"></i>
                     Computer Record Form
@@ -261,7 +260,7 @@
 
             <div class="form_inputs_group">             
                 <div class="input_groups mb2 tc" id="select_date">
-                    <label for="">Date</label>
+                    <label for="" class="com-color">Date</label>
                     <div>
                         <input type="date" name="date" value="Card" id="date" onchange="choose_route(id)">
                     </div>
@@ -269,19 +268,19 @@
 
 
                 <div class="input_groups mb2 ">
-                    <label for="">Task</label>
+                    <label for="" class="com-color">Task</label>
                     <div>
                         <input type="text" placeholder="e.g. pencil/books" value="">
                     </div>
                 </div>
                         
                 <div class="input_groups mb2 ">
-                    <label for="" class="d_b">Amount</label>
+                    <label for="" class="com-color" >Amount</label>
                     <input type="text" placeholder="e.g. 3">
                 </div>
 
                 <div class="input_groups mb2 ">
-                    <label for="" class="d_b">Price</label>
+                    <label for="" class="com-color">Price</label>
                     <input type="text" placeholder="e.g. 1000">
                 </div>
 

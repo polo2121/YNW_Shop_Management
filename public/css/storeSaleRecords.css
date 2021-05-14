@@ -8,29 +8,61 @@ section{
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
+.location{
+    padding: 10px 0px;
+}
 button{
     /* width: 30%; */
     text-transform: uppercase;
     vertical-align: bottom;
     border: 0;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
-    font-weight: 500;
+    font-weight: 700;
     font-size: .9rem;
     line-height: 1.5;
     background-color: #ffffff;
-    color: #03045e;
-    border-width: .125rem;
+    color: var(--blue);
+    border-width: .145rem;
     border-style: solid;
     border-color:var(--blue);
     padding: 6px 16px;
     border-radius: 1rem;
     cursor: pointer;
 }
-button:hover, button:hover i{
-    background-color: #15155ee7;
+
+    .printBtn:hover, .stBtn:hover, 
+    .comBtn:hover, .phBtn:hover{
+        color: #ffffff;
+    }
+    /* Print */
+    .printBtn:hover{
+        background-color: #011627;
+        border-color: #011627 !important;
+    }
+
+    /* Stationary */
+    .stBtn:hover{
+        background-color: #8d0801;
+        border-color: #8d0801 !important;
+
+    }
+    
+    /* Computer */
+    .comBtn:hover{
+        background-color: #335e51;
+        border-color: #335e51 !important;
+        
+    }
+    /* Phone */
+    .phBtn:hover{ 
+        background-color: #ac6a0e;
+        border-color: #ac6a0e !important;
+    }
+    .subBtn:hover, .subBtn:hover i{
+    background-color: var(--blue);
     color: #ffffff;
 }
+
 button:focus-visible{
     outline: none !important;
 }
@@ -71,7 +103,7 @@ button:focus-visible{
 }
     .form_header{
         position: relative;
-        border-bottom: 3px solid var(--blue);
+        border-bottom: 3px solid;
         padding: 4px;
         margin-bottom: 20px;
     }
@@ -132,7 +164,19 @@ button:focus-visible{
                     background-color: var(--blue);
                     color: white;
                 }
-                
+
+    /* print */
+    .print-color{ color: #011627; }
+
+    /* Computer */
+    .com-color  { color: #8d0801; }
+
+    /* Stationary */
+    .st-color   { color: #335e51;}
+
+    /* Phone */
+    .ph-color   { color: #ac6a0e; }
+
         .paperBtn{
         }
         .paperBtn button{
@@ -186,7 +230,7 @@ button:focus-visible{
         .date_price p{
             font-size: calc(1.9rem - 14px);
             padding: 8px 10px;
-            background-color: #0d3f79;
+            background-color: #253d58;
             color: #ffffff;
             border-radius: .5rem;
         }
@@ -208,7 +252,6 @@ button:focus-visible{
         padding: 15px 15px;
         box-shadow: 0 3px 20px rgb(0 0 0 / 24%);
         font-weight: 700;
-        border: 2px solid;
     }
     .table_panel p:before{
         content: '';
