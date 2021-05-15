@@ -26,32 +26,147 @@
             <label for="" class="form_name">စာရင်းသွင်းမည်</label>
         </div>
         <div class="btn-groups">
-            <button type="button" id="print" class="printBtn" onclick="hide_show('print-form',id)">
+            <button type="button" id="print" class="" onclick="hide_show('print-form',id)">
                 <i class="far fa-copy fa-lg"></i>    
                 Print
             </button>
-            <button type="button" id="computer"   class="stBtn" onclick="hide_show('computer-form',id)">
+            <button type="button" id="computer"   class="" onclick="hide_show('computer-form',id)">
                 <i class="fas fa-laptop fa-lg"></i>
                 Computer
             </button>
-            <button type="button" id="stationary" class="comBtn" onclick="hide_show('stationary-form',id)">
+            <button type="button" id="stationary" class="" onclick="hide_show('stationary-form',id)">
                 <i class="fas fa-pencil-ruler fa-lg"></i>
                 Stationary
             </button>
-            <button type="button" id="phone" class="phBtn" onclick="hide_show('phone-bill-form',id)">
+            <button type="button" id="phone" class="" onclick="hide_show('phone-bill-form',id)">
                 <i class="fas fa-mobile-alt fa-lg"></i>
                 Phone Bill
             </button>
         </div>
     </div>
 
-    <div class="form hide" id="stationary-form">
-        <!-- Copyer Form -->
-        <form class="tc animate__animated print-form" action="" method="POST">
+    <div class="form hide" id="print-form">   
+        <!-- print Form -->
+        <form class="tc animate__animated" action="" method="POST">
             @csrf
             @method('POST')
             
-            <div class="form_header st-color">
+            <div class="form_header">
+                <i class="fas fa-times close " onclick="close_form('print-form')"></i>
+                <h3 for="" class="form_title ">
+                    <i class="far fa-file-powerpoint fa-2x"></i>
+                    Print Sale Record Form
+                </h3>
+            </div>
+            
+            <div class="form_inputs_group">
+                <div class="input_groups">
+                    <label for="" class="">
+                        <i class="far fa-calendar-alt pd-r-8"></i>
+                        Date
+                    </label>
+                    <input class="" type="date" name="pdate" id="print-input" placeholder="e.g 20/12/2021" onChange="highlight_Input(name)">
+                </div>
+
+                <div class="input_groups">
+                    <label for="" class=""><i class="far fa-file pd-r-8"></i>Paper</label>
+                    <input type="hidden" id="paper">
+                    <div class="">
+                        <button type="button" class="A4 paperBtn" id="A4"    onclick="getPaperType(id)">A4</button>
+                        <button type="button" class="legal paperBtn" id="legal" onclick="getPaperType(id)">Legal</button>
+                        <button type="button" class="A3 paperBtn" id="A3"    onclick="getPaperType(id)">A3</button>
+                    </div>
+                </div>
+
+                <div class="input_groups">
+                    <label for="" class=""><i class="fas fa-calculator pd-r-8"></i>
+                        Amount
+                    </label>
+                    <input class=""type="text" name="pamount" id="print-input" placeholder="e.g 12" onChange="highlight_Input(name,id)">
+                </div>
+
+                <div class="input_groups">
+                    <label for="" class="">
+                        <i class="fas fa-money-bill-wave pd-r-8"></i>
+                        Price
+                    </label>
+                    <input class="print-input" type="text" name="pprice" id="print-input" placeholder="e.g 1000 or 2000" onChange="highlight_Input(name)">
+                </div>
+
+                <div></div>
+
+                <div class="input_groups">
+                    <button type="submit" class="">
+                        <i class="fas fa-cloud-upload-alt pd-r-8"></i>
+                        Submit
+                    </button>
+                </div>
+            </div>
+
+            
+        </form>
+
+    </div>
+
+    <div class="form hide" id="computer-form">
+        <!-- Stationary Form -->
+        <form class="animate__animated" action="" method="POST" >
+            @csrf
+            @method('POST')
+            
+            <div class="form_header">
+                <h3 for="" class="form_title">
+                    <i class="fas fa-desktop fa-lg"></i>
+                    Computer Record Form
+                </h3>
+                <i class="fas fa-times close" onclick="close_form('computer-form')"></i>
+            </div>
+
+            <div class="form_inputs_group">             
+                <div class="input_groups mb2 tc" id="select_date">
+                    <label for="" class="">Date</label>
+                    <div>
+                        <input class="" type="date" name="cmDate" value="Card" id="com-input" onChange="highlight_Input(name)">
+                    </div>
+                </div>
+
+
+                <div class="input_groups mb2 ">
+                    <label for="" class="">Task</label>
+                    <div>
+                        <input class="" type="text" placeholder="e.g. pencil/books" name="task" id="com-input" onChange="highlight_Input(name)">
+                    </div>
+                </div>
+                        
+                <div class="input_groups mb2 ">
+                    <label for="" class="" >Amount</label>
+                    <input class="" type="text" placeholder="e.g. 3" name="taskAmount" id="com-input"  onChange="highlight_Input(name)">
+                </div>
+
+                <div class="input_groups mb2 ">
+                    <label for="" class="">Price</label>
+                    <input class="" type="text" placeholder="e.g. 1000" name="cmPrice" id="com-input" onChange="highlight_Input(name)">
+                </div>
+
+                <div class="input_groups">
+
+                    <button type="submit" class="">
+                    <i class="fas fa-cloud-upload-alt pd-r-8"></i>
+                        Submit</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+    <div class="form hide" id="stationary-form">
+        <!-- Copyer Form -->
+        <form class="tc animate__animated" action="" method="POST">
+            @csrf
+            @method('POST')
+            
+            <div class="form_header">
                 <h3 for="" class="form_title">
                     <i class="fas fa-pencil-alt fa-lg"></i>
                     Stationary Record Form
@@ -61,16 +176,16 @@
             
             <div class="form_inputs_group">
                 <div class="input_groups">
-                    <label for="" class="st-color">
+                    <label for="" class="">
                         <i class="far fa-calendar-alt pd-r-8"></i>
                         Date
                     </label>
-                    <input type="date" name="date" id="date" placeholder="e.g 20/12/2021">
+                    <input class="" type="date" name="stDate" id="st-input" placeholder="e.g 20/12/2021" onChange="highlight_Input(name)">
                 </div>
 
                 <div class="input_groups" style="position:relative;">
-                    <label for="" class="st-color"><i class="fas fa-drafting-compass fa-lg pd-r-8"></i>Stationary</label>
-                    <input type="search" name="stname" id="" placeholder="e.g 12">
+                    <label for="" class=""><i class="fas fa-drafting-compass fa-lg pd-r-8"></i>Stationary</label>
+                    <input class="" type="search" name="stName" id="st-input" placeholder="e.g 12" onChange="highlight_Input(name)">
                     <div class="select hide">
                         <option value="Hello">dd</option>
                         <option value="Hello">dd</option>
@@ -87,24 +202,24 @@
                 </div>
 
                 <div class="input_groups">
-                    <label for="" class="st-color"><i class="fas fa-calculator pd-r-8"></i>
+                    <label for="" class=""><i class="fas fa-calculator pd-r-8"></i>
                         Amount
                     </label>
-                    <input type="text" name="amount" id="amount" placeholder="e.g 12">
+                    <input class="" type="text" name="stAmount" id="st-input" placeholder="e.g 12" onChange="highlight_Input(name)">
                 </div>
 
                 <div class="input_groups">
-                    <label for="" class="st-color">
+                    <label for="" class="">
                         <i class="fas fa-money-bill-wave pd-r-8"></i>
                         Price
                     </label>
-                    <input type="text" name="paper_price" id="paper_price" placeholder="e.g 1000 or 2000">
+                    <input class="" type="text" name="stPrice" id="st-input" placeholder="e.g 1000 or 2000" onChange="highlight_Input(name)">
                 </div>
 
                 <div></div>
 
                 <div class="input_groups form_submit blue">
-                    <button class="subBtn">
+                    <button type="submit" class="">
                         <i class="fas fa-cloud-upload-alt pd-r-8"></i>
                         Submit
                     </button>
@@ -114,76 +229,13 @@
             
         </form>
     </div>
-
-    <div class="form hide" id="print-form">   
-        <!-- print Form -->
-        <form class="tc animate__animated" action="" method="POST">
-            @csrf
-            @method('POST')
-            
-            <div class="form_header print-boColor">
-                <i class="fas fa-times close print-color" onclick="close_form('print-form')"></i>
-                <h3 for="" class="form_title print-color">
-                    <i class="far fa-file-powerpoint fa-2x"></i>
-                    Print Sale Record Form
-                </h3>
-            </div>
-            
-            <div class="form_inputs_group">
-                <div class="input_groups">
-                    <label for="" class="print-color">
-                        <i class="far fa-calendar-alt pd-r-8"></i>
-                        Date
-                    </label>
-                    <input type="date" name="date" id="date" placeholder="e.g 20/12/2021">
-                </div>
-
-                <div class="input_groups">
-                    <label for="" class="print-color"><i class="far fa-file pd-r-8"></i>Paper</label>
-                    <div class="paperBtn">
-                        <button type="button" class="paperBtn blue" id="A4"    onclick="getPaperType(id)">A4</button>
-                        <button type="button" class="paperBtn blue" id="legal" onclick="getPaperType(id)">Legal</button>
-                        <button type="button" class="paperBtn blue" id="A3"    onclick="getPaperType(id)">A3</button>
-                    </div>
-                </div>
-
-                <div class="input_groups">
-                    <label for="" class="print-color"><i class="fas fa-calculator pd-r-8"></i>
-                        Amount
-                    </label>
-                    <input type="text" name="amount" id="amount" placeholder="e.g 12">
-                </div>
-
-                <div class="input_groups">
-                    <label for="" class="print-color">
-                        <i class="fas fa-money-bill-wave pd-r-8"></i>
-                        Price
-                    </label>
-                    <input type="text" name="paper_price" id="paper_price" placeholder="e.g 1000 or 2000">
-                </div>
-
-                <div></div>
-
-                <div class="input_groups form_submit blue">
-                    <button class="subBtn">
-                        <i class="fas fa-cloud-upload-alt pd-r-8"></i>
-                        Submit
-                    </button>
-                </div>
-            </div>
-
-            
-        </form>
-
-    </div>
-
 
     <div class="form hide" id="phone-bill-form">
         <form class="animate__animated" action="" method="POST" >
             @csrf
             @method('POST')
             
-            <div class="form_header ph-color">
+            <div class="form_header">
                 <h3 for="" class="form_title">
                     <i class="fas fa-mobile-alt fa-lg"></i>
                     Phone Bill Record Form
@@ -194,11 +246,11 @@
             <div class="form_inputs_group">   
                 <div class="input_groups" id="select_date">
                     <label for="" class="ph-color">Select Date</label>
-                    <input type="date" name="date" value="Card" id="date">
+                    <input type="date" name="phDate" value="Card" id="pb-input" onChange="highlight_Input(name)">
                 </div>
                 
                 <div class="input_groups">
-                    <label for="" class="ph-color">Operator</label>
+                    <label for="" class="">Operator</label>
                     <div class="operator_groups">
                         <input type="hidden" name="operator">
                         <div class="circle" onclick="getOperator('telenor')">
@@ -216,7 +268,8 @@
                 </div>
 
                 <div class="input_groups">
-                    <label for="" class="ph-color">Bill</label>
+                    <label for="" class="">Bill</label>
+                    <input type="hidden" name="bill">
                     <div class="prebill_Btn_group">
                         <button type="button" class="" id="1000"    onclick="getPredefinedBill(id)">1000</button>
                         <button type="button" class="" id="3000"    onclick="getPredefinedBill(id)">3000</button>
@@ -225,13 +278,13 @@
                 </div>
 
                 <div class="input_groups">
-                    <label for="" class="ph-color">Amount</label>
-                    <input type="text" name="amount" placeholder="e.g. 10">
+                    <label for="" class="">Amount</label>
+                    <input type="text" name="phAmount" placeholder="e.g. 10" id="pb-input" onChange="highlight_Input(name)">
                 </div>
                 
                 <div></div>
                 <div class="input_groups">
-                    <button class="subBtn">
+                    <button type="submit" class="">
                         <i class="fas fa-cloud-upload-alt pd-r-8"></i>
                         Submit
                     </button>
@@ -244,54 +297,6 @@
 
     </div>
 
-    <div class="form hide" id="computer-form">
-        <!-- Stationary Form -->
-        <form class="animate__animated" action="" method="POST" >
-            @csrf
-            @method('POST')
-            
-            <div class="form_header com-color">
-                <h3 for="" class="form_title">
-                    <i class="fas fa-desktop fa-lg"></i>
-                    Computer Record Form
-                </h3>
-                <i class="fas fa-times close" onclick="close_form('computer-form')"></i>
-            </div>
-
-            <div class="form_inputs_group">             
-                <div class="input_groups mb2 tc" id="select_date">
-                    <label for="" class="com-color">Date</label>
-                    <div>
-                        <input type="date" name="date" value="Card" id="date" onchange="choose_route(id)">
-                    </div>
-                </div>
-
-
-                <div class="input_groups mb2 ">
-                    <label for="" class="com-color">Task</label>
-                    <div>
-                        <input type="text" placeholder="e.g. pencil/books" value="">
-                    </div>
-                </div>
-                        
-                <div class="input_groups mb2 ">
-                    <label for="" class="com-color" >Amount</label>
-                    <input type="text" placeholder="e.g. 3">
-                </div>
-
-                <div class="input_groups mb2 ">
-                    <label for="" class="com-color">Price</label>
-                    <input type="text" placeholder="e.g. 1000">
-                </div>
-
-                <div class="input_groups">
-                    <button class="subBtn">Submit</button>
-                </div>
-
-            </div>
-        </form>
-
-    </div>
 
 
     @if ($errors->any())

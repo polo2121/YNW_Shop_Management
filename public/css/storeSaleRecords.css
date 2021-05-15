@@ -1,5 +1,9 @@
 :root {
     --blue: #03045e;
+    --print-color: #011627;
+    --com-color: #8d0801;
+    --st-color: #335e51;
+    --ph-color: #ac6a0e; 
 }
 section{
 
@@ -21,51 +25,24 @@ button{
     font-size: .9rem;
     line-height: 1.5;
     background-color: #ffffff;
-    color: var(--blue);
+    /* color: var(--blue); */
     border-width: .145rem;
     border-style: solid;
-    border-color:var(--blue);
+    /* border-color:var(--blue); */
     padding: 6px 16px;
     border-radius: 1rem;
     cursor: pointer;
 }
+button:focus-visible{
+    outline: none !important;
+}
 
-    .printBtn:hover, .stBtn:hover, 
-    .comBtn:hover, .phBtn:hover{
-        color: #ffffff;
-    }
-    /* Print */
-    .printBtn:hover{
-        background-color: #011627;
-        border-color: #011627 !important;
-    }
-
-    /* Stationary */
-    .stBtn:hover{
-        background-color: #8d0801;
-        border-color: #8d0801 !important;
-
-    }
-    
-    /* Computer */
-    .comBtn:hover{
-        background-color: #335e51;
-        border-color: #335e51 !important;
-        
-    }
-    /* Phone */
-    .phBtn:hover{ 
-        background-color: #ac6a0e;
-        border-color: #ac6a0e !important;
-    }
     .subBtn:hover, .subBtn:hover i{
     background-color: var(--blue);
     color: #ffffff;
 }
 
-button:focus-visible{
-    outline: none !important;
-}
+
 .title{
     margin-left: 30px;
     color: #474b50;
@@ -109,8 +86,8 @@ button:focus-visible{
     }
         .close{
             position: absolute;
-            top: 0;
-            right: 0;
+            top: 6px;
+            right: 14px;
         }
     .form_inputs_group{
         display: grid;
@@ -133,16 +110,9 @@ button:focus-visible{
             border-bottom: 1px solid rgba(0, 0, 0, 0.11);
             
         }
-        .input_groups input:hover{
-            border-width: 3px;
-            border-color: var(--blue);
-            color: var(--blue);
-        }
         .input_groups input:focus-visible{
-            color: #212529;
             background-color: #fff;
             outline: 0;
-            border-bottom: 3px solid black;
             /* box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); */
         }
             .select{
@@ -165,22 +135,11 @@ button:focus-visible{
                     color: white;
                 }
 
-    /* print */
-    .print-color{ color: #011627; }
 
-    /* Computer */
-    .com-color  { color: #8d0801; }
-
-    /* Stationary */
-    .st-color   { color: #335e51;}
-
-    /* Phone */
-    .ph-color   { color: #ac6a0e; }
-
-        .paperBtn{
-        }
-        .paperBtn button{
-            
+        .paperBtn:hover{
+            color: #ffffff;
+            background-color: var(--print-color);
+            border-color: var(--print-color);
         }
         .operator_groups{
             display: flex;
@@ -195,7 +154,7 @@ button:focus-visible{
         }
         .circle:hover, .circleActive{
             background-color: #ffffff;
-            border-color:#003f88;
+            border-color:#ac6a0e;
         }
         .form_submit{
             left: 0;
@@ -204,15 +163,82 @@ button:focus-visible{
                 color: #ffffff;
             }
 
-.form-panel{
-
+/* print form */
+#print-form form{
+    color: var(--print-color);
 }
-.btn-groups{
-
+#print-form form .input_groups input:focus-visible,
+#print-form form .input_groups input:hover,
+.print-input-active{
+    border-bottom: 3px solid !important;
 }
-.form-groups{
-
+#print-form form button[type="submit"]:hover{
+    color: #ffffff;
+    background-color: var(--print-color);
+    border-color: var(--print-color);
 }
+
+/* Computer form */
+#computer-form form{
+    color: var(--com-color) !important;
+}
+#computer-form form .form_inputs_group .input_groups input:focus-visible,
+#computer-form form .form_inputs_group .input_groups input:hover,
+.com-input-active{
+    border-bottom: 3px solid var(--com-color) !important;
+}
+#computer-form form button[type="submit"]{
+    border-color: var(--com-color);
+    color: var(--com-color);
+}
+#computer-form form button[type="submit"]:hover{
+    color: #ffffff;
+    background-color: var(--com-color);
+    border-color: var(--com-color);
+}
+
+/* Stationary form */
+#stationary-form form{
+    color: var(--st-color) !important;
+}
+#stationary-form form .form_inputs_group .input_groups input:focus-visible,
+#stationary-form form .form_inputs_group .input_groups input:hover,
+.st-input-active{
+    border-bottom: 3px solid var(--st-color) !important;
+}
+#stationary-form form button[type="submit"]{
+    border-color: var(--st-color);
+    color: var(--st-color);
+}
+#stationary-form form button[type="submit"]:hover{
+    color: #ffffff;
+    background-color: var(--st-color);
+    border-color: var(--st-color);
+}
+
+/* Phone form */
+#phone-bill-form form,.prebill_Btn_group button{
+    color: var(--ph-color) !important;
+}
+#phone-bill-form  .input_groups input:focus-visible,
+#phone-bill-form  .input_groups input:hover,
+.pb-input-active{
+    border-bottom: 3px solid var(--ph-color) !important;
+}
+#phone-bill-form form button[type="submit"]{
+    border-color: var(--ph-color);
+    color: var(--ph-color);
+}
+#phone-bill-form form button[type="submit"]:hover,
+.prebill_Btn_group button:hover
+{
+    color: #ffffff !important;
+    background-color: var(--ph-color);
+    border-color: var(--ph-color);
+}
+
+
+
 .date_price{
     display: flex;
     justify-content: flex-start;
@@ -273,23 +299,6 @@ button:focus-visible{
         border-right: 3px solid;
         border-top: 3px solid;
     }
-    /* Print */
-    .print                      { background-color: #011627;}
-
-    .print:after, .print:before { border-color: #011627 !important; }
-
-    /* Stationary */
-    .st                         { background-color: #335e51;}
-    .st:after,.st:before        { border-color: #335e51 !important; }
-    
-    /* Computer */
-    .com                        { background-color: #8d0801;}
-    .com:after, .com:before     { border-color: #8d0801 !important; }
-    
-    /* Phone */
-    .ph                         { background-color: #ac6a0e;}
-    .ph:after,.ph:before        { border-color: #ac6a0e !important; }
-
     .whole_table_container{
         /* background-color:red; */
         width: 90%;
@@ -320,23 +329,6 @@ button:focus-visible{
                 font-size: 1rem;
                 line-height: 1.4;
             }
-
-            /* print */
-            .print-header       { background-color: #011627;}
-            .print-body tr td   { color: #011627 !important;}
-
-            /* stationary */
-            .st-header       { background-color: #335e51;}
-            .st-body tr td   { color: #335e51 !important;}
-
-            /* computer */
-            .com-header       { background-color: #8d0801;}
-            .com-body tr td   { color: #8d0801 !important;}
-
-            /* Phone */
-            .ph-header       { background-color: #ac6a0e;}
-            .ph-body tr td   { color: #ac6a0e !important;}
-
             .table-body tr:nth-child(even){
                 /* color: white; */
                 /* background-color: #949fb4; */
@@ -356,6 +348,77 @@ button:focus-visible{
             ::-webkit-scrollbar {
             
             } 
+
+/* Print */
+
+
+/* Stationary */
+
+
+/* Computer */
+
+/* Hightlight Buttons */
+.print-active{      
+    color: #ffffff;  
+    background-color: var(--print-color);
+    border-color: var(--print-color) !important; 
+}
+.stationary-active{      
+    color: #ffffff;  
+    background-color: #335e51;
+    border-color: #335e51 !important; 
+}
+.computer-active{      
+    color: #ffffff;  
+    background-color: #8d0801;
+    border-color: #8d0801 !important; 
+}
+.phone-active{      
+    color: #ffffff;  
+    background-color: #ac6a0e;
+    border-color: #ac6a0e !important; 
+}
+/* End Hightlight Buttons */
+
+/* Table related PCSP */
+
+/* print */
+.print-header       { background-color: #011627;}
+.print-body tr td   { color: #011627 !important;}
+
+/* stationary */
+.st-header       { background-color: #335e51;}
+.st-body tr td   { color: #335e51 !important;}
+
+/* computer */
+.com-header       { background-color: #8d0801;}
+.com-body tr td   { color: #8d0801 !important;}
+
+/* Phone */
+.ph-header       { background-color: #ac6a0e;}
+.ph-body tr td   { color: #ac6a0e !important;}
+
+/* --------------------------------------------------- */
+
+/* Print */
+    .print                      { background-color: #011627;}
+    .print:after, .print:before { border-color: #011627 !important; }
+
+/* Stationary */
+    .st                         { background-color: #335e51;}
+    .st:after,.st:before        { border-color: #335e51 !important; }
+    
+/* Computer */
+    .com                        { background-color: #8d0801;}
+    .com:after, .com:before     { border-color: #8d0801 !important; }
+    
+/* Phone */
+    .ph                         { background-color: #ac6a0e;}
+    .ph:after,.ph:before        { border-color: #ac6a0e !important; }
+
+/* End table related PCSP */
+
+
 .hide{
     display: none;
 }
@@ -371,27 +434,4 @@ button:focus-visible{
 }
 .pd-r-8{
     padding-right: 8px;
-}
-.blue{
-    color: var(--blue);
-    border-color: var(--blue);
-}
-.red{
-    color: #f93154;
-    border-color: #f93154;
-}
-.green{
-    color: #00b74a;
-    border-color: #00b74a;
-}
-.purple{
-    color: #b23cfd;
-    border-color: #b23cfd;
-}
-.warning{
-    color: #ffa900;
-    border-color: #ffa900;
-}
-.brown{
-    background-color: #7f5539;
 }
