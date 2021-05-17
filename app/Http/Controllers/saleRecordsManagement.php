@@ -14,65 +14,66 @@ class saleRecordsManagement extends Controller
         return view('saleRecords/storeSaleRecords');
     }
     
-    //queries for copy
-    public function insertCopySaleRecords(Request $req) {
-
-        DB::table('copy')->insert([
-            'date'       => $req->input('date'),
-            'paper_type' => $req->input('paperType'),
-            'amount'     => $req->input('amount'),
-            'price'      => $req->input('paper_price')
-        ]);
-        return redirect('/storeSaleRecords')->with('success', 'Data is successfully inserted to Copyer Sale Record');
-    }
-    public function updateCopy($value) {
-
-    }
-
-    public function deleteCopy() {
-
-    }
-
-    //queries for computer
-    public function insert_query_computer($value) {
-
-    }
-    
-    public function update_query_computer($value) {
-
-    }
-
-    //queries for stationary
-    public function insertStationary(Request $req) {
-        DB::table('copyer')->insert([
-            'date' => $req->input('date'),
-            'paper_type' => $req->input('paperType'),
-            'amount' => $req->input('amount'),
-            'price' => $req->input('paper_price')
-        ]);
-        return redirect('/storeSaleRecords')->with('success', 'Data is successfully inserted to Stationary Record');
-
-    }
-
-    public function update_query_stationary($value) {
-
-    }
-
-    //queries for phone bill
-    public function insertPhoneBillSaleRecords(Request $req) {
+    //Print Management Queries
+    public function insert_print(Request $req) {
         
-        DB::table('copyer')->insert([
-            'date' => $req->input('date'),
-            'paper_type' => $req->input('paperType'),
-            'amount' => $req->input('amount'),
-            'price' => $req->input('paper_price')
-        ]);
-        return redirect('/storeSaleRecords')->with('success', 'Data is successfully inserted to Phone Billing Sale Record');
+        echo "Hell Yeah";
+        // DB::table('print_sale_records')->insert([
+        //     'date'       => $req->input('pdate'),
+        //     'paper_type' => $req->input('ptype'),
+        //     'amount'     => $req->input('pamount'),
+        //     'price'      => $req->input('pp')
+        // ]);
+        // return redirect('/sale-records')->with('success', 'Data is successfully inserted to Print Sale Record');
+    }
+    public function edit_print(Request $req) {
+        echo "Hell Yeah";
+        // $results         = DB::select('select * from print_sale_records where pid = :id', ['id' => $req->id]);
+        // return view('sale-records/print/edit', ['results'=> $results]);
+    }
+
+    public function update_print(Request $req) {
+        echo "Hell Yeah";
+        // $pid                       = (int)$req->input('pid');
+        // DB::table('copy')->where('pid', $pid)
+        //     ->update(['pDate' => $date,'paper'=>$paperType,'amount'=>$amount,'price'=>$price]);
+
+    }
+    public function delete_print(Resquest $req){
+        echo "Hell Yeah";
+        // $results         =DB::table('print_sale_records')->where('pid',  $req->id)->delete();
+        // return redirect('sale-records')->with('success', 'Data is successfully Deleted from Print Sale Record');
+    }
+
+    //Stationary Management Queries
+    public function insert_st(Request $req) {
+        
+        echo "Hell Yeah";
+        // DB::table('copy')->insert([
+        //     'date'       => $req->input('pdate'),
+        //     'paper_type' => $req->input('ptype'),
+        //     'amount'     => $req->input('pamount'),
+        //     'price'      => $req->input('pp')
+        // ]);
+        // return redirect('/sale-records')->with('success', 'Data is successfully inserted to Print Sale Record');
+    }
+    public function edit_st(Request $req) {
+        echo "Hell Yeah";
+        // $results         = DB::select('select * from print where cpid = :id', ['id' => $req->id]);
+        // return view('sale-records/stationary/edit', ['results'=> $results]);
     }
     
-    public function update_query_phoneBill($value) {
-
+    public function update_st(Request $req) {
+        echo "Hell Yeah";
+        // $cpid                       = (int)$req->input('cpid');
+        // DB::table('copy')->where('cpid', $cpid)
+        //     ->update(['date' => $date,'paper_type'=>$stName,'amount'=>$tpp,'price'=>$amount]);
+    
     }
-
+    public function delete_st(Resquest $req){
+        echo "Hell Yeah";
+        // $results         =DB::table('print')->where('cpid',  $req->id)->delete();
+        // return redirect('sale-records')->with('success', 'Data is successfully Deleted from Print Sale Record');
+    }
 
 }

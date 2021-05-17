@@ -47,7 +47,7 @@
 
     <div class="form hide" id="print-form">   
         <!-- print Form -->
-        <form class="tc animate__animated" action="" method="POST">
+        <form class="tc animate__animated" action="{{route('sa.print.toInsert')}}" method="POST">
             @csrf
             @method('POST')
             
@@ -65,12 +65,12 @@
                         <i class="far fa-calendar-alt pd-r-8"></i>
                         Date
                     </label>
-                    <input class="" type="date" name="pdate" id="print-input" placeholder="e.g 20/12/2021" onChange="highlight_Input(name)">
+                    <input required class="" type="date" name="pdate" id="print-input" placeholder="e.g 20/12/2021" onChange="highlight_Input(name)">
                 </div>
 
                 <div class="input_groups">
                     <label for="" class=""><i class="far fa-file pd-r-8"></i>Paper</label>
-                    <input type="hidden" id="paper">
+                    <input required type="hidden" id="paper">
                     <div class="">
                         <button type="button" class="A4 paperBtn" id="A4"    onclick="getPaperType(id)">A4</button>
                         <button type="button" class="legal paperBtn" id="legal" onclick="getPaperType(id)">Legal</button>
@@ -82,7 +82,7 @@
                     <label for="" class=""><i class="fas fa-calculator pd-r-8"></i>
                         Amount
                     </label>
-                    <input class=""type="text" name="pamount" id="print-input" placeholder="e.g 12" onChange="highlight_Input(name,id)">
+                    <input required class=""type="text" name="pamount" id="print-input" placeholder="e.g 12" onChange="highlight_Input(name,id)">
                 </div>
 
                 <div class="input_groups">
@@ -90,7 +90,7 @@
                         <i class="fas fa-money-bill-wave pd-r-8"></i>
                         Price
                     </label>
-                    <input class="print-input" type="text" name="pprice" id="print-input" placeholder="e.g 1000 or 2000" onChange="highlight_Input(name)">
+                    <input required class="print-input" type="text" name="pprice" id="print-input" placeholder="e.g 1000 or 2000" onChange="highlight_Input(name)">
                 </div>
 
                 <div></div>
@@ -110,7 +110,7 @@
 
     <div class="form hide" id="computer-form">
         <!-- Stationary Form -->
-        <form class="animate__animated" action="" method="POST" >
+        <form class="animate__animated" action="{{route('sa.com.toInsert')}}" method="POST" >
             @csrf
             @method('POST')
             
@@ -162,7 +162,7 @@
 
     <div class="form hide" id="stationary-form">
         <!-- Copyer Form -->
-        <form class="tc animate__animated" action="" method="POST">
+        <form class="tc animate__animated" action="{{route('sa.st.toInsert')}}" method="POST">
             @csrf
             @method('POST')
             
@@ -231,7 +231,7 @@
     </div>
 
     <div class="form hide" id="phone-bill-form">
-        <form class="animate__animated" action="" method="POST" >
+        <form class="animate__animated" action="{{route('sa.ph.toInsert')}}" method="POST" >
             @csrf
             @method('POST')
             
@@ -296,8 +296,6 @@
         </form>
 
     </div>
-
-
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -454,10 +452,7 @@
 
 
      
-        <!-- end Show Info Section -->
-
-
-
+    <!-- end Show Info Section -->
     @if(session('success'))
     <div class="alert animate__animated animate__slideInUp tc" id="alertMessage">
         {{ session('success')}}
