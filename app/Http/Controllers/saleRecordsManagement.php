@@ -38,15 +38,21 @@ class saleRecordsManagement extends Controller
     }
     public function edit_print(Request $req) {
         $results         = DB::select('select * from print_sale_records where pid = :id', ['id' => $req->id]);
-        return view('SaleRecords/stationary/edit', ['results'=> $results]);
+        return view('SaleRecords/print/edit', ['results' => $results]);
     }
 
     public function update_print(Request $req) {
-        echo "Hell Yeah";
-        // $pid                       = (int)$req->input('pid');
-        // DB::table('copy')->where('pid', $pid)
-        //     ->update(['pDate' => $date,'paper'=>$paperType,'amount'=>$amount,'price'=>$price]);
 
+        $pid                       = (int)$req->input('pid');
+        $paper                     = $req->input('paper');
+        $amount                    = (int)$req->input('amount');
+        $price                     = (int)$req->input('price');
+
+       
+        DB::table('print_sale_records')->where('pid', $pid)
+            ->update(['paper' => $paper,'amount'=>$amount,'price'=>$amount]);
+        
+        return redirect('/sale-records')->with('success', 'Data is successfully Updated in Print Sale Record');
     }
     public function delete_print(Resquest $req){
         echo "Hell Yeah";
@@ -107,6 +113,12 @@ class saleRecordsManagement extends Controller
 
         return redirect('/sale-records')->with('success', 'Data is successfully inserted to Phone Bill Sale Record');
     }
+    public function edit_pb(Request $req) {
+        // echo "Hell Yeah";
+        $results         = DB::select('select * from pb_sale_records where pbsrid = :id', ['id' => $req->id]);
+        return view('SaleRecords/phone/edit', ['results' => $results]);
+
+    }
     
     // Computer Mangement Queries
     public function insert_com(Request $req){
@@ -123,6 +135,12 @@ class saleRecordsManagement extends Controller
         ]);
 
         return redirect('/sale-records')->with('success', 'Data is successfully inserted to Computer Sale Record');
+    }
+    public function edit_com(Request $req) {
+        // echo "Hell Yeah";
+        $results         = DB::select('select * from com_sale_records where csrid = :id', ['id' => $req->id]);
+        return view('SaleRecords/computer/edit', ['results' => $results]);
+
     }
 
 }

@@ -1,0 +1,106 @@
+h1, h2, h3 {
+    font-weight: 900;
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+    /* color:var(--st-color); */
+    }
+    .card {
+        position: relative;
+        width:60%;
+        /* height: 300px; */
+        background:#ffffff;
+        padding: 30px;
+        border-radius: 4px;
+        margin:auto;
+        margin-top: 40px;
+    }
+        .card-header{
+            position: absolute;
+            display: inline-flex;
+            top: 0;
+            left:0;
+            width: 100%;
+            color: white;
+            border-radius: 4px;
+            border: 3px solid white;
+            /* box-shadow: .150rem .150rem 0 var(--st-color); */
+            padding: 10px;
+            
+        }
+        .card-header .stSVG{
+            margin-right:10px;
+        }
+        .card-header .cancelSVG{
+            margin-left:auto;
+            cursor: pointer;
+        }
+        .card-header h2{
+            padding-top: 6px;
+        }
+        .card-body{
+            display: grid; 
+            margin-top: 80px; 
+            grid-template-columns: 1fr 1fr;
+            row-gap: 20px;
+            column-gap: 8px;
+        }
+            .input {
+                position: relative;
+                display: inline-flex;
+                /* justify-content: space-between;  */
+                /* grid-template-columns: 1fr 1fr 1fr; */
+                
+                box-sizing: border-box;
+                /* display: block; */
+                width: 100%;
+                border: .145rem solid #000000;
+                padding:12px 8px;
+                color: #000000;
+                background: transparent;
+                border-radius: 4px;
+                /* background-color:red; */
+            }
+            .input i {
+                padding-top: 6px;
+            }
+            .input__label {
+                position: absolute;
+                left: 10;
+                top: 0;
+                padding: 8px 8px;
+                margin: 8px 3px;
+                margin-left: 30px;
+                white-space: nowrap;
+                transform: translate(0, 0);
+                transform-origin: 0 0;
+                background: white;
+                transition: transform 120ms ease-in;
+                font-weight: bold;
+                line-height: 1.2;         
+            }
+            .input__field {
+                border:none;
+                padding-left: 1rem;
+                font-size: 1rem;
+                font-weight: bold;
+                text-align: center;   
+                line-height: 1.2;
+            }
+            .input__field:focus-visible{
+                outline: none;
+
+            }
+            .input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
+                transform: translate(-2rem, -70%) scale(0.8);
+                font-size: 1rem;
+            }
+            .card-body .btn{
+                margin-left:auto;
+            }
+                .card-body .btn button{
+                    display:flex;
+                    align-items: center;
+                }
+                .submitSVG{
+                    margin: 6px;
+                }

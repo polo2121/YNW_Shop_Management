@@ -1,11 +1,12 @@
 @extends('layout')
 @push('styles')
+    <link rel="stylesheet" href="{{ asset('../css/saleRecordEditForm.css')}}">  
     <link rel="stylesheet" href="{{ asset('../css/storeSaleRecords.css')}}">
     <link rel="stylesheet" href="{{ asset('../css/storeSaleRecords_grid.css')}}">
-@endpush
-    <script>
 
-    </script>
+
+@endpush
+
 @section('location')
     <div class="location">
         <a href="{{route('sa.home')}}">
@@ -25,138 +26,14 @@
 @endsection
 @section('content')
 
-<style>
-    h1, h2, h3 {
-    font-weight: 900;
-    margin-block-start: 0 !important;
-    margin-block-end: 0 !important;
-    /* color:var(--st-color); */
-    }
-    .card {
-        position: relative;
-        width:60%;
-        /* height: 300px; */
-        background:#ffffff;
-        padding: 30px;
-        border-radius: 4px;
-        margin:auto;
-        margin-top: 40px;
-        border: 3px solid var(--st-color);
-        box-shadow: .2rem .2rem 0 var(--st-color);
-    }
-        .card-header{
-            position: absolute;
-            display: inline-flex;
-            top: 0;
-            left:0;
-            width: 100%;
-            color: white;
-            background:var(--st-color);
-            border-radius: 4px;
-            border: 3px solid white;
-            /* box-shadow: .150rem .150rem 0 var(--st-color); */
-            padding: 10px;
-            
-        }
-        .card-header .stSVG{
-            margin-right:10px;
-        }
-        .card-header .cancelSVG{
-            margin-left:auto;
-            cursor: pointer;
-        }
-        .card-header h2{
-            padding-top: 6px;
-        }
-        .card-body{
-            display: grid; 
-            margin-top: 80px; 
-            grid-template-columns: 1fr 1fr;
-            row-gap: 20px;
-            column-gap: 8px;
-        }
-            .input {
-                position: relative;
-                display: inline-flex;
-                /* justify-content: space-between;  */
-                /* grid-template-columns: 1fr 1fr 1fr; */
-                
-                box-sizing: border-box;
-                /* display: block; */
-                width: 100%;
-                border: .145rem solid #000000;
-                padding:12px 8px;
-                color: #000000;
-                background: transparent;
-                border-radius: 4px;
-                /* background-color:red; */
-            }
-            .input i {
-                padding-top: 6px;
-            }
-            .input__label {
-                position: absolute;
-                left: 10;
-                top: 0;
-                padding: 8px 8px;
-                margin: 8px 3px;
-                margin-left: 30px;
-                background: pink;
-                white-space: nowrap;
-                transform: translate(0, 0);
-                transform-origin: 0 0;
-                background: white;
-                transition: transform 120ms ease-in;
-                font-weight: bold;
-                line-height: 1.2;         
-            }
-            .input__field {
-                border:none;
-                padding-left: 1rem;
-                font-size: 1rem;
-                font-weight: bold;
-                text-align: center;   
-                line-height: 1.2;
-            }
-            .input__field:focus-visible{
-                outline: none;
-
-            }
-            .input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
-                transform: translate(-2rem, -70%) scale(0.8);
-                font-size: 1rem;
-                color: var(--st-color);
-            }
-            .card-body .btn{
-                margin-left:auto;
-            }
-                .card-body .btn button{
-                    display:flex;
-                    align-items:center;
-                    border-radius: 4px;
-                    padding: 3px 13px;
-                    color: var(--st-color);
-                }
-                .card-body .btn button:hover{
-                    background-color: var(--st-color);
-                    color: #ffffff;
-
-                }
-                .card-body .btn button:hover .submitSVG{
-                    fill:#ffffff;
-                }
-                .submitSVG{
-                    margin: 6px;
-                }
-
-</style>
-
 <div class="form_panel">
-    <form action="route{{'sa.st.toUpdate'}}">
+    <form action="{{route('sa.st.toUpdate')}}" method="POST">
+        @csrf
+        @method('POST')
         @foreach ($results as $result)
         <div class="card">
             <div class="card-header">
-                <svg class="stSVG" fill="#ffffff" id="Layer_3" enable-background="new 0 0 64 64" width="55px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g><path d="m19 1h-12c-.552 0-1 .448-1 1v60c0 .552.448 1 1 1h12c.552 0 1-.448 1-1v-60c0-.552-.448-1-1-1zm-1 60h-10v-2h3v-2h-3v-2h5v-2h-5v-2h3v-2h-3v-2h3v-2h-3v-2h3v-2h-3v-2h5v-2h-5v-2h3v-2h-3v-2h3v-2h-3v-2h3v-2h-3v-2h5v-2h-5v-2h3v-2h-3v-2h3v-2h-3v-2h3v-2h-3v-2h5v-2h-5v-2h10z"/><path d="m32.929 11.628-4-10c-.153-.379-.52-.628-.929-.628s-.776.249-.929.628l-4 10 .003.001c-.045.116-.074.24-.074.371v50c0 .552.448 1 1 1h8c.552 0 1-.448 1-1v-50c0-.131-.029-.255-.075-.37zm-4.929-6.936 2.523 6.308h-5.045zm3 44.308h-2v-36h2zm-6 0v-36h2v36zm0 12v-10h6v10z"/><path d="m45 52h-2v-40c0-.097-.014-.194-.042-.287l-3-10c-.127-.423-.517-.713-.958-.713s-.831.29-.958.713l-3 10c-.028.093-.042.19-.042.287v47c0 .552.448 1 1 1v2c0 .552.448 1 1 1h4c.552 0 1-.448 1-1v-2c.552 0 1-.448 1-1v-5h2v4h2v-12h-2zm-8-39.853 2-6.667 2 6.667v45.853h-4zm3 48.853h-2v-1h2z"/><path d="m52.5 5c-3.033 0-5.5 2.467-5.5 5.5v10.5h2v-10.5c0-1.93 1.57-3.5 3.5-3.5s3.5 1.57 3.5 3.5v8.5c0 1.103-.897 2-2 2s-2-.897-2-2v-8.5c0-.276.224-.5.5-.5s.5.224.5.5v9.5h2v-9.5c0-1.378-1.122-2.5-2.5-2.5s-2.5 1.122-2.5 2.5v8.5c0 2.206 1.794 4 4 4s4-1.794 4-4v-8.5c0-3.033-2.467-5.5-5.5-5.5z"/><path d="m52.5 25c-3.033 0-5.5 2.467-5.5 5.5v10.5h2v-10.5c0-1.93 1.57-3.5 3.5-3.5s3.5 1.57 3.5 3.5v8.5c0 1.103-.897 2-2 2s-2-.897-2-2v-8.5c0-.276.224-.5.5-.5s.5.224.5.5v9.5h2v-9.5c0-1.378-1.122-2.5-2.5-2.5s-2.5 1.122-2.5 2.5v8.5c0 2.206 1.794 4 4 4s4-1.794 4-4v-8.5c0-3.033-2.467-5.5-5.5-5.5z"/></g></svg>
+                <svg class="stSVG" fill="#ffffff" id="header_icon" enable-background="new 0 0 64 64" width="55px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><g><path d="m19 1h-12c-.552 0-1 .448-1 1v60c0 .552.448 1 1 1h12c.552 0 1-.448 1-1v-60c0-.552-.448-1-1-1zm-1 60h-10v-2h3v-2h-3v-2h5v-2h-5v-2h3v-2h-3v-2h3v-2h-3v-2h3v-2h-3v-2h5v-2h-5v-2h3v-2h-3v-2h3v-2h-3v-2h3v-2h-3v-2h5v-2h-5v-2h3v-2h-3v-2h3v-2h-3v-2h3v-2h-3v-2h5v-2h-5v-2h10z"/><path d="m32.929 11.628-4-10c-.153-.379-.52-.628-.929-.628s-.776.249-.929.628l-4 10 .003.001c-.045.116-.074.24-.074.371v50c0 .552.448 1 1 1h8c.552 0 1-.448 1-1v-50c0-.131-.029-.255-.075-.37zm-4.929-6.936 2.523 6.308h-5.045zm3 44.308h-2v-36h2zm-6 0v-36h2v36zm0 12v-10h6v10z"/><path d="m45 52h-2v-40c0-.097-.014-.194-.042-.287l-3-10c-.127-.423-.517-.713-.958-.713s-.831.29-.958.713l-3 10c-.028.093-.042.19-.042.287v47c0 .552.448 1 1 1v2c0 .552.448 1 1 1h4c.552 0 1-.448 1-1v-2c.552 0 1-.448 1-1v-5h2v4h2v-12h-2zm-8-39.853 2-6.667 2 6.667v45.853h-4zm3 48.853h-2v-1h2z"/><path d="m52.5 5c-3.033 0-5.5 2.467-5.5 5.5v10.5h2v-10.5c0-1.93 1.57-3.5 3.5-3.5s3.5 1.57 3.5 3.5v8.5c0 1.103-.897 2-2 2s-2-.897-2-2v-8.5c0-.276.224-.5.5-.5s.5.224.5.5v9.5h2v-9.5c0-1.378-1.122-2.5-2.5-2.5s-2.5 1.122-2.5 2.5v8.5c0 2.206 1.794 4 4 4s4-1.794 4-4v-8.5c0-3.033-2.467-5.5-5.5-5.5z"/><path d="m52.5 25c-3.033 0-5.5 2.467-5.5 5.5v10.5h2v-10.5c0-1.93 1.57-3.5 3.5-3.5s3.5 1.57 3.5 3.5v8.5c0 1.103-.897 2-2 2s-2-.897-2-2v-8.5c0-.276.224-.5.5-.5s.5.224.5.5v9.5h2v-9.5c0-1.378-1.122-2.5-2.5-2.5s-2.5 1.122-2.5 2.5v8.5c0 2.206 1.794 4 4 4s4-1.794 4-4v-8.5c0-3.033-2.467-5.5-5.5-5.5z"/></g></svg>
                 <h2>
                     Stationary Edit Form
                 </h2>
@@ -229,12 +106,8 @@
                 <label class="input">
                     <svg id="Layer_5" enable-background="new 0 0 64 64" height="27px" viewBox="0 0 64 64" width="27px" xmlns="http://www.w3.org/2000/svg"><path d="m60 19c1.654 0 3-1.346 3-3v-8c0-1.654-1.346-3-3-3-.449 0-.871.106-1.253.283-.741-2.474-3.035-4.283-5.747-4.283-3.309 0-6 2.691-6 6v14h-2v-11.287l-4.728-7.565c-.449-.719-1.224-1.148-2.072-1.148h-.4c-.848 0-1.623.429-2.072 1.147l-4.728 7.566v11.287h-2v-11.182l-2.712-7.232c-.355-.948-1.275-1.586-2.288-1.586s-1.933.638-2.288 1.585l-2.712 7.233v11.182h-1c-1.654 0-3 1.346-3 3v2c0 1.32.863 2.431 2.05 2.831l.261 4.169h-13.311c-1.654 0-3 1.346-3 3v9.618l2 1v2.764l-2 1v9.618c0 1.654 1.346 3 3 3h16c1.302 0 2.402-.839 2.816-2h.003 32.363c2.107 0 3.861-1.647 3.992-3.75l1.776-28.419c1.187-.4 2.05-1.511 2.05-2.831v-2c0-1.654-1.346-3-3-3h-1v-2.184c.314.112.648.184 1 .184zm0-12c.551 0 1 .448 1 1v8c0 .552-.449 1-1 1s-1-.448-1-1v-8c0-.552.449-1 1-1zm-7-4c2.206 0 4 1.794 4 4v1 7h-8v-8c0-2.206 1.794-4 4-4zm-14 18v-10h4v10zm-1.576-17.792c.081-.13.222-.208.376-.208h.4c.154 0 .294.078.375.208l3.621 5.792h-8.391zm-4.424 7.792h4v10h-4zm-9.415-7.713c.129-.344.7-.345.829.001l2.143 5.712h-5.114zm-2.585 7.713h6v10h-6zm-1.936 18h3.521l4 4-3.585 3.586v-.586c0-1.654-1.346-3-3-3h-.686zm1.936 20.382v-2.764l2-1v-5.204l3.586 3.586-5.45 5.45zm12.586-20.382 4 4-4.086 4.086-4.086-4.086 4-4zm11 0 4 4-4.086 4.086-4.086-4.086 4-4zm-20.672 20.5 4.086-4.086 4.086 4.086-4.086 4.086zm2.672 5.5-3.586 3.586v-7.172zm2.828-11 4.086-4.086 4.086 4.086-4.086 4.086zm9.586 1.414 4.086 4.086-4.086 4.086-4.086-4.086zm1.414-1.414 4.086-4.086 4.086 4.086-4.086 4.086zm5.5-5.5 4.086-4.086 4.086 4.086-4.086 4.086zm-2.828 0-4.086 4.086-4.086-4.086 4.086-4.086zm-11 0-4.086 4.086-4.086-4.086 4.086-4.086zm-4.086 17.914 2.586 2.586h-5.172zm5.414 2.586-4-4 4.086-4.086 4.086 4.086-4 4zm5.586-2.586 2.586 2.586h-5.172zm5.586 2.586h-.172l-4-4 4.086-4.086 4.086 4.086zm5.414-2.586 2.586 2.586h-5.172zm-4.086-6.914 4.086-4.086 4.086 4.086-4.086 4.086zm5.5-5.5 4.086-4.086 2.591 2.591-.481 7.692zm5.5-5.5 1.522-1.522-.179 2.866zm1.711-4.539-3.125 3.125-4.086-4.086 4-4h3.521zm-8.625-2.375-2.586-2.586h5.172zm-11 0-2.586-2.586h5.172zm-11 0-2.586-2.586h5.172zm-14 19.414c-.551 0-1-.448-1-1s.449-1 1-1 1 .448 1 1-.449 1-1 1zm-1-3.816c-1.161.414-2 1.514-2 2.816s.839 2.402 2 2.816v8.184h-4v-22h4zm8 12.816c0 .552-.449 1-1 1h-5v-8.184c1.161-.414 2-1.514 2-2.816s-.839-2.402-2-2.816v-10.184h-8v24h-3c-.551 0-1-.448-1-1v-8.382l.894-.447c.682-.34 1.106-1.025 1.106-1.789v-2.764c0-.764-.424-1.449-1.105-1.789l-.895-.447v-8.382c0-.552.449-1 1-1h16c.551 0 1 .448 1 1v8.382l-.894.447c-.682.34-1.106 1.025-1.106 1.789v2.764c0 .764.424 1.449 1.105 1.789l.895.447zm34.393-1.021-3.979-3.979 4.086-4.086 1.944 1.944-.267 4.267c-.06.98-.828 1.752-1.784 1.854zm5.607-34.979v2c0 .552-.449 1-1 1h-42c-.551 0-1-.448-1-1v-2c0-.552.449-1 1-1h42c.551 0 1 .448 1 1zm-12-3v-4h8v4z"/>
                     </svg>
-                    @if ( $result->name)
                         <input name="name" class="input__field" type="text" placeholder=" " value="{{$result->name}}" />
-                    <span class="input__label">Name</span>
-                    @else  
-                        echo "no";
-                    @endif
+                        <span class="input__label">Stationary</span>
                 </label>
 
                 <label class="input">
@@ -415,7 +288,7 @@
 
                 <div></div>
                 <div class="btn">
-                    <button type="submit">
+                    <button type="submit" id="submitBtn">
                         <svg  class="submitSVG" fill="var(--st-color)" version="1.1" width="30" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 489.4 489.4" style="enable-background:new 0 0 489.4 489.4;" xml:space="preserve">
                             <g>
@@ -437,5 +310,8 @@
     </form>    
 </div>
 
+<script>
+    
+</script>
 
 @endsection
