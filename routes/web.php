@@ -30,7 +30,7 @@ Route::prefix('/sale-records')->group(function () {
       Route::prefix('/print')->group(function () {
          Route::name('print.')->group(function () {
             Route::post('/insert', [saleRecordsManagement::class, 'insert_print'])->name('toInsert');
-            Route::post('/edit', [saleRecordsManagement::class, 'edit_print'])->name('toEdit');
+            Route::get('/edit', [saleRecordsManagement::class, 'edit_print'])->name('toEdit');
             Route::post('/update/{id}', [saleRecordsManagement::class, 'update_print'])->name('toUpdate');
             Route::get('/delete/{id}', [saleRecordsManagement::class, 'delete_print'])->name('toDelete');
             
@@ -42,8 +42,8 @@ Route::prefix('/sale-records')->group(function () {
       Route::prefix('/stationary')->group(function () {
          Route::name('st.')->group(function () {
             Route::post('/insert', [saleRecordsManagement::class, 'insert_st'])->name('toInsert');
-            Route::post('/edit', [saleRecordsManagement::class, 'edit_st'])->name('toEdit');
-            Route::post('/update/{id}', [saleRecordsManagement::class, 'update_st'])->name('toUpdate');
+            Route::get('/edit/{id}', [saleRecordsManagement::class, 'edit_st'])->name('toEdit');
+            Route::post('/update', [saleRecordsManagement::class, 'update_st'])->name('toUpdate');
             Route::get('/delete/{id}', [saleRecordsManagement::class, 'delete_st'])->name('toDelete');
 
          });
@@ -53,7 +53,7 @@ Route::prefix('/sale-records')->group(function () {
       Route::prefix('/phone-bill')->group(function () {
          Route::name('ph.')->group(function () {
             Route::post('/insert', [saleRecordsManagement::class, 'insert_pb'])->name('toInsert');
-            Route::post('/edit', [saleRecordsManagement::class, 'edit_pb'])->name('toEdit');
+            Route::get('/edit/{id}', [saleRecordsManagement::class, 'edit_pb'])->name('toEdit');
             Route::post('/update/{id}', [saleRecordsManagement::class, 'update_pb'])->name('toUpdate');
             Route::get('/delete/{id}', [saleRecordsManagement::class, 'delete_pb'])->name('toDelete');
          });
@@ -62,7 +62,7 @@ Route::prefix('/sale-records')->group(function () {
       Route::prefix('/computer')->group(function () {
          Route::name('com.')->group(function () {
             Route::post('/insert', [saleRecordsManagement::class, 'insert_com'])->name('toInsert');
-            Route::post('/edit', [saleRecordsManagement::class, 'edit_com'])->name('toEdit');
+            Route::get('/edit/{id}', [saleRecordsManagement::class, 'edit_com'])->name('toEdit');
             Route::post('/update/{id}', [saleRecordsManagement::class, 'update_com'])->name('toUpdate');
             Route::get('/delete/{id}', [saleRecordsManagement::class, 'delete_com'])->name('toDelete');
          });        

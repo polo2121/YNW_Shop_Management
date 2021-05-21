@@ -2,7 +2,6 @@
 @push('styles')
     <link rel="stylesheet" href="./css/storeSaleRecords.css">
     <link rel="stylesheet" href="./css/storeSaleRecords_grid.css">
-    <link rel="stylesheet" href="./animate.css/animate.css">
 @endpush
 
 @push('scripts')
@@ -10,9 +9,9 @@
 @endpush
 @section('location')
     <div class="location">
-        <a>Application</a> 
+        <a href="{{route('sa.home')}}">Application</a> 
             > 
-        <a herf="">  
+        <a href="{{route('sa.home')}}">  
             <span>Sale Records</span> 
         </a>
     </div>
@@ -58,6 +57,8 @@
                     Print Sale Record Form
                 </h3>
             </div>
+
+            
             
             <div class="form_inputs_group">
                 <div class="input_groups">
@@ -70,7 +71,7 @@
 
                 <div class="input_groups">
                     <label for="" class=""><i class="far fa-file pd-r-8"></i>Paper</label>
-                    <input required type="hidden" id="paper">
+                    <input required type="hidden" name="ptype" id="paper">
                     <div class="">
                         <button type="button" class="A4 paperBtn" id="A4"    onclick="getPaperType(id)">A4</button>
                         <button type="button" class="legal paperBtn" id="legal" onclick="getPaperType(id)">Legal</button>
@@ -140,7 +141,7 @@
                         
                 <div class="input_groups mb2 ">
                     <label for="" class="" >Amount</label>
-                    <input class="" type="text" placeholder="e.g. 3" name="taskAmount" id="com-input"  onChange="highlight_Input(name)">
+                    <input class="" type="text" placeholder="e.g. 3" name="tkAmount" id="com-input"  onChange="highlight_Input(name)">
                 </div>
 
                 <div class="input_groups mb2 ">
@@ -252,28 +253,28 @@
                 <div class="input_groups">
                     <label for="" class="">Operator</label>
                     <div class="operator_groups">
-                        <input type="hidden" name="operator">
-                        <div class="circle" onclick="getOperator('telenor')">
-                            <img src="../images/telenor.svg" id="telenor" width="25px" onclick="getOperator(id)">   
+                        <input type="hidden" name="operator" id="operator">
+                        <div class="circle" id="telenor">
+                            <img src="../images/telenor.svg" width="25px" onclick="getOperator('telenor')">   
                         </div>
 
-                        <div class="circle" onclick="getOperator('mpt')">
-                            <img src="../images/mpt.svg"     id="mpt"     width="25px" onclick="getOperator(id)">
+                        <div class="circle" id="mpt">
+                            <img src="../images/mpt.svg" width="25px" onclick="getOperator('mpt')">
                         </div>
 
-                        <div class="circle" onclick="getOperator('ooredoo')">
-                            <img src="../images/ooredoo.svg" id="ooredoo" width="25px" onclick="getOperator(id)">
+                        <div class="circle" id="ooredoo">
+                            <img src="../images/ooredoo.svg" width="25px" onclick="getOperator('ooredoo')">
                         </div>
                     </div>                  
                 </div>
 
                 <div class="input_groups">
                     <label for="" class="">Bill</label>
-                    <input type="hidden" name="bill">
+                    <input type="hidden" name="bill" id="bill">
                     <div class="prebill_Btn_group">
-                        <button type="button" class="" id="1000"    onclick="getPredefinedBill(id)">1000</button>
-                        <button type="button" class="" id="3000"    onclick="getPredefinedBill(id)">3000</button>
-                        <button type="button" class="" id="5000"    onclick="getPredefinedBill(id)">5000</button>
+                        <button type="button" class="" id="1000"    onclick="getPreDefinedBill(id)">1000</button>
+                        <button type="button" class="" id="3000"    onclick="getPreDefinedBill(id)">3000</button>
+                        <button type="button" class="" id="5000"    onclick="getPreDefinedBill(id)">5000</button>
                     </div>
                 </div>
 
@@ -334,6 +335,7 @@
 									<th class="cell100 column1">Print</th>
 									<th class="cell100 column2">Amount</th>
 									<th class="cell100 column3">Price</th>
+									<th class="cell100 column3">Action</th>
 								</tr>
 							</thead>
 						</table>
@@ -342,16 +344,23 @@
 					<div class="table-body print-body js-pscroll ps ps--active-y">
 						<table >
 							<tbody>
+                                @foreach ($Print_Infos as $pifs)
 								<tr class="row100 body">
-									<td class="cell100 column1">Like a butterfly</td>
-									<td class="cell100 column2">Boxing</td>
-									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
+									<!-- <td class="cell100 column1">{{$pifs->date}}</td> -->
+									<td class="cell100 column2">{{$pifs->paper}}</td>
+									<td class="cell100 column3">{{$pifs->amount}}</td>
+									<td class="cell100 column3">{{$pifs->price}}</td>
+                                    <td>
+                                        <a href="{{route('sa.print.toEdit',['id'=>$pifs->pid])}}">
+                                            <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
+                                        </a>
+
+                                        <a href="{{route('sa.print.toDelete',['id'=>$pifs->pid])}}">
+                                            <img onclick="removeStationaryData" class="" src="../images/remove.svg" alt="" width="23" height="20">
+                                        </a>
+                                    </td>
 								</tr>
-								<tr class="row100 body">
-									<td class="cell100 column1">Like a butterfly</td>
-									<td class="cell100 column2">Boxing</td>
-									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
-								</tr>						
+                                @endforeach					
 							</tbody>
 						</table>
                     </div>
@@ -366,9 +375,11 @@
 						<table>
 							<thead>
 								<tr class="row100 head">
-									<th class="cell100 column1">Print</th>
+									<th class="cell100 column1">Name</th>
 									<th class="cell100 column2">Amount</th>
 									<th class="cell100 column3">Price</th>
+									<th class="cell100 column3">Action</th>
+                                    
 								</tr>
 							</thead>
 						</table>
@@ -377,11 +388,22 @@
 					<div class="table-body st-body js-pscroll ps ps--active-y">
 						<table >
 							<tbody>
+                                @foreach ($St_Infos as $stifs)
 								<tr class="row100 body">
-									<td class="cell100 column1">Like a butterfly</td>
-									<td class="cell100 column2">Boxing</td>
-									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
+									<td class="cell100 column1">{{$stifs->name}}</td>
+									<td class="cell100 column2">{{$stifs->amount}}</td>
+									<td class="cell100 column3">{{$stifs->price}}</td>
+                                    <td>
+                                        <a href="{{route('sa.st.toEdit',['id'=>$stifs->ssrid])}}">
+                                            <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
+                                        </a>
+
+                                        <a href="{{route('sa.st.toDelete',['id'=>$stifs->ssrid])}}">
+                                            <img onclick="removeStationaryData" class="" src="../images/remove.svg" alt="" width="23" height="20">
+                                        </a>
+                                    </td>
 								</tr>
+                                @endforeach
 							</tbody>
 						</table>
                     </div>
@@ -399,6 +421,8 @@
 									<th class="cell100 column1">Print</th>
 									<th class="cell100 column2">Amount</th>
 									<th class="cell100 column3">Price</th>
+									<th class="cell100 column3">Action</th>
+
 								</tr>
 							</thead>
 						</table>
@@ -407,11 +431,22 @@
 					<div class="table-body com-body js-pscroll ps ps--active-y">
 						<table >
 							<tbody>
+                                @foreach($Com_Infos as $cinfs)
 								<tr class="row100 body">
-									<td class="cell100 column1">Like a butterfly</td>
-									<td class="cell100 column2">Boxing</td>
-									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
+									<td class="cell100 column1">{{$cinfs->task}}</td>
+									<td class="cell100 column2">{{$cinfs->amount}}</td>
+									<td class="cell100 column3">{{$cinfs->price}}</td>
+                                    <td>
+                                        <a href="{{route('sa.com.toEdit',['id'=>$cinfs->csrid])}}">
+                                            <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
+                                        </a>
+
+                                        <a href="{{route('sa.com.toDelete',['id'=>$cinfs->csrid])}}">
+                                            <img onclick="removeStationaryData" class="" src="../images/remove.svg" alt="" width="23" height="20">
+                                        </a>
+                                    </td>
 								</tr>
+                                @endforeach
 							</tbody>
 						</table>
                     </div>
@@ -429,6 +464,7 @@
 									<th class="cell100 column1">Print</th>
 									<th class="cell100 column2">Amount</th>
 									<th class="cell100 column3">Price</th>
+									<th class="cell100 column3">Action</th>
 								</tr>
 							</thead>
 						</table>
@@ -437,10 +473,21 @@
 					<div class="table-body ph-body js-pscroll ps ps--active-y">
 						<table >
 							<tbody>
+                                @foreach($PB_Infos as $pbifs)
 								<tr class="row100 body">
-									<td class="cell100 column1">Like a butterfly</td>
-									<td class="cell100 column2">Boxing</td>
-									<td class="cell100 column3">9:00 AM - 11:00 AM</td>
+									<td class="cell100 column1">{{$pbifs->operator}}</td>
+									<td class="cell100 column2">{{$pbifs->bill}}</td>
+									<td class="cell100 column3">{{$pbifs->amount}}</td>
+                                    <td>
+                                        <a href="{{route('sa.ph.toEdit',['id'=>$pbifs->pbsrid])}}">
+                                            <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
+                                        </a>
+
+                                        <a href="{{route('sa.ph.toDelete',['id'=>$pbifs->pbsrid])}}">
+                                            <img onclick="removeStationaryData" class="" src="../images/remove.svg" alt="" width="23" height="20">
+                                        </a>
+                                    </td>
+                                @endforeach
 								</tr>
 							</tbody>
 						</table>
@@ -453,11 +500,6 @@
 
      
     <!-- end Show Info Section -->
-    @if(session('success'))
-    <div class="alert animate__animated animate__slideInUp tc" id="alertMessage">
-        {{ session('success')}}
-    </div>
-    @endif
 </div>
 @endsection
 

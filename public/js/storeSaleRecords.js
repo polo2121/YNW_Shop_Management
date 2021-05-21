@@ -26,8 +26,9 @@ const hide_show = (form_id,btn_id) =>{
 
 let paper_record ="";
 const getPaperType = id => {
+    console.log(id)
     if(paper_record !== ""){
-        document.getElementById(record).classList.remove("print-active")
+        document.getElementById(paper_record).classList.remove("print-active")
     }
     let paperType = document.getElementById("paper")
     paperType.value = id
@@ -38,10 +39,27 @@ const getPaperType = id => {
 let bill_record ="";
 const getPreDefinedBill = id => {
     if(bill_record !== ""){
-        document.getElementById(bill_record).classList.remove("print-active")
+        document.getElementById(bill_record).classList.remove("phone-active")
     }
+    console.log(id)
+    let bill = document.getElementById("bill")
+    bill.value = id
+    document.getElementById(id).classList.add("phone-active")
+    bill_record = id
 }
 
+let op_record =""
+const getOperator = id => {
+    if(op_record !== ""){
+        document.getElementById(op_record).classList.remove("operator-active")
+    }
+    console.log(id)
+    let op = document.getElementById("operator")
+    op.value = id
+    document.getElementById(id).classList.add("operator-active")
+    op_record = id
+
+}
 const highlight_Input = (name,id) => {
    input =  document.querySelector('input[name='+name+']')
    if(input.value === "" || input.value === "undefined") { 
@@ -51,16 +69,14 @@ const highlight_Input = (name,id) => {
         input.classList.add(input.id+"-active")
     }
 }
-// print_inputs.forEach(input => {
- 
-//     input.onchange = () => {
-//         if(input.value === "" || input.value === "undefined")
-//             { remove_highlight(input,input.id) }
-//         else
-//             { highlight_Me(input,input.id) }
-//     }
-// })
 
+const removeAlert = () => {
+    document.getElementById('alertMessage').classList.remove("animate__slideInDown")
+    document.getElementById('alertMessage').classList.add("animate__slideOutUp")
+}
+window.onload = function() {
+    setTimeout(removeAlert, 4000)
+}
 const close_form = form_id => {
     entry_form_buttons.forEach(btn => {
         btn.classList.remove("active")

@@ -15,8 +15,16 @@ section{
 .location{
     padding: 10px 0px;
 }
+.location a {
+    color: #968585;
+    font-size: .875rem;
+}
+.location span{
+    color: #003f88;
+}
 button{
     /* width: 30%; */
+    
     text-transform: uppercase;
     vertical-align: bottom;
     border: 0;
@@ -218,7 +226,7 @@ button:focus-visible{
 
 /* Phone form */
 #phone-bill-form form,.prebill_Btn_group button{
-    color: var(--ph-color) !important;
+    color: var(--ph-color);
 }
 #phone-bill-form  .input_groups input:focus-visible,
 #phone-bill-form  .input_groups input:hover,
@@ -314,6 +322,9 @@ button:focus-visible{
             /* width:60%; */
             box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
         }
+        .table-header table thead tr th{
+         
+        }
         .table-body{
             /* width: 60%; */
 
@@ -342,7 +353,7 @@ button:focus-visible{
                 padding-top: 18px;
                 padding-bottom: 18px;
                 text-align: center;
-                width: 216px;
+                width: 248px;
                 /* padding-left: 40px; */
             }
             ::-webkit-scrollbar {
@@ -374,9 +385,12 @@ button:focus-visible{
     border-color: #8d0801 !important; 
 }
 .phone-active{      
-    color: #ffffff;  
+    color: #ffffff !important;  
     background-color: #ac6a0e;
     border-color: #ac6a0e !important; 
+}
+.operator-active{
+    border-color: var(--ph-color) !important;
 }
 /* End Hightlight Buttons */
 

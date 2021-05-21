@@ -15,7 +15,7 @@
     <div class="container">
         <div class="navigation">
             <div class="shop_name">
-                <img class="shop_icon" src="../images/store.svg" alt="" width="50" height="50">
+                <img class="shop_icon" src="{{asset('../images/store.svg')}}" alt="" width="50" height="50">
                 <p>YNW</p>    
             </div>
             <div class="devider mb4"></div>
@@ -23,21 +23,21 @@
             
             <a href="{{route('sa.home')}}">
                 <div class="nav_icons">
-                    <img class="" src="../images/record.svg" alt="" width="25" height="25">
+                    <img class="" src="{{asset('../images/record.svg')}}" alt="" width="25" height="25">
                 </div>
                 Sale Records
             </a>
 
             <a href="{{route('sm.st.home')}}">
                 <div class="nav_icons">
-                    <img src="../images/management.svg" alt="" width="25" height="25">
+                    <img src="{{asset('../images/management.svg')}}" alt="" width="25" height="25">
                 </div>
                 Store Management
             </a>
 
             <a href="/">
                 <div class="nav_icons">
-                    <img src="../images/calculation.svg" alt="" width="25" height="25">
+                    <img src="{{asset('../images/calculation.svg')}}" alt="" width="25" height="25">
                 </div>
                 Calculation
             
@@ -54,7 +54,7 @@
             @yield('content')   
             </div>
             @if(session('success'))
-                <div class="alert animate__animated animate__slideInUp tc" id="alertMessage">
+                <div class="alert animate__animated animate__slideInDown tc" id="alertMessage">
                     {{ session('success')}}
                 </div>
             @endif
