@@ -14,6 +14,23 @@ h1, h2, h3 {
         margin:auto;
         margin-top: 40px;
     }
+    #print_card{
+        border: 3px solid var(--print-color);
+        box-shadow: .5rem .5rem 0 var(--print-color);
+    }
+    #st_card{
+        border: 3px solid var(--st-color);
+        box-shadow: .5rem .5rem 0 var(--st-color);
+    }
+    #pb_card{
+        border: 3px solid var(--ph-color);
+        box-shadow: .5rem .5rem 0 var(--ph-color);
+    }
+    #com_card{
+        border: 3px solid var(--com-color);
+        box-shadow: .5rem .5rem 0 var(--com-color);
+    }
+
         .card-header{
             position: absolute;
             display: inline-flex;
@@ -27,11 +44,27 @@ h1, h2, h3 {
             padding: 10px;
             
         }
+        .card-header .printBG{
+            background: var(--print-color);
+        }
+        .card-header .stBG{
+            background: var(--st-color);
+        }
+        .card-header .pbBG{
+            background: var(--ph-color);
+        }
+        .card-header .comBG{
+            background: var(--com-color);
+        }
+
         .card-header .stSVG{
             margin-right:10px;
         }
-        .card-header .cancelSVG{
+        .card-header a {
+            margin:6px;
             margin-left:auto;
+        }
+        .card-header .cancelSVG{
             cursor: pointer;
         }
         .card-header h2{
@@ -87,13 +120,21 @@ h1, h2, h3 {
                 line-height: 1.2;
             }
             .input__field:focus-visible{
-                outline: none;
-
+               outline: none;
             }
             .input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
                 transform: translate(-2rem, -70%) scale(0.8);
                 font-size: 1rem;
             }
+
+            .com__label{
+                color: var(--com-color);
+            }
+            .pb__label{
+                color: var(--ph-color);
+            }
+
+
             .card-body .btn{
                 margin-left:auto;
             }
@@ -101,6 +142,52 @@ h1, h2, h3 {
                     display:flex;
                     align-items: center;
                 }
+                
+                /* Print */
+                .card-body .btn .print_edit_btn{
+                    border-color: var(--print-color);
+                }
+                .card-body .btn .print_edit_btn:hover{
+                    background: var(--print-color);
+                }
+                /* End Print */
+
+                /* Stationary */
+                .card-body .btn .st_edit_btn{
+                    border-color: var(--st-color);
+                }
+                .card-body .btn .st_edit_btn:hover{
+                    background: var(--st-color);
+                }
+                /* End Stationary */
+                
+                /* Phone Bill */
+                .card-body .btn .pb_edit_btn{
+                    border-color: var(--ph-color);
+                }
+                .card-body .btn .pb_edit_btn:hover{
+                    background: var(--ph-color);
+                }
+                /* End Phone Bill */
+                
+                /* Computer */
+                .card-body .btn .com_edit_btn{
+                    border-color: var(--com-color);
+                }
+                .card-body .btn .com_edit_btn:hover{
+                    background: var(--com-color);
+                }
+                /* End Computer */
+
+                .print_edit_btn:hover,.st_edit_btn:hover,
+                .pb_edit_btn:hover,.com_edit_btn:hover {
+                    color:#ffffff !important;
+                }
+
                 .submitSVG{
                     margin: 6px;
+                }
+                .print_edit_btn:hover .submitSVG,.st_edit_btn:hover .submitSVG,
+                .pb_edit_btn:hover .submitSVG,.com_edit_btn:hover .submitSVG {
+                    fill: #ffffff;
                 }

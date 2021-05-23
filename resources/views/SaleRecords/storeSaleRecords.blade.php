@@ -2,6 +2,7 @@
 @push('styles')
     <link rel="stylesheet" href="./css/storeSaleRecords.css">
     <link rel="stylesheet" href="./css/storeSaleRecords_grid.css">
+    
 @endpush
 
 @push('scripts')
@@ -335,6 +336,7 @@
 									<th class="cell100 column1">Print</th>
 									<th class="cell100 column2">Amount</th>
 									<th class="cell100 column3">Price</th>
+                                    <th class="cell100 column3">Benefit</th>
 									<th class="cell100 column3">Action</th>
 								</tr>
 							</thead>
@@ -350,6 +352,7 @@
 									<td class="cell100 column2">{{$pifs->paper}}</td>
 									<td class="cell100 column3">{{$pifs->amount}}</td>
 									<td class="cell100 column3">{{$pifs->price}}</td>
+                                    <td></td>
                                     <td>
                                         <a href="{{route('sa.print.toEdit',['id'=>$pifs->pid])}}">
                                             <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
@@ -378,8 +381,9 @@
 									<th class="cell100 column1">Name</th>
 									<th class="cell100 column2">Amount</th>
 									<th class="cell100 column3">Price</th>
+                                    <th class="cell100 column3">Benefit</th>
 									<th class="cell100 column3">Action</th>
-                                    
+						                        
 								</tr>
 							</thead>
 						</table>
@@ -393,6 +397,7 @@
 									<td class="cell100 column1">{{$stifs->name}}</td>
 									<td class="cell100 column2">{{$stifs->amount}}</td>
 									<td class="cell100 column3">{{$stifs->price}}</td>
+                                    <td></td>
                                     <td>
                                         <a href="{{route('sa.st.toEdit',['id'=>$stifs->ssrid])}}">
                                             <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
@@ -421,8 +426,9 @@
 									<th class="cell100 column1">Print</th>
 									<th class="cell100 column2">Amount</th>
 									<th class="cell100 column3">Price</th>
+                                    <th class="cell100 column3">Benefit</th>
 									<th class="cell100 column3">Action</th>
-
+									
 								</tr>
 							</thead>
 						</table>
@@ -436,6 +442,7 @@
 									<td class="cell100 column1">{{$cinfs->task}}</td>
 									<td class="cell100 column2">{{$cinfs->amount}}</td>
 									<td class="cell100 column3">{{$cinfs->price}}</td>
+                                    <td></td>
                                     <td>
                                         <a href="{{route('sa.com.toEdit',['id'=>$cinfs->csrid])}}">
                                             <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
@@ -464,7 +471,9 @@
 									<th class="cell100 column1">Print</th>
 									<th class="cell100 column2">Amount</th>
 									<th class="cell100 column3">Price</th>
+                                    <th class="cell100 column3">Benefit</th>
 									<th class="cell100 column3">Action</th>
+							
 								</tr>
 							</thead>
 						</table>
@@ -478,6 +487,7 @@
 									<td class="cell100 column1">{{$pbifs->operator}}</td>
 									<td class="cell100 column2">{{$pbifs->bill}}</td>
 									<td class="cell100 column3">{{$pbifs->amount}}</td>
+                                    <td></td>
                                     <td>
                                         <a href="{{route('sa.ph.toEdit',['id'=>$pbifs->pbsrid])}}">
                                             <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">

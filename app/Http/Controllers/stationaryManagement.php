@@ -34,7 +34,7 @@ class stationaryManagement extends Controller
             'benefit'                     => $benefit,
     
         ]);
-        return redirect('StoreManagement/Stationary/stationary')->with('success', 'Data is successfully inserted to Stationary Storage');  
+        return redirect('store-management/stationary')->with('success', 'Data is successfully inserted to Stationary Storage');  
     }
     public function stationary_edit(Request $req){
     

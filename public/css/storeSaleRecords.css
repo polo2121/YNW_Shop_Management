@@ -245,8 +245,6 @@ button:focus-visible{
     border-color: var(--ph-color);
 }
 
-
-
 .date_price{
     display: flex;
     justify-content: flex-start;
@@ -314,12 +312,13 @@ button:focus-visible{
     }
         table{
             table-layout: fixed;
-            width: 100%;
             border-collapse: collapse;
             color: #ffffff;
         }
         .table-header{
             /* width:60%; */
+            /* border-top-left-radius: .8rem;
+            border-top-right-radius: .8rem; */
             box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
         }
         .table-header table thead tr th{
@@ -327,7 +326,6 @@ button:focus-visible{
         }
         .table-body{
             /* width: 60%; */
-
             max-height: 270px;
             overflow:hidden;
             overflow-y: scroll;
@@ -344,9 +342,15 @@ button:focus-visible{
                 /* color: white; */
                 /* background-color: #949fb4; */
             }
-            .table-body td{
-                font-size: 1.1rem;
+            .table-body tr{
+                color: #000000;
+                font-size: 18px;
                 border-bottom: 1px solid #c7bfbf91;
+            }
+            .table-body tbody tr:hover{
+                font-size: 1.5rem !important;
+                box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
+
             }
             .table-header th, .table-body td{
                 
@@ -398,19 +402,19 @@ button:focus-visible{
 
 /* print */
 .print-header       { background-color: #011627;}
-.print-body tr td   { color: #011627 !important;}
+
 
 /* stationary */
 .st-header       { background-color: #335e51;}
-.st-body tr td   { color: #335e51 !important;}
+
 
 /* computer */
 .com-header       { background-color: #8d0801;}
-.com-body tr td   { color: #8d0801 !important;}
+
 
 /* Phone */
 .ph-header       { background-color: #ac6a0e;}
-.ph-body tr td   { color: #ac6a0e !important;}
+
 
 /* --------------------------------------------------- */
 

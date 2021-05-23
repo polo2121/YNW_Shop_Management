@@ -91,8 +91,11 @@ predefined_bills.forEach(bill => {
 })
 
 const removeAlert = () => {
-    document.getElementById('alertMessage').classList.remove("animate__slideInUp")
-    document.getElementById('alertMessage').classList.add("animate__slideOutDown")
+    document.getElementById('alertMessage').classList.remove("animate__slideInDown")
+    document.getElementById('alertMessage').classList.add("animate__slideOutUp")
+}
+window.onload = function() {
+    setTimeout(removeAlert, 4000)
 }
 const clearInputs = () => {
     date_inputs.forEach(date=> {
@@ -113,8 +116,5 @@ const clearInputs = () => {
     })
     document.querySelectorAll    ('input[name="operator"]')[0].defaultValue = ""
 
-}
-window.onload = function() {
-    setTimeout(removeAlert, 4000)
 }
 

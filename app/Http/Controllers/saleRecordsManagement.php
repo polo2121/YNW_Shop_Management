@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
 
 
 class saleRecordsManagement extends Controller
@@ -34,11 +35,12 @@ class saleRecordsManagement extends Controller
             'amount'     => $pamount,
             'price'      => $pprice
         ]);
+
         return redirect('/sale-records')->with('success', 'Data is successfully inserted to Print Sale Record');
     }
     public function edit_print(Request $req) {
         $results         = DB::select('select * from print_sale_records where pid = :id', ['id' => $req->id]);
-        return view('SaleRecords/print/edit', ['results' => $results]);
+        return view('SaleRecords/edit', ['results' => $results]);
     }
 
     public function update_print(Request $req) {
@@ -50,7 +52,7 @@ class saleRecordsManagement extends Controller
 
        
         DB::table('print_sale_records')->where('pid', $pid)
-            ->update(['paper' => $paper,'amount'=>$amount,'price'=>$amount]);
+            ->update(['paper' => $paper,'amount'=>$amount,'price'=>$price]);
         
         return redirect('/sale-records')->with('success', 'Data is successfully Updated in Print Sale Record');
     }
@@ -69,26 +71,48 @@ class saleRecordsManagement extends Controller
         $amount                     = (int)$req->input('stAmount');
         $price                      = (int)$req->input('stPrice');
 
+        $st_infos       = DB::table('stationaries')->select('amount','benefit')->where('stName',$name)->get();
+
+        $updated_amount = $st_infos[0]->{"amount"} - $amount;
+
+        // This benefit is already calculated in stationary table
+        $benefit        = $st_infos[0]->{"benefit"};
+
+        $real_benefit   = $benefit * $amount;
+
+        DB::table('stationaries')
+              ->where('stName',$name)
+              ->update(['amount' => $updated_amount]);
+    
+        // $titles = DB::table('stationaries')->pluck('stName');
+
         DB::table('stationaries_sale_records')->insert([
             'date'       => $date,
             'name'       => $name,
             'amount'     => $amount,
-            'price'      => $price
+            'price'      => $price,
+            'benefit'      => $benefit,
         ]);
         return redirect('/sale-records')->with('success', 'Data is successfully inserted to Stationary Sale Record');
     }
     public function edit_st(Request $req) {
         // echo "Hell Yeah";
         $results         = DB::select('select * from stationaries_sale_records where ssrid = :id', ['id' => $req->id]);
-        return view('SaleRecords/stationary/edit', ['results' => $results]);
+        return view('SaleRecords/edit', ['results' => $results]);
 
     }
     
     public function update_st(Request $req) {
-        echo "Hell Yeah";
-        // $ssrid                       = (int)$req->input('ssrid');
-        // DB::table('stationaries_sale_records')->where('ssrid', $ssrid)
-        //     ->update(['date' => $date,'name'=>$name,'amount'=>$amount,'price'=>$price]);
+        $ssrid               = (int)$req->input('ssrid');
+        $name                = $req->input('name');
+        $amount              = (int)$req->input('amount');
+        $price               = (int)$req->input('price');
+
+       
+        DB::table('stationaries_sale_records')->where('ssrid', $ssrid)
+            ->update(['name' => $name,'price'=>$price,'amount'=>$amount]);
+        
+        return redirect('/sale-records')->with('success', 'Data is successfully Updated in Stationary Sale Record');
     
     }
     public function delete_st(Resquest $req){
@@ -116,8 +140,21 @@ class saleRecordsManagement extends Controller
     public function edit_pb(Request $req) {
         // echo "Hell Yeah";
         $results         = DB::select('select * from pb_sale_records where pbsrid = :id', ['id' => $req->id]);
-        return view('SaleRecords/phone/edit', ['results' => $results]);
+        return view('SaleRecords/edit', ['results' => $results]);
 
+    }
+    public function update_pb(Request $req) {
+
+        $pbsrid                  = (int)$req->input('pbsrid');
+        $operator                = $req->input('operator');
+        $bill                    = (int)$req->input('bill');
+        $amount                   = (int)$req->input('amount');
+
+       
+        DB::table('pb_sale_records')->where('pbsrid', $pbsrid)
+            ->update(['operator' => $operator,'bill'=>$bill,'amount'=>$amount]);
+        
+        return redirect('/sale-records')->with('success', 'Data is successfully Updated in Phone Bill Sale Record');
     }
     
     // Computer Mangement Queries
@@ -139,8 +176,21 @@ class saleRecordsManagement extends Controller
     public function edit_com(Request $req) {
         // echo "Hell Yeah";
         $results         = DB::select('select * from com_sale_records where csrid = :id', ['id' => $req->id]);
-        return view('SaleRecords/computer/edit', ['results' => $results]);
+        return view('SaleRecords/edit', ['results' => $results]);
 
+    }
+    public function update_com(Request $req) {
+
+        $csrid                     = (int)$req->input('csrid');
+        $task                      = $req->input('task');
+        $amount                    = (int)$req->input('amount');
+        $price                     = (int)$req->input('price');
+
+       
+        DB::table('com_sale_records')->where('csrid', $csrid)
+            ->update(['task' => $task,'amount'=>$amount,'price'=>$price]);
+        
+        return redirect('/sale-records')->with('success', 'Data is successfully Updated in Computer Sale Record');
     }
 
 }

@@ -44,8 +44,7 @@
             </a>
 
         </div>
-        <div class="dummy">
-        </div>
+        
         <div class="dashboard">
             @yield('location')
             <div class="devider devider_bg2" style="margin-bottom: 10px;"></div>
