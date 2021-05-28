@@ -9,6 +9,10 @@ use Illuminate\Support\Arr;
 
 class saleRecordsManagement extends Controller
 {
+    // public function ajaxAutocomplete(){
+    //     $titles = DB::table('stationaries')->pluck('stName');
+    //     return array('msg'=> $titles);
+    // }
     public function  storeSaleRecords() {
 
         $St_Infos       = DB::table('stationaries_sale_records')->get();
@@ -16,9 +20,10 @@ class saleRecordsManagement extends Controller
         $Com_Infos      = DB::table('com_sale_records')->get();
         $PB_Infos       = DB::table('pb_sale_records')->get();
 
+        $stat_name      = DB::table('stationaries')->pluck('stName');
         // $copySaleRecords = DB::table('copy')->where('date', date("Y-m-d"))->get();
         return view('saleRecords/storeSaleRecords', ['St_Infos'=> $St_Infos,'Print_Infos'=> $Print_Infos,
-        'Com_Infos'=> $Com_Infos,'PB_Infos'=> $PB_Infos]);
+        'Com_Infos'=> $Com_Infos,'PB_Infos'=> $PB_Infos,'stat_names' => $stat_name ]);
     }
     
     //Print Management Queries
@@ -72,6 +77,8 @@ class saleRecordsManagement extends Controller
         $price                      = (int)$req->input('stPrice');
 
         $st_infos       = DB::table('stationaries')->select('amount','benefit')->where('stName',$name)->get();
+        
+
 
         $updated_amount = $st_infos[0]->{"amount"} - $amount;
 
@@ -80,26 +87,27 @@ class saleRecordsManagement extends Controller
 
         $real_benefit   = $benefit * $amount;
 
-        DB::table('stationaries')
-              ->where('stName',$name)
-              ->update(['amount' => $updated_amount]);
+        // echo $;
+
+        // DB::table('stationaries')
+        //       ->where('stName',$name)
+        //       ->update(['amount' => $updated_amount]);
     
         // $titles = DB::table('stationaries')->pluck('stName');
 
-        DB::table('stationaries_sale_records')->insert([
-            'date'       => $date,
-            'name'       => $name,
-            'amount'     => $amount,
-            'price'      => $price,
-            'benefit'      => $benefit,
-        ]);
-        return redirect('/sale-records')->with('success', 'Data is successfully inserted to Stationary Sale Record');
+        // DB::table('stationaries_sale_records')->insert([
+        //     'date'       => $date,
+        //     'name'       => $name,
+        //     'amount'     => $amount,
+        //     'price'      => $price,
+        //     'benefit'      => $benefit,
+        // ]);
+        // return redirect('/sale-records')->with('success', 'Data is successfully inserted to Stationary Sale Record');
     }
     public function edit_st(Request $req) {
         // echo "Hell Yeah";
         $results         = DB::select('select * from stationaries_sale_records where ssrid = :id', ['id' => $req->id]);
         return view('SaleRecords/edit', ['results' => $results]);
-
     }
     
     public function update_st(Request $req) {

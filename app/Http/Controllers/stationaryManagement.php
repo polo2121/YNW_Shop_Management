@@ -21,7 +21,7 @@ class stationaryManagement extends Controller
         $amount                     = (int)$req->input('amount');
         $sp                         = (int)$req->input('sale_price');
             
-        $purchased_price_per_unit   = floor($tpp/$amount);
+        $purchased_price_per_unit   = ceil($tpp/$amount);
         $benefit                    = $sp - $purchased_price_per_unit;
     
         DB::table('stationaries')->insert([

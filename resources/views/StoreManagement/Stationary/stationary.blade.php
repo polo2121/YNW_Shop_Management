@@ -112,7 +112,7 @@
 
                 <div class="tables">
                     <div class="tbl-header">
-                        <table cellpadding="0" cellspacing="0" border="0">
+                        <table cellpadding="0" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Stationary</th>
@@ -159,3 +159,7 @@
 
     </section>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('../js/storeManagement.js')}}"></script>
+@endpush

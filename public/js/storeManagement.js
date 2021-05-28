@@ -91,6 +91,7 @@ predefined_bills.forEach(bill => {
 })
 
 const removeAlert = () => {
+    console.log("Yahello")
     document.getElementById('alertMessage').classList.remove("animate__slideInDown")
     document.getElementById('alertMessage').classList.add("animate__slideOutUp")
 }

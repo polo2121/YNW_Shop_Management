@@ -84,3 +84,24 @@ const close_form = form_id => {
     form = document.getElementById(form_id)
     form.classList.add('hide')
 }
+$('#st_amount').on( "keyup", function( event ) {
+    // 1.
+    var selection = window.getSelection().toString();
+    console.log(selection)
+    if ( selection !== '' ) {
+        return;
+    }
+
+    var $this = $( this );
+    var input = $this.val();
+    
+    var input = input.replace(/[\D\s\._\-]+/g, "");
+    
+    input = input ? parseInt( input, 10 ) : 0;
+    
+    // 4
+    $this.val( function() {
+        return ( input === 0 ) ? "" : input.toLocaleString( "en-US" );
+    } );
+
+});

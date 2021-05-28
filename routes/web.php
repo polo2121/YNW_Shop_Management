@@ -22,6 +22,8 @@ use App\Http\Controllers\saleRecordsManagement;
 */
 
 Route::get('/', [CalculationController::class, 'calculation']);
+Route::post('/autocomplete', [saleRecordsManagement::class, 'ajaxAutocomplete']);
+
 Route::prefix('/sale-records')->group(function () {
 
    Route::name('sa.')->group(function () {
