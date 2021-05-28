@@ -67,14 +67,47 @@ input:focus-visible{
 .table-input{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    background-color: red;
+    column-gap: 10px;
+    margin-top: 10px;
     padding: 10px;
 }
-.table-input .input__label{
+.table-input .input{
+    position: relative;
+    display: inline-flex;
     
+
 }
-.table-input input{
-    margin: auto;
+.table-input .input .input__label{
+    position: absolute;
+    padding: 8px;
+    margin: 4px 12px;
+    /* margin-left: 35px; */
+    white-space: nowrap;
+    transform: translate(0, 0);
+    transform-origin: 0 0;
+    background: white;
+    color: #000000;
+    transition: transform 120ms ease-in;
+    font-weight: bold;
+    line-height: 1.2;  
+}
+.table-input .input .input__field{
+    box-sizing: border-box;
+    /* display: block; */
+    width: 100%;
+    border: .145rem solid #000000;
+    padding:8px;
+    color: #000000;
+    background: transparent;
+    border-radius: 4px;
+}
+.input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
+    transform: translate(-0.4rem, -50%) scale(0.8);
+    font-size: 1rem;
+}
+.table-input button[type="submit"]{
+    height: 80%;
+    border-radius: 4px;
 }
 .title{
     color: #171718;

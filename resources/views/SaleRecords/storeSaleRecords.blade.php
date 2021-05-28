@@ -93,13 +93,21 @@
 
                                 </table>
                                 <form class="table-input">
-                                <label class="input">   
-                                    <input name="date" class="input__field" type="text" placeholder=" " value="" />
-                                    <span class="input__label">Date</span>
-                                </label>
+                                    <label class="input">   
+                                        <input name="date" class="input__field" type="text" placeholder=" " value="" />
+                                        <span class="input__label">Print</span>
+                                    </label>
+                                    
+                                    <label class="input">   
+                                        <input name="date" class="input__field" type="number" placeholder=" " value="" />
+                                        <span class="input__label">Price</span>
+                                    </label>
 
-                                    <input type="text" placeholder="dd">
-                                    <input type="text" placeholder="dd">
+                                    <label class="input">   
+                                        <input name="date" class="input__field" type="number" placeholder=" " value="" />
+                                        <span class="input__label">Amount</span>
+                                    </label>
+
                                     <button type="submit">Submit</button>
                                 </form>
                                 
