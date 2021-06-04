@@ -2,11 +2,19 @@
 
 let forms              = document.querySelectorAll('.form')
 let entry_form_buttons = document.querySelectorAll('.btn-groups button')
-let print_inputs        = document.querySelectorAll    ('input')
+let tdy_date = document.querySelectorAll('.tdy_date')
 
+let print_inputs       = document.querySelectorAll('input')
+let is                 = document.querySelectorAll('insert-submit')
 
 console.log(entry_form_buttons)
 // console.log(forms)
+
+let today = new Date();
+let tdate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+tdy_date.forEach( date => {
+    date.value = tdate 
+})
 
 const hide_show = (form_id,btn_id) =>{
 
@@ -22,6 +30,34 @@ const hide_show = (form_id,btn_id) =>{
     form_name.classList.remove("hide")
 
     document.getElementById(btn_id).classList.add(btn_id+"-active")
+}
+
+const rotationAni = (form_id,btn_id) => {
+    
+    let target_btn  = document.getElementById(btn_id)
+    let target_form = document.getElementById(form_id)
+
+    console.log(btn_id)
+    if( target_btn.style.transform !== "rotate(314deg)"){
+        target_form.classList.remove('hide')
+        // setTimeout()
+        // target_form.classList.replace("animate__fadeInUp","animate__fadeOutDown")
+        target_btn.style.transform ="rotate(314deg)"
+    }
+    else{ 
+        target_form.classList.replace("animate__fadeInUp","animate__fadeOutDown")
+        target_btn.style.transform ="rotate(0deg)"
+        setTimeout(() => {
+            target_form.classList.add('hide')
+        target_form.classList.replace("animate__fadeOutDown","animate__fadeInUp")
+
+        
+        }, 500)
+        // target_form.classList.add('hide')
+        // target_form.classList.replace("animate__slideInDown","animate__slideInUp")
+    }
+    target_btn.style.transition = "transform 500ms ease-in-out"
+    
 }
 
 let paper_record ="";
@@ -84,24 +120,17 @@ const close_form = form_id => {
     form = document.getElementById(form_id)
     form.classList.add('hide')
 }
-$('#st_amount').on( "keyup", function( event ) {
-    // 1.
-    var selection = window.getSelection().toString();
-    console.log(selection)
-    if ( selection !== '' ) {
-        return;
+const formatNumber = (id) => {
+
+    let target = document.getElementById(id)
+    target.style.letterSpacing = "3px";
+    let new_input = target.value.replace(/[\D\s\._\-]+/g, "");
+    let final_input = new_input ? parseInt( new_input, 10 ) : 0;
+    if( final_input === 0 ){
+        target.value = ""
     }
+    else{
+        target.value = final_input.toLocaleString( "en-US" )
+    }
+}
 
-    var $this = $( this );
-    var input = $this.val();
-    
-    var input = input.replace(/[\D\s\._\-]+/g, "");
-    
-    input = input ? parseInt( input, 10 ) : 0;
-    
-    // 4
-    $this.val( function() {
-        return ( input === 0 ) ? "" : input.toLocaleString( "en-US" );
-    } );
-
-});

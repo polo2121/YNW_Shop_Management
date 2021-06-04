@@ -29,19 +29,23 @@ class saleRecordsManagement extends Controller
     //Print Management Queries
     public function insert_print(Request $req) {
         
-        $pdate                       = $req->input('pdate');
+        $pdate                       = $req->input('date');
         $ptype                       = $req->input('ptype');
-        $pamount                     = (int)$req->input('pamount');
+        $pamount                     = $req->input('pamount');
         $pprice                      = (int)$req->input('pprice');
 
-        DB::table('print_sale_records')->insert([
-            'date'       => $pdate,
-            'paper'      => $ptype,
-            'amount'     => $pamount,
-            'price'      => $pprice
-        ]);
+        echo $pdate;
+        echo $pamount;
 
-        return redirect('/sale-records')->with('success', 'Data is successfully inserted to Print Sale Record');
+
+        // DB::table('print_sale_records')->insert([
+        //     'date'       => $pdate,
+        //     'paper'      => $ptype,
+        //     'amount'     => $pamount,
+        //     'price'      => $pprice
+        // ]);
+
+        // return redirect('/sale-records')->with('success', 'Data is successfully inserted to Print Sale Record');
     }
     public function edit_print(Request $req) {
         $results         = DB::select('select * from print_sale_records where pid = :id', ['id' => $req->id]);
@@ -76,16 +80,17 @@ class saleRecordsManagement extends Controller
         $amount                     = (int)$req->input('stAmount');
         $price                      = (int)$req->input('stPrice');
 
-        $st_infos       = DB::table('stationaries')->select('amount','benefit')->where('stName',$name)->get();
+        echo $date;
+        // $st_infos       = DB::table('stationaries')->select('amount','benefit')->where('stName',$name)->get();
         
 
 
-        $updated_amount = $st_infos[0]->{"amount"} - $amount;
+        // $updated_amount = $st_infos[0]->{"amount"} - $amount;
 
         // This benefit is already calculated in stationary table
-        $benefit        = $st_infos[0]->{"benefit"};
+        // $benefit        = $st_infos[0]->{"benefit"};
 
-        $real_benefit   = $benefit * $amount;
+        // $real_benefit   = $benefit * $amount;
 
         // echo $;
 
@@ -131,19 +136,21 @@ class saleRecordsManagement extends Controller
 
     // Phone Management Queries
     public function insert_pb(Request $req){
-        $date           = $req->input('phDate');
+        $date           = $req->input('date');
         $operator       = $req->input('operator');
         $bill           = (int)$req->input('bill');
         $amount         = (int)$req->input('phAmount');
 
-        DB::table('pb_sale_records')->insert([
-            'date'        => $date,
-            'operator'    => $operator,
-            'bill'        => $bill,
-            'amount'      => $amount
-        ]);
+        echo $date;
 
-        return redirect('/sale-records')->with('success', 'Data is successfully inserted to Phone Bill Sale Record');
+        // DB::table('pb_sale_records')->insert([
+        //     'date'        => $date,
+        //     'operator'    => $operator,
+        //     'bill'        => $bill,
+        //     'amount'      => $amount
+        // ]);
+
+        // return redirect('/sale-records')->with('success', 'Data is successfully inserted to Phone Bill Sale Record');
     }
     public function edit_pb(Request $req) {
         // echo "Hell Yeah";
@@ -167,10 +174,10 @@ class saleRecordsManagement extends Controller
     
     // Computer Mangement Queries
     public function insert_com(Request $req){
-        $date           = $req->input('cmDate');
+        $date           = $req->input('date');
         $task           = $req->input('task');
-        $amount         = (int)$req->input('tkAmount');
-        $price          = (int)$req->input('cmPrice');
+        $amount         = (int)$req->input('amount');
+        $price          = (int)$req->input('price');
 
         DB::table('com_sale_records')->insert([
             'date'        => $date,
@@ -202,3 +209,5 @@ class saleRecordsManagement extends Controller
     }
 
 }
+
+

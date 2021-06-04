@@ -55,6 +55,7 @@ input{
     /* background-color: red; */
     font-size: 1rem;
     font-weight: 700;
+    letter-spacing: 2px;
     padding: 10px 10px;
     border:none;
     margin-bottom: 10px;
@@ -68,13 +69,12 @@ input:focus-visible{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 10px;
-    margin-top: 10px;
     padding: 10px;
+    
 }
 .table-input .input{
     position: relative;
     display: inline-flex;
-    
 
 }
 .table-input .input .input__label{
@@ -106,8 +106,30 @@ input:focus-visible{
     font-size: 1rem;
 }
 .table-input button[type="submit"]{
+    color:#ffffff;
     height: 80%;
     border-radius: 4px;
+}
+.insert-submit{
+    cursor: pointer;
+
+}
+.rotateMe{
+    transform: rotate(-1turn);
+    transition: transform 500ms ease-in-out;
+}
+.wallet{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    padding: 0px 8px;
+    color: white;
+    border-radius: 4px;
+    margin-left: auto;
+    justify-content: space-around;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%);
+    cursor: pointer;
+
 }
 .title{
     color: #171718;
@@ -139,7 +161,6 @@ input:focus-visible{
     }
     .btn-groups .btn-frame .btn {
         width: 70%;
-        
         /* text-align: center; */
         /* margin-top: auto; */
         background-color: yellowgreen;
@@ -230,8 +251,6 @@ input:focus-visible{
                     background-color: var(--blue);
                     color: white;
                 }
-
-
         .paperBtn:hover{
             color: #ffffff;
             background-color: var(--print-color);
@@ -287,37 +306,21 @@ input:focus-visible{
                 padding: 10px 8px;
             }
 
-.table_panel, .table-title{
-    box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
-    /* background-color: #ffffff; */
-    /* padding: 20px 15px; */
-}
-
 .table_panel
 {
-    margin: 10px 0px;
+    /* width: 100%; */
+    margin: 15px 10px;
+    background-color: white;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
+    height: fit-content;
 }
-.sale_records{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 14px;
-    background-color:white;
-    padding: 20px;
-    /* box-shadow: 0 3px 20px rgb(0 0 0 / 15%); */
-}
-    /* CSS for Title of sale record tables */
-    table{
-        width: 100%;
-        text-align: center;
-        border-collapse: collapse;
-    }
     .table_panel .table-title{
         display: flex;
         justify-content: space-between;
         /* width: 40%; */
         align-items: center;
         padding: 2px 20px;
-        box-sizing: border-box;
+        box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
     }
     .table_panel .table-title p{
         font-size: 1.2rem;
@@ -326,64 +329,80 @@ input:focus-visible{
         background: transparent;
         /* margin-left: 40px; */
     }
-        .table_panel .table-title svg{
-            fill: #ffffff;
-            margin-right: 10px;
-            
-        }
-    .whole_table_container{
-        /* background-color:red; */
-        /* width: 90%;
-        margin:auto; */
+    .table_panel .table-title svg{
+        fill: #ffffff;
+        margin-right: 10px;
+        
     }
-        .table-header{
-            
-            /* width:60%; */
-            /* border-top-left-radius: .8rem;
-            border-top-right-radius: .8rem; */
-            box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
-        }
-        .table-header table thead tr th{
-            color: #ffffff;
-            /* padding: 20px 4px; */
-        }
-        .table-body{
-            /* width: 60%; */
-            /* max-height: 270px;
-            overflow:hidden;
-            overflow-y: scroll;
-            line-height: 1.4;
-            box-shadow: 0 3px 20px rgb(0 0 0 / 20%); */
-        }
-            .table-body table{
-            }
-            .table-header th{
-                /* font-size: 1rem;
-                line-height: 1.4; */
-            }
-            .table-body tr:nth-child(even){
-                /* color: white; */
-                /* background-color: #949fb4; */
-            }
-            .table-body tr{
-                color: #000000;
-                /*
-                font-size: 18px;
-                border-bottom: 1px solid #c7bfbf91; */
-            }
-            .table-body tbody tr:hover{
-                /* 
-                font-size: 1.5rem !important;
-                box-shadow: 0 3px 20px rgb(0 0 0 / 15%); */
-            }
-            .table-header th, .table-body td{             
-                width: calc(7rem - 12px);
-                padding: 14px;
 
-            }
-            ::-webkit-scrollbar {
+    .sale_records{
+        /* width: 100%; */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 14px;
+        /* justify-content: space-between; */
+        /* background-color:white; */
+        /* padding: 20px; */
+        /* box-sizing: border-box; */
+
+        /* box-shadow: 0 3px 20px rgb(0 0 0 / 15%); */
+    }
+    .display_total{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 25px;
+        text-align: end;
+        margin-right: 10px;
+    }
+        /* CSS for Title of sale record tables */
+        table{
+            width: 100%;
+            text-align: center;
+            color: #000000;
+            font-weight: 600;
+            /* background-color: white; */
+
+            border-collapse: collapse;
+        }
+        table thead {
+            color: white;
+            box-shadow: 0 3px 20px rgb(0 0 0 / 20%);
+
+        }
+        table thead tr th{
+            padding: 20px;
             
-            }
+        }
+        table tbody{
+            margin-top: 10px;
+        }
+        table tbody tr{
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        table tbody tr:first-child,table tbody tr:last-child{
+            border:none;
+        }
+        table tbody tr:hover{
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+
+        }table tbody tr:last-child:hover{
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: none;
+        }
+        table tr td{
+            padding: 12px 10px;
+
+        }
+        table td{
+            
+        }
+        
+
+            
 .print-label,.st-label,
 .com-label,.pb-label{
     background-size: cover !important;
