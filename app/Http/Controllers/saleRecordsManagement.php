@@ -30,9 +30,9 @@ class saleRecordsManagement extends Controller
     public function insert_print(Request $req) {
         
         $pdate                       = $req->input('date');
-        $ptype                       = $req->input('ptype');
-        $pamount                     = $req->input('pamount');
-        $pprice                      = (int)$req->input('pprice');
+        $ptype                       = $req->input('type');
+        $pamount                     = $req->input('amount');
+        $pprice                      = (int)$req->input('price');
 
         echo $pdate;
         echo $pamount;
@@ -75,39 +75,37 @@ class saleRecordsManagement extends Controller
 
     public function insert_st(Request $req) {
         
-        $date                       = $req->input('stDate');
-        $name                       = $req->input('stName');
-        $amount                     = (int)$req->input('stAmount');
-        $price                      = (int)$req->input('stPrice');
+        $date                       = $req->input('date');
+        $name                       = $req->input('name');
+        $amount                     = (int)$req->input('amount');
+        $price                      = $req->input('price');
+        $price                      = intval(str_replace(",","",$price));
 
-        echo $date;
-        // $st_infos       = DB::table('stationaries')->select('amount','benefit')->where('stName',$name)->get();
+        $st_infos       = DB::table('stationaries')->select('amount','benefit')->where('stName',$name)->get();
         
 
 
-        // $updated_amount = $st_infos[0]->{"amount"} - $amount;
+        $updated_amount = $st_infos[0]->{"amount"} - $amount;
 
-        // This benefit is already calculated in stationary table
-        // $benefit        = $st_infos[0]->{"benefit"};
+        //This benefit is already calculated in stationary table
+        $benefit        = $st_infos[0]->{"benefit"};
 
-        // $real_benefit   = $benefit * $amount;
+        $real_benefit   = $benefit * $amount;
 
-        // echo $;
-
-        // DB::table('stationaries')
-        //       ->where('stName',$name)
-        //       ->update(['amount' => $updated_amount]);
+        DB::table('stationaries')
+              ->where('stName',$name)
+              ->update(['amount' => $updated_amount]);
     
-        // $titles = DB::table('stationaries')->pluck('stName');
-
-        // DB::table('stationaries_sale_records')->insert([
-        //     'date'       => $date,
-        //     'name'       => $name,
-        //     'amount'     => $amount,
-        //     'price'      => $price,
-        //     'benefit'      => $benefit,
-        // ]);
-        // return redirect('/sale-records')->with('success', 'Data is successfully inserted to Stationary Sale Record');
+        $titles = DB::table('stationaries')->pluck('stName');
+    
+        DB::table('stationaries_sale_records')->insert([
+            'date'       => $date,
+            'name'       => $name,
+            'amount'     => $amount,
+            'price'      => $price,
+            'benefit'      => $real_benefit,
+        ]);
+        return redirect('/sale-records')->with('success', 'Data is successfully inserted to Stationary Sale Record');
     }
     public function edit_st(Request $req) {
         // echo "Hell Yeah";
@@ -139,7 +137,7 @@ class saleRecordsManagement extends Controller
         $date           = $req->input('date');
         $operator       = $req->input('operator');
         $bill           = (int)$req->input('bill');
-        $amount         = (int)$req->input('phAmount');
+        $amount         = (int)$req->input('amount');
 
         echo $date;
 

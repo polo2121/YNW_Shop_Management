@@ -30,29 +30,56 @@
     <section>
         <div class="sale_record_management">
 
-            <div style="margin-left: 10px;">
+            <div class="data___and___price">
                 <h1 style="">Sale Records</h1>
                 <div class="date_price">
                     <div class="date">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 488.152 488.152" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
-	<g xmlns="http://www.w3.org/2000/svg">
-		<g>
-			<path d="M177.854,269.311c0-6.115-4.96-11.069-11.08-11.069h-38.665c-6.113,0-11.074,4.954-11.074,11.069v38.66    c0,6.123,4.961,11.079,11.074,11.079h38.665c6.12,0,11.08-4.956,11.08-11.079V269.311L177.854,269.311z" fill="#ffffff" data-original="#000000" style=""/>
-			<path d="M274.483,269.311c0-6.115-4.961-11.069-11.069-11.069h-38.67c-6.113,0-11.074,4.954-11.074,11.069v38.66    c0,6.123,4.961,11.079,11.074,11.079h38.67c6.108,0,11.069-4.956,11.069-11.079V269.311z" fill="#ffffff" data-original="#000000" style=""/>
-			<path d="M371.117,269.311c0-6.115-4.961-11.069-11.074-11.069h-38.665c-6.12,0-11.08,4.954-11.08,11.069v38.66    c0,6.123,4.96,11.079,11.08,11.079h38.665c6.113,0,11.074-4.956,11.074-11.079V269.311z" fill="#ffffff" data-original="#000000" style=""/>
-			<path d="M177.854,365.95c0-6.125-4.96-11.075-11.08-11.075h-38.665c-6.113,0-11.074,4.95-11.074,11.075v38.653    c0,6.119,4.961,11.074,11.074,11.074h38.665c6.12,0,11.08-4.956,11.08-11.074V365.95L177.854,365.95z" fill="#ffffff" data-original="#000000" style=""/>
-			<path d="M274.483,365.95c0-6.125-4.961-11.075-11.069-11.075h-38.67c-6.113,0-11.074,4.95-11.074,11.075v38.653    c0,6.119,4.961,11.074,11.074,11.074h38.67c6.108,0,11.069-4.956,11.069-11.074V365.95z" fill="#ffffff" data-original="#000000" style=""/>
-			<path d="M371.117,365.95c0-6.125-4.961-11.075-11.069-11.075h-38.67c-6.12,0-11.08,4.95-11.08,11.075v38.653    c0,6.119,4.96,11.074,11.08,11.074h38.67c6.108,0,11.069-4.956,11.069-11.074V365.95L371.117,365.95z" fill="#ffffff" data-original="#000000" style=""/>
-			<path d="M440.254,54.354v59.05c0,26.69-21.652,48.198-48.338,48.198h-30.493c-26.688,0-48.627-21.508-48.627-48.198V54.142    h-137.44v59.262c0,26.69-21.938,48.198-48.622,48.198H96.235c-26.685,0-48.336-21.508-48.336-48.198v-59.05    C24.576,55.057,5.411,74.356,5.411,98.077v346.061c0,24.167,19.588,44.015,43.755,44.015h389.82    c24.131,0,43.755-19.889,43.755-44.015V98.077C482.741,74.356,463.577,55.057,440.254,54.354z M426.091,422.588    c0,10.444-8.468,18.917-18.916,18.917H80.144c-10.448,0-18.916-8.473-18.916-18.917V243.835c0-10.448,8.467-18.921,18.916-18.921    h327.03c10.448,0,18.916,8.473,18.916,18.921L426.091,422.588L426.091,422.588z" fill="#ffffff" data-original="#000000" style=""/>
-			<path d="M96.128,129.945h30.162c9.155,0,16.578-7.412,16.578-16.567V16.573C142.868,7.417,135.445,0,126.29,0H96.128    C86.972,0,79.55,7.417,79.55,16.573v96.805C79.55,122.533,86.972,129.945,96.128,129.945z" fill="#ffffff" data-original="#000000" style=""/>
-			<path d="M361.035,129.945h30.162c9.149,0,16.572-7.412,16.572-16.567V16.573C407.77,7.417,400.347,0,391.197,0h-30.162    c-9.154,0-16.577,7.417-16.577,16.573v96.805C344.458,122.533,351.881,129.945,361.035,129.945z" fill="#ffffff" data-original="#000000" style=""/>
-		</g>
-	</g>
-</svg>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="30" height="30" x="0" y="0" viewBox="0 0 488.152 488.152" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
+                            <g xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path d="M177.854,269.311c0-6.115-4.96-11.069-11.08-11.069h-38.665c-6.113,0-11.074,4.954-11.074,11.069v38.66    c0,6.123,4.961,11.079,11.074,11.079h38.665c6.12,0,11.08-4.956,11.08-11.079V269.311L177.854,269.311z" fill="#ffffff" data-original="#000000" style=""/>
+                                    <path d="M274.483,269.311c0-6.115-4.961-11.069-11.069-11.069h-38.67c-6.113,0-11.074,4.954-11.074,11.069v38.66    c0,6.123,4.961,11.079,11.074,11.079h38.67c6.108,0,11.069-4.956,11.069-11.079V269.311z" fill="#ffffff" data-original="#000000" style=""/>
+                                    <path d="M371.117,269.311c0-6.115-4.961-11.069-11.074-11.069h-38.665c-6.12,0-11.08,4.954-11.08,11.069v38.66    c0,6.123,4.96,11.079,11.08,11.079h38.665c6.113,0,11.074-4.956,11.074-11.079V269.311z" fill="#ffffff" data-original="#000000" style=""/>
+                                    <path d="M177.854,365.95c0-6.125-4.96-11.075-11.08-11.075h-38.665c-6.113,0-11.074,4.95-11.074,11.075v38.653    c0,6.119,4.961,11.074,11.074,11.074h38.665c6.12,0,11.08-4.956,11.08-11.074V365.95L177.854,365.95z" fill="#ffffff" data-original="#000000" style=""/>
+                                    <path d="M274.483,365.95c0-6.125-4.961-11.075-11.069-11.075h-38.67c-6.113,0-11.074,4.95-11.074,11.075v38.653    c0,6.119,4.961,11.074,11.074,11.074h38.67c6.108,0,11.069-4.956,11.069-11.074V365.95z" fill="#ffffff" data-original="#000000" style=""/>
+                                    <path d="M371.117,365.95c0-6.125-4.961-11.075-11.069-11.075h-38.67c-6.12,0-11.08,4.95-11.08,11.075v38.653    c0,6.119,4.96,11.074,11.08,11.074h38.67c6.108,0,11.069-4.956,11.069-11.074V365.95L371.117,365.95z" fill="#ffffff" data-original="#000000" style=""/>
+                                    <path d="M440.254,54.354v59.05c0,26.69-21.652,48.198-48.338,48.198h-30.493c-26.688,0-48.627-21.508-48.627-48.198V54.142    h-137.44v59.262c0,26.69-21.938,48.198-48.622,48.198H96.235c-26.685,0-48.336-21.508-48.336-48.198v-59.05    C24.576,55.057,5.411,74.356,5.411,98.077v346.061c0,24.167,19.588,44.015,43.755,44.015h389.82    c24.131,0,43.755-19.889,43.755-44.015V98.077C482.741,74.356,463.577,55.057,440.254,54.354z M426.091,422.588    c0,10.444-8.468,18.917-18.916,18.917H80.144c-10.448,0-18.916-8.473-18.916-18.917V243.835c0-10.448,8.467-18.921,18.916-18.921    h327.03c10.448,0,18.916,8.473,18.916,18.921L426.091,422.588L426.091,422.588z" fill="#ffffff" data-original="#000000" style=""/>
+                                    <path d="M96.128,129.945h30.162c9.155,0,16.578-7.412,16.578-16.567V16.573C142.868,7.417,135.445,0,126.29,0H96.128    C86.972,0,79.55,7.417,79.55,16.573v96.805C79.55,122.533,86.972,129.945,96.128,129.945z" fill="#ffffff" data-original="#000000" style=""/>
+                                    <path d="M361.035,129.945h30.162c9.149,0,16.572-7.412,16.572-16.567V16.573C407.77,7.417,400.347,0,391.197,0h-30.162    c-9.154,0-16.577,7.417-16.577,16.573v96.805C344.458,122.533,351.881,129.945,361.035,129.945z" fill="#ffffff" data-original="#000000" style=""/>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <h3 id="tdyDate"></h3>
 
                     </div>
                     <div class="price">
-
+                        <svg fill="#ffffff" width="30" height="30" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                            <g>
+                                <g>
+                                    <path d="M416,288.01c-17.664,0-32,14.336-32,32s14.336,32,32,32h96v-64H416z"/>
+                                </g>
+                            </g>
+                            <g>
+                                <g>
+                                    <path d="M416,256.01h64v-80c0-8.96-7.04-16-16-16h-32v-48c0-8.96-7.04-16-16-16h-38.08L350.4,40.97c-4.16-8-13.76-11.2-21.44-7.36
+                                        l-37.12,18.56l-5.44-11.2c-4.16-8-13.76-11.2-21.44-7.36l-124.8,62.4H48c-26.56,0-48,21.44-48,48v288c0,26.56,21.44,48,48,48h416
+                                        c8.96,0,16-7.04,16-16v-80h-64c-35.2,0-64-28.8-64-64C352,284.81,380.8,256.01,416,256.01z M400,128.01v12.16l-6.08-12.16H400z
+                                        M32.96,149.45c-0.64-1.6-0.96-3.52-0.96-5.44c0-8.96,7.04-16,16-16h28.16L32.96,149.45z M83.84,160.01l181.12-90.56l45.12,90.56
+                                        H83.84z M345.92,160.01l-39.68-79.36l22.72-11.2l45.12,90.56H345.92z"/>
+                                </g>
+                            </g>
+                        </svg>
+    
+                        <h3 class="" id="total">10000</h3>
+                        <script>
+                            let total = document.getElementById("total")
+                            let dollarUSLocale = Intl.NumberFormat('en-US');
+                            price = dollarUSLocale.format(total.innerHTML)
+                            total.innerHTML = price + " " + "MMK"
+                        </script>
                     </div>
                 </div>
             </div>
@@ -91,11 +118,11 @@
                                 </tr>
 
                                 @foreach ($Print_Infos as $pifs)
-                                    <tr class="row100 body">
+                                    <tr class="row100 body" >
                                         <!-- <td class="cell100 column1">{{$pifs->date}}</td> -->
-                                        <td class="cell100 column2">{{$pifs->paper}}</td>
-                                        <td class="cell100 column3">{{$pifs->amount}}</td>
-                                        <td class="cell100 column3">{{$pifs->price}}</td>
+                                        <td contenteditable="true" class="cell100 column2">{{$pifs->paper}}</td>
+                                        <td contenteditable="true" class="cell100 column3">{{$pifs->amount}}</td>
+                                        <td contenteditable="true" class="cell100 column3 formatMe">{{$pifs->price}}</td>
                                         <td>
                                             <a href="{{route('sa.print.toEdit',['id'=>$pifs->pid])}}">
                                                 <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
@@ -134,18 +161,18 @@
                         @method('POST')
                         <input  class="tdy_date" type="hidden" id="" name="date">
                         <label class="input">   
-                            <input name="ptype" class="input__field" type="text" placeholder=" " value="" />
+                            <input name="type" class="input__field" type="text" placeholder=" " value="" />
                             <span class="input__label">Name</span>
                         </label>
                         
                         <label class="input">   
-                            <input name="pprice" class="input__field" type="number" placeholder=" " value="" />
-                            <span class="input__label">Price</span>
+                            <input id="amount" onkeyup="formatNumber(id)" name="pamount" class="input__field" type="text" placeholder=" " value="" />
+                            <span class="input__label">Amount</span>
                         </label>
 
                         <label class="input">   
-                            <input id="pamount" onkeyup="formatNumber(id)" name="pamount" class="input__field" type="text" placeholder=" " value="" />
-                            <span class="input__label">Amount</span>
+                            <input name="price" class="input__field" type="number" placeholder=" " value="" />
+                            <span class="input__label">Price</span>
                         </label>
 
                         <button type="submit" class="print-header">Submit</button>
@@ -190,7 +217,7 @@
                                     <tr class="row100 body">
                                         <td class="cell100 column1">{{$stifs->name}}</td>
                                         <td class="cell100 column2">{{$stifs->amount}}</td>
-                                        <td class="cell100 column3">{{$stifs->price}}</td>
+                                        <td class="cell100 column3 formatMe">{{$stifs->price}}</td>
                                         <td>
                                             <a href="{{route('sa.st.toEdit',['id'=>$stifs->ssrid])}}">
                                                 <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
@@ -222,23 +249,24 @@
                         </table>
                     </div>
 
-                    <form style="" id="stationary-insert-form" class="hide table-input animate__animated animate__fadeInUp" action="{{route('sa.print.toInsert')}}" method="POST">
+                    <form style="" id="stationary-insert-form" class="hide table-input animate__animated animate__fadeInUp" action="{{route('sa.st.toInsert')}}" method="POST">
                         @csrf
                         @method('POST')
-
+                        <input  class="tdy_date" type="hidden" id="" name="date">
+                        
                         <label class="input">   
-                            <input name="date" class="input__field" type="text" placeholder=" " value="" />
+                            <input name="name" class="input__field" type="text" placeholder=" " value="" />
                             <span class="input__label">Name</span>
                         </label>
                         
                         <label class="input">   
-                            <input name="date" class="input__field" type="number" placeholder=" " value="" />
-                            <span class="input__label">Price</span>
+                            <input name="amount" class="input__field" type="number" placeholder=" " value="" />
+                            <span class="input__label">Amount</span>
                         </label>
 
                         <label class="input">   
-                            <input id="st_amount"  onkeyup="formatNumber(id)" name="amount" class="input__field" type="text" placeholder=" " value=""/>
-                            <span class="input__label">Amount</span>
+                            <input id="st_price"  onkeyup="formatNumber(id)" name="price" class="input__field" type="text" placeholder=" " value=""/>
+                            <span class="input__label">Price</span>
                         </label>
 
                         <button class="st-header" type="submit">Submit</button>
@@ -330,7 +358,7 @@
                                 <tr class="row100 body">
                                     <td class="cell100 column1">{{$cinfs->task}}</td>
                                     <td class="cell100 column2">{{$cinfs->amount}}</td>
-                                    <td class="cell100 column3">{{$cinfs->price}}</td>
+                                    <td class="cell100 column3 formatMe">{{$cinfs->price}}</td>
                                     <td>
                                         <a href="{{route('sa.com.toEdit',['id'=>$cinfs->csrid])}}">
                                             <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
@@ -416,7 +444,7 @@
                                 <tr class="row100 body">
                                     <td class="cell100 column1">{{$pbifs->operator}}</td>
                                     <td class="cell100 column2">{{$pbifs->bill}}</td>
-                                    <td class="cell100 column3">{{$pbifs->amount}}</td>
+                                    <td class="cell100 column3 formatMe">{{$pbifs->amount}}</td>
                                     <td>
                                         <a href="{{route('sa.ph.toEdit',['id'=>$pbifs->pbsrid])}}">
                                             <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
@@ -462,7 +490,7 @@
                         </label>
 
                         <label class="input">   
-                            <input name="phAmount" class="input__field" type="number" placeholder=" " value="" />
+                            <input name="amount" class="input__field" type="number" placeholder=" " value="" />
                             <span class="input__label">Amount</span>
                         </label>
 

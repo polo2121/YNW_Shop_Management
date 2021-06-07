@@ -6,6 +6,8 @@ let tdy_date = document.querySelectorAll('.tdy_date')
 
 let print_inputs       = document.querySelectorAll('input')
 let is                 = document.querySelectorAll('insert-submit')
+let formatMe       = document.querySelectorAll('.formatMe')
+
 
 console.log(entry_form_buttons)
 // console.log(forms)
@@ -14,6 +16,22 @@ let today = new Date();
 let tdate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 tdy_date.forEach( date => {
     date.value = tdate 
+})
+
+const getMdy = () => {
+    let week  = today.toDateString().split(' ')[0]
+    let mon   = today.toDateString().split(' ')[1]
+    let day   = today.toDateString().split(' ')[2]
+    // let year  = today.toDateString().split(' ')[3]
+    return week+", "+mon+" "+day
+}
+document.getElementById("tdyDate").innerHTML = getMdy()
+
+formatMe.forEach(fm => {
+    console.log(fm)
+    let dollarUSLocale = Intl.NumberFormat('en-US');
+    price = dollarUSLocale.format(fm.innerHTML)
+    fm.innerHTML = price
 })
 
 const hide_show = (form_id,btn_id) =>{
