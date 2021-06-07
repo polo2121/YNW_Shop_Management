@@ -10,7 +10,7 @@
         <i class="fas fa-greater-than fa-xs"></i>
         <a>Store Management</a>
         <i class="fas fa-greater-than fa-xs"></i>
-        <a href="{{route('sm.st.home')}}"><span>Stationary</span></a>
+        <a href="{{route('sm.print.home')}}"><span>Print</span></a>
     </div>
   
 @endsection
@@ -19,13 +19,13 @@
     <div class="selection">
         <div class="pill">
             <a href="{{route('sm.st.home')}}">
-                <button type="button"  class="submitBtn btnBgColor selectionActive"  id="stBtn">
+                <button type="button"  class="submitBtn btnBgColor"  id="stBtn">
                     Stationary
                 </button>
             </a>
 
             <a href="{{route('sm.print.home')}}">
-                <button typee="button" class="submitBtn btnBgColor"  id="printBtn">
+                <button typee="button" class="selectionActive submitBtn btnBgColor"  id="phBtn">
                     Print
                 </button>
             </a>
@@ -43,7 +43,7 @@
 
         <div class="form_panel" id="stInesrtForm">
             <h2 class="title">
-                Stationary Management
+                Print Management
             </h2>
             <div class="form_header">
                 <h3 for="" class="form_title">
@@ -105,7 +105,7 @@
         <div class="table_panel mb2" id = "">
             <div class="show_info">
                 <div class="disFlex">
-                        <h2 class="table_title">Stationary Storage</h2>
+                        <h2 class="table_title">Print Items Storage</h2>
                         <button class="insertButton" type="button" onclick="form_showHide('stInesrtForm')">
                             <img class="svgHover" src="{{ asset('../images/add.svg')}}" alt="" width="60" height="30">
                         </button>
@@ -131,26 +131,7 @@
                     <div class="tbl-content">
                         <table>
                             <tbody>
-                            @foreach ($stationareis_infos as $stationareis_info)
-                                <tr>
-                                    <input type="hidden" id="stid">
-                                    <td>{{$stationareis_info->stName}}</td>
-                                    <td>{{$stationareis_info->purchased_price_per_unit}}</td>
-                                    <td>{{$stationareis_info->amount}}</td>
-                                    <td>{{$stationareis_info->total_purchased_price}}</td>
-                                    <td>{{$stationareis_info->sale_price}}</td>
-                                    <td>{{$stationareis_info->benefit}}</td>
-                                    <td>
-                                        <a href="{{route('sm.st.edit',['id'=>$stationareis_info->stid])}}">
-                                            <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
-                                        </a>
 
-                                        <a href="{{route('sm.st.toDel',['id'=>$stationareis_info->stid])}}">
-                                            <img onclick="removeStationaryData" class="" src="../images/remove.svg" alt="" width="23" height="20">
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach 
                             </tbody>
                         </table>
                     </div>    

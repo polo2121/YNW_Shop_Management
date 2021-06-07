@@ -5,6 +5,8 @@ use App\Http\Controllers\CalculationController;
 use App\Http\Controllers\StoreManagementController;
 use App\Http\Controllers\phoneBillManagement;
 use App\Http\Controllers\stationaryManagement;
+use App\Http\Controllers\PrintManagementController;
+
 
 
 use App\Http\Controllers\saleRecordsManagement;
@@ -99,6 +101,20 @@ Route::prefix('/store-management')->group(function () {
          
          Route::name('pb.')->group(function () {
             Route::get('/', [phoneBillManagement::class, 'phone_bills'])->name('home');
+            Route::get('/edit/{id}',[phoneBillManagement::class, 'phone_bills_edit'])->name('edit');
+            Route::post('/insert', [phoneBillManagement::class, 'insertPhBill'])->name('toInsert');
+            Route::post('/edit', [phoneBillManagement::class, 'edit_phone_bills'])->name('toEdit');
+            Route::get('/delete/{id}', [phoneBillManagement::class, 'del_phoneBill'])->name('toDel');
+
+         });
+
+      });
+
+      //Print Management Route
+      Route::prefix('/print')->group(function () {
+   
+         Route::name('print.')->group(function () {
+            Route::get('/', [PrintManagementController::class, 'print'])->name('home');
             Route::get('/edit/{id}',[phoneBillManagement::class, 'phone_bills_edit'])->name('edit');
             Route::post('/insert', [phoneBillManagement::class, 'insertPhBill'])->name('toInsert');
             Route::post('/edit', [phoneBillManagement::class, 'edit_phone_bills'])->name('toEdit');

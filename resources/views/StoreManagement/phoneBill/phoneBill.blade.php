@@ -24,17 +24,18 @@
                 </button>
             </a>
 
+            <a href="{{route('sm.print.home')}}">
+                <button typee="button" class="submitBtn btnBgColor"  id="phBtn">
+                    Print
+                </button>
+            </a>
+
             <a href="{{route('sm.pb.home')}}">
                 <button type="button"  class="submitBtn btnBgColor selectionActive"  id="comBtn">
                     Phone Bill
                 </button>        
             </a>
 
-            <a href="">
-                <button typee="button" class="submitBtn btnBgColor"  id="phBtn">
-                    Computer
-                </button>
-            </a>
         </div>
     </div>
 
