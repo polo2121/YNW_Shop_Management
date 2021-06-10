@@ -1,0 +1,100 @@
+:root {
+    --blue: #03045e;
+    --print-color: #011627;
+    --com-color: #8d0801;
+    --st-color: #335e51;
+    --ph-color: #ac6a0e; 
+}
+h3{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+section{
+    /* margin-left: 20px;    */
+}
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.dashboard{
+    background-color: #ffffff !important;
+}
+.location{
+    padding: 10px 0px;
+}
+.location a {
+    color: #968585;
+    font-size: .875rem;
+}
+.location span{
+    color: #003f88;
+}
+button{
+    /* width: 30%; */
+    
+    text-transform: uppercase;
+    vertical-align: bottom;
+    border: 0;
+    font-weight: 700;
+    font-size: .9rem;
+    line-height: 1.5;
+    background-color: #ffffff;
+    color: #ffffff;
+    /* color: var(--blue); */
+    /* border-color:var(--blue); */
+    padding: 6px 16px;
+    border-radius: 1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,.21);
+}
+button:focus-visible{
+    outline: none !important;
+}
+.big_three,.small_three{
+    display: flex;
+    justify-content: center;
+}
+.small_three{
+    margin-top: 30px;
+}
+.big_three button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    letter-spacing: 2px;
+}
+.small_three button{
+    margin-right: 10px;
+}
+#total_sale{
+    background-color: #039684;
+}
+#total_sale:hover{
+    background-color: #056e62;
+}
+#benefit{
+    background-color: #bb3e03;
+}
+#benefit:hover{
+    background-color: #8f3105;
+}
+#most_sale{
+    background-color: #2f7f57;
+}
+#most_sale:hover{
+    background-color: #33614a;
+}
+.big_three_btn svg{
+    margin-top: 4px;
+}
+.big_three_btn label{
+    padding:6px;
+}
+#app{
+    width: 40%;
+    background-color: red;
+    margin:auto;
+    margin-top: 30px;
+}

@@ -44,7 +44,7 @@
             
             </a>
 
-            <a href="{{route('sm.benefit.home')}}">
+            <a href="{{route('benefit.home')}}">
                 <div class="nav_icons">
                     <svg fill="#ffffff" width="30" height="30" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
