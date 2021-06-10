@@ -120,7 +120,7 @@
                                 @foreach ($Print_Infos as $pifs)
                                     <tr class="row100 body" >
                                         <!-- <td class="cell100 column1">{{$pifs->date}}</td> -->
-                                        <td contenteditable="true" class="cell100 column2">{{$pifs->paper}}</td>
+                                        <td contenteditable="true" class="cell100 column2">{{$pifs->items}}</td>
                                         <td contenteditable="true" class="cell100 column3">{{$pifs->amount}}</td>
                                         <td contenteditable="true" class="cell100 column3 formatMe">{{$pifs->price}}</td>
                                         <td>
@@ -161,12 +161,12 @@
                         @method('POST')
                         <input  class="tdy_date" type="hidden" id="" name="date">
                         <label class="input">   
-                            <input name="type" class="input__field" type="text" placeholder=" " value="" />
-                            <span class="input__label">Name</span>
+                            <input name="items" class="input__field" type="text" placeholder=" " value="" />
+                            <span class="input__label">Items</span>
                         </label>
                         
                         <label class="input">   
-                            <input id="amount" onkeyup="formatNumber(id)" name="pamount" class="input__field" type="text" placeholder=" " value="" />
+                            <input id="amount" onkeyup="formatNumber(id)" name="amount" class="input__field" type="text" placeholder=" " value="" />
                             <span class="input__label">Amount</span>
                         </label>
 

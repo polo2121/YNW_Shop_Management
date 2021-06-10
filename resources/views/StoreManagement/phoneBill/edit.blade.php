@@ -17,27 +17,6 @@
 
 @section('content')
 
-<div class="selection">
-        <div class="pill">
-            <a href="{{route('sm.st.home')}}">
-                <button type="button"  class="submitBtn btnBgColor"  id="stBtn">
-                    Stationary
-                </button>
-            </a>
-
-            <a href="{{route('sm.pb.home')}}">
-                <button type="button"  class="submitBtn btnBgColor selectionActive"  id="comBtn">
-                    Phone Bill
-                </button>        
-            </a>
-
-            <a href="">
-                <button typee="button" class="submitBtn btnBgColor"  id="phBtn">
-                    Computer
-                </button>
-            </a>
-        </div>
-</div>
 <div class="form_panel">
     @foreach ($results as $result)
 

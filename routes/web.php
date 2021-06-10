@@ -115,15 +115,23 @@ Route::prefix('/store-management')->group(function () {
    
          Route::name('print.')->group(function () {
             Route::get('/', [PrintManagementController::class, 'print'])->name('home');
-            Route::get('/edit/{id}',[phoneBillManagement::class, 'phone_bills_edit'])->name('edit');
-            Route::post('/insert', [phoneBillManagement::class, 'insertPhBill'])->name('toInsert');
-            Route::post('/edit', [phoneBillManagement::class, 'edit_phone_bills'])->name('toEdit');
-            Route::get('/delete/{id}', [phoneBillManagement::class, 'del_phoneBill'])->name('toDel');
+            Route::get('/edit/{id}',[PrintManagementController::class, 'edit_printItems'])->name('toEdit');
+            Route::post('/insert', [PrintManagementController::class, 'insert_printItems'])->name('toInsert');
+            Route::post('/update', [PrintManagementController::class, 'update_printItems'])->name('toUpdate');
+            Route::get('/delete/{id}', [PrintManagementController::class, 'del_printItems'])->name('toDel');
 
          });
 
       });
 
+  });
+
+});
+
+Route::prefix('/benefits')->group(function () {
+   
+   Route::name('benefit.')->group(function () {
+      Route::get('/', [benefitManagement::class, 'benefit'])->name('home');
   });
 
 });

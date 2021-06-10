@@ -49,11 +49,11 @@
     margin-block-end: 0 !important;
     color: #ffffff;
     width: 30%;
-    background-color: #003f88;
     padding: 10px;
     box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
 
 }
+
 .form_input_panel{
     display: grid;
     position: relative;
@@ -92,7 +92,7 @@
         margin-bottom: 0;
         font-size: 1rem;
         line-height: 1.5;
-        color: #003f88;
+        color: #000000;
     }
     .input_groups input
     {
@@ -187,13 +187,23 @@ button
         padding: 4px 6px;
         background-color: #ffffff;
         border: 3px solid;
-        border-color: #003f88;
-        color: #003f88;
         cursor: pointer;
+        padding: 10px;
         /* border:none; */
     }
-    .subBtn:hover{
-        border:none;
+    .psubBtn{
+        color: #1d3557;
+        border: 2px solid;
+    }
+    .stSubBtn{
+        color: #003f88;
+        border: 2px solid;
+    }
+    .psubBtn:hover{
+        background-color: #1d3557;
+        color:#ffffff;
+    }
+    .stSubBtn:hover{
         background-color: #003f88;
         color:#ffffff;
     }
@@ -306,3 +316,5 @@ button
 .hide{
     display: none;
 }
+.print_BgColor { background: #1d3557; }
+.st_BgColor { background: #003f88; }

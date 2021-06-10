@@ -19,6 +19,9 @@
     margin-left: 30px;
     color: #474b50;
 }
+input{
+    font-family: 'Poppins', sans-serif;
+}
 
 /* Form and its Input */
 .form_panel{
@@ -48,7 +51,6 @@
     margin-block-end: 0 !important;
     color: #ffffff;
     width: 30%;
-    background-color: #003f88;
     padding: 10px;
     box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
 
@@ -91,7 +93,7 @@
         margin-bottom: 0;
         font-size: inherit;
         line-height: 1.5;
-        color: #003f88;
+        color: #000000;
     }
     .input_groups input
     {
@@ -108,9 +110,14 @@
         margin: 6px 6px;
         cursor: pointer;
     }
-    .input_groups input:hover, .active-input{
+    .input_groups .st_input input:hover, .stActive-input{
         color: #003f88;
         border: 3px solid #003f88 !important;
+        box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
+    }
+    .input_groups .print_input input:hover, .pActive-input{
+        color: #1d3557;
+        border: 3px solid #1d3557 !important;
         box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
     }
     .input_groups input:focus {
@@ -145,7 +152,7 @@ button
 {
     margin-top: 10px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: .8rem;
 
     text-transform: uppercase;
@@ -159,9 +166,9 @@ button
     line-height: 1.5;
     outline: none;
     
-    border: 2px solid #003f88;
+    border: 2px solid;
     border-radius: .5rem;
-    color: #003f88;
+    /* color: #003f88; */
     background-color: transparent;
 
     padding: 10px 0px; 
@@ -182,15 +189,23 @@ button
         align-items: center;
         margin-right: 4px;
         padding: 4px 6px;
-        background-color: #ffffff;
-        border: 3px solid;
-        border-color: #003f88;
-        color: #003f88;
         cursor: pointer;
+        padding: 10px;
         /* border:none; */
     }
-    .subBtn:hover{
-        border:none;
+    .psubBtn{
+        color: #1d3557;
+        border: 2px solid;
+    }
+    .stSubBtn{
+        color: #003f88;
+        border: 2px solid;
+    }
+    .psubBtn:hover{
+        background-color: #1d3557;
+        color:#ffffff;
+    }
+    .stSubBtn:hover{
         background-color: #003f88;
         color:#ffffff;
     }
@@ -205,15 +220,19 @@ button
 .pill{
     width: 72%;
     margin: auto;
-    background-color: #0e0e3b63;
     border-radius: .8rem;
 }
+.selection_BgColor_print,.print_BgColor { background: #1d3557; }
+.pill_BgColor_print      { background: #192940;}
+
+.selection_BgColor_st,.st_BgColor { background: #003f88; }
+.pill_BgColor_st      { background: #0e0e3b63; }
+
     .selection{
         width: 45%;
         margin: auto;
         text-align: center;
         padding: 10px 0px;
-        background-color: #003f88;
         align-items: center;
         border-radius: .8rem;
         box-shadow: 0 3px 20px rgb(0 0 0 / 35%);
@@ -226,7 +245,8 @@ button
     }
     .selection button:hover{
         font-size: .8rem;
-        color: #003f88 !important;
+        color:#000000;
+
         background-color: #ffffff;
         padding: 10px 10px;
         /* border: 2px solid #ffffff; */
@@ -234,7 +254,7 @@ button
     }
     .selectionActive{
         font-size: .8rem;
-        color: #003f88 !important;
+        color:#000000 !important;
         background-color: #ffffff;
         padding: 10px 10px;
     }
@@ -282,9 +302,9 @@ button
 table{
     width:100%;
     table-layout: fixed;
+    color: black;
 }
 .tbl-header{
-    background-color:#003f88;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
 }
@@ -500,10 +520,36 @@ table tbody tr:hover {
     filter: invert(62%) sepia(40%) saturate(1093%) hue-rotate(359deg) brightness(103%) contrast(96%);
 }
 /* End of Predefined CSS Pack */
-
+.search{ 
+    position: relative;
+    border-radius: 1rem;
+    padding:8px;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
+}
+.search input{
+    width: 80%;
+    padding: 8px;
+    color:#1d3557;
+    font-size: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border:none;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 40%);
+}
+.search input::placeholder{
+    color:#1d3557;
+}
+.search input:focus-visible{
+    outline:none;
+}
 .disFlex{
     display: flex;
     align-items: center;
+}
+.disFlex_sb{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     /* justify-content: flex-start; */
 }
 .disFlex .insertButton{

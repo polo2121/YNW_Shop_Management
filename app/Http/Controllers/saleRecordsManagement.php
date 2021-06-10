@@ -29,23 +29,36 @@ class saleRecordsManagement extends Controller
     //Print Management Queries
     public function insert_print(Request $req) {
         
-        $pdate                       = $req->input('date');
-        $ptype                       = $req->input('type');
-        $pamount                     = $req->input('amount');
-        $pprice                      = (int)$req->input('price');
+        $date                       = $req->input('date');
+        $items                       = $req->input('items');
+        $amount                     = (int)$req->input('amount');
+        $price                      = (int)$req->input('price');
 
-        echo $pdate;
-        echo $pamount;
+        $print_infos       = DB::table('print_items')->select('amount','benefit')->where('items',$items)->get();
+        
+        $updated_amount = $print_infos[0]->{"amount"} - $amount;
 
+        //This benefit is already calculated in stationary table
+        $benefit        = $print_infos[0]->{"benefit"};
 
-        // DB::table('print_sale_records')->insert([
-        //     'date'       => $pdate,
-        //     'paper'      => $ptype,
-        //     'amount'     => $pamount,
-        //     'price'      => $pprice
-        // ]);
+        $real_benefit   = $benefit * $amount;
 
-        // return redirect('/sale-records')->with('success', 'Data is successfully inserted to Print Sale Record');
+        echo $items;
+        DB::table('print_items')
+              ->where('items',$items)
+              ->update(['amount' => $updated_amount]);
+    
+        // $titles = DB::table('print_items')->pluck('items');
+    
+        DB::table('print_sale_records')->insert([
+            'date'       => $date,
+            'items'       => $items,
+            'amount'     => $amount,
+            'price'      => $price,
+            'benefit'      => $real_benefit,
+        ]);
+        return redirect('/sale-records')->with('success', 'Data is successfully inserted to Print Sale Record');
+
     }
     public function edit_print(Request $req) {
         $results         = DB::select('select * from print_sale_records where pid = :id', ['id' => $req->id]);
@@ -83,8 +96,6 @@ class saleRecordsManagement extends Controller
 
         $st_infos       = DB::table('stationaries')->select('amount','benefit')->where('stName',$name)->get();
         
-
-
         $updated_amount = $st_infos[0]->{"amount"} - $amount;
 
         //This benefit is already calculated in stationary table

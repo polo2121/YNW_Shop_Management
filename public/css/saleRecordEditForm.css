@@ -14,21 +14,35 @@ h1, h2, h3 {
         margin:auto;
         margin-top: 40px;
     }
+
     #print_card{
         border: 3px solid var(--print-color);
         box-shadow: .5rem .5rem 0 var(--print-color);
+    }
+    .printEdit{
+        background-color: var(--print-color);
     }
     #st_card{
         border: 3px solid var(--st-color);
         box-shadow: .5rem .5rem 0 var(--st-color);
     }
+    .stEdit{
+        background-color: var(--st-color);
+
+    }
     #pb_card{
         border: 3px solid var(--ph-color);
         box-shadow: .5rem .5rem 0 var(--ph-color);
     }
+    .pbEdit{
+        background-color: var(--ph-color);
+    }
     #com_card{
         border: 3px solid var(--com-color);
         box-shadow: .5rem .5rem 0 var(--com-color);
+    }
+    .comEdit{
+        background-color: var(--com-color);
     }
 
         .card-header{

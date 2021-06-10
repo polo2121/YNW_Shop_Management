@@ -9,10 +9,16 @@ let operator_images    = document.querySelectorAll    ('.circle')
 let predefined_bills   = document.querySelectorAll    (".predefined_bill input")
 let sections           = document.querySelectorAll    ('section')
 
+let formatMe           = document.querySelectorAll('.formatMe')
+
 const removeStationaryData = () => {
     let data=document.getElementById("stid").value
-    console.log(data)
 }
+formatMe.forEach(fm => {
+    let dollarUSLocale = Intl.NumberFormat('en-US');
+    price = dollarUSLocale.format(fm.innerHTML)
+    fm.innerHTML = price
+})
 
 //Insert Form Show and Hide
 const form_showHide = (formType) => {
@@ -23,7 +29,11 @@ const form_showHide = (formType) => {
         form.classList.remove("hide")
     }
     else{
-        form.classList.add("hide")
+        form.classList.replace("animate__fadeInUp","animate__fadeOutDown")
+        setTimeout(() => {
+            form.classList.add('hide')
+        }, 800)
+        // form.classList.replace("animate__fadeOutDown","animate__fadeInUp")
     }     
 }
 // End 
@@ -118,4 +128,36 @@ const clearInputs = () => {
     document.querySelectorAll    ('input[name="operator"]')[0].defaultValue = ""
 
 }
+const formatNumber = (id) => {
 
+    let target = document.getElementById(id)
+    target.style.letterSpacing = "2px";
+    let new_input = target.value.replace(/[\D\s\._\-]+/g, "");
+    let final_input = new_input ? parseInt( new_input, 10 ) : 0;
+    if( final_input === 0 ){
+        target.value = ""
+    }
+    else{
+        target.value = final_input.toLocaleString( "en-US" )
+    }
+}
+
+const searching = (id,table) => {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById(id);
+    console.log(input)
+    filter = input.value.toUpperCase();
+    table = document.getElementById(table);
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        }       
+    }
+}

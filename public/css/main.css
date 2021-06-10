@@ -134,9 +134,11 @@ i{
     filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
 }
 .alert{
+    display: flex;
+    justify-content: space-between;
     width: 65vw;
-    color: #0f5132;
-    background-color: #d1e7dd;
+    color: #ffffff;
+    background-color: #33cd87;
     border-color: #aad8c3;
     font-weight: 700;
     text-align: center;
@@ -146,4 +148,16 @@ i{
     padding: 20px 20px;
     border-radius: .25rem;
     box-shadow: 0 3px 20px rgb(0 0 0 / 15%);
+    border-bottom: 6px solid white;
+    z-index: 10;
+}
+.successLogo{
+    width: 6%;
+    padding: 18px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.05);
+    background-color: rgba(255,255,255,0.15);
+}
+.alert label{
+    margin:auto;
 }
