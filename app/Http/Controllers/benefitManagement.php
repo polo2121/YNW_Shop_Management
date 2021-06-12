@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Response;
 use Illuminate\Http\Request;
 
 class benefitManagement extends Controller
@@ -10,5 +10,12 @@ class benefitManagement extends Controller
         
         return view('benefits/home');
         
+    }
+    public function calculate_benefit(Request $req){
+        $startDate = $req->stDate;
+        $endDate   = $req->edDate;
+
+        // return Response::json(array('data'=>$req->stDate));
+
     }
 }

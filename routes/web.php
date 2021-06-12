@@ -134,6 +134,9 @@ Route::prefix('/benefits')->group(function () {
    
    Route::name('benefit.')->group(function () {
       Route::get('/', [benefitManagement::class, 'benefit'])->name('home');
+      Route::get('/calculate_benefit', [benefitManagement::class, 'calculate_benefit'])->name('cal_benefit');
+
+      
   });
 
 });

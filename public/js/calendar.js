@@ -54,8 +54,8 @@ function appendDay(day, calendarDaysElement) {
   const dayElementClassList = dayElement.classList;
   dayElementClassList.add("calendar-day");
   const dayOfMonthElement = document.createElement("span");
-  dayOfMonthElement.innerText = day.dayOfMonth;
-  dayElement.appendChild(dayOfMonthElement);
+  dayElement.innerText = day.dayOfMonth;
+  // dayElement.appendChild(dayOfMonthElement);
   calendarDaysElement.appendChild(dayElement);
 
   if (!day.isCurrentMonth) {
