@@ -3,17 +3,17 @@
     <!-- SHIFT + Tab -->
     <link rel="stylesheet" href="{{ asset('./css/benefit.css')}}">
     <link rel="stylesheet" href="{{ asset('./css/calendar.css')}}">
-
+    <link rel="stylesheet" href="{{ asset('../css/jquery-ui.css')}}">
 @endpush
 
 @push('scripts')
+    <script type="text/javascript" src="{{ asset('../js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('../js/jquery-ui.min.js')}}"></script>
     <script src="{{ asset('../js/weekday.js')}}"></script>
     <script src="{{ asset('../js/dayjs.min.js')}}"></script>
     <script src="{{ asset('../js/calendar.js')}}"></script>
+
     <script src="{{ asset('../js/benefit.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('../js/jquery.min.js')}}"></script>
-    <link rel="stylesheet" href="{{ asset('../css/jquery-ui.css')}}">
-    <script type="text/javascript" src="{{ asset('../js/jquery-ui.min.js')}}"></script>
 @endpush
 
 @section('location')
@@ -51,6 +51,10 @@
 
         </div>
 
+        <div id="calculate_results">
+        </div>
+
+        <input type="date">
         <div class="small_three" id="dwm">
             <div id="date_form">
                 <label for="" class="select_date">Select Date</label>
@@ -93,7 +97,7 @@
                                                 <path d="M88,172.8H58c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h30c4.142,0,7.5-3.358,7.5-7.5S92.142,172.8,88,172.8z"/>
                                             </g>
                         </svg>
-                        <input class="input__field startBg" type="text" id="start date" placeholder=" "> 
+                        <input class="input__field startBg" type="text" id="start date" placeholder=" " disabled> 
                         <span class="input__label ">Start Date</span>
                     </label> 
 
@@ -135,7 +139,7 @@
                                                     <path d="M88,172.8H58c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5,7.5,7.5h30c4.142,0,7.5-3.358,7.5-7.5S92.142,172.8,88,172.8z"/>
                                                 </g>
                         </svg>
-                        <input class="input__field endBg" type="text" id="end date" placeholder=" "> 
+                        <input class="input__field endBg" type="text" id="end date" placeholder=" " disabled> 
                         <span class="input__label">End Date</span>
                     </label> 
                     <span></span>
@@ -146,7 +150,15 @@
 
         </div>
 
-        <div   id="app">
+        <div id="myDate">
+            <div>
+                <div id="myYear"></div>
+                <div id="myMonth"></div>
+            </div>
+            
+        </div>
+
+        <div>
             <div class="hide calendar-month animate__animated animate__slideInUp" id="calendar">
                 <div style="position: relative;">
                     <h3 id="calendar_type"></h3>
@@ -158,11 +170,14 @@
                 <section class="calendar-month-header">
                     <div  id="selected-month" class="calendar-month-header-selected-month"></div>
 
+
                     <section class="calendar-month-header-selectors">
                         <i  id="previous-month-selector" class="fas fa-long-arrow-alt-left fa-xl"></i>
-                        <!-- <span id="previous-month-selector"><</span> -->
+                        
+
+
                         <span id="present-month-selector">Today</span>
-                        <!-- <span id="next-month-selector">></span> -->
+
                         <i id="next-month-selector" class="fas fa-long-arrow-alt-right fa-xl"></i>
                     </section>
                 </section>

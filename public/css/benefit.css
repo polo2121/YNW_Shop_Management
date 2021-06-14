@@ -130,7 +130,7 @@ button:focus-visible{
     display: inline-flex;
     color: #000;
     box-sizing: border-box;
-    width: 100%;
+    /* width: 100%; */
     padding:15px 8px;
     background: transparent;
     border-radius: 4px;
@@ -169,6 +169,7 @@ button:focus-visible{
 }
 .input__label {
     position: absolute;
+
     left: 10;
     top: 0;
     font-size:1rem;
@@ -185,6 +186,7 @@ button:focus-visible{
     cursor: pointer;     
 }
 .input__field {
+    width: 210px;
     border: none;
     padding-left: .6rem;
     padding-top: 10px;
@@ -202,6 +204,37 @@ button:focus-visible{
     transform: translateY(-20%) scale(0.8);
     font-size: 1rem;
 }
+#calculate_results{
+    display:grid;
+    grid-template-columns: 1fr;
+}
+.total_sale_card{
+    width: 50%;
+    margin:auto;
+}
+.total_sale_card > h1{
+    text-align:center;
+    background-color: #039684;
+    padding: 10px;
+    color: #ffffff;
+}
+.total_sale_card > div{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.total_sale_card > div > h5 > span {
+    font-size:1.2rem;
+    display:block;
+}
+.total_sale_card > div > i {
+    text-align:center;
+}
+.total_sale_card > div > i > span{
+    display: block;
+    font-size: .9rem;
+}
+
 
 .close{
     position: absolute;
