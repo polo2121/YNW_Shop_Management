@@ -1,26 +1,6 @@
-// const { includes } = require("lodash");
-const month_nums = ['January','Feburary','March','April',
-                    'May','June','July','August','September',
-                    'October','November','December']
 
-let twelve_months = document.querySelectorAll('.twelve_months')
-
-for (var index = 2010; index < 2020; index++) {
-  console.log(myArray[index]);
-}
-month_nums.map(mon => {
-  $('#myMonth').append("<li>"+mon+"</li>")
-})
 
 dayjs.extend(window.dayjs_plugin_weekday)
-
-twelve_months.forEach(month => {
-  month.onclick = () => {
-    console.log(month_nums[month.innerText])
-    testingSubject(month_nums[month.innerText])
-  }
-})
-
 
 const WEEKDAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const TODAY = dayjs().format("YYYY-MM-DD");
@@ -70,6 +50,8 @@ function createCalendar(year = INITIAL_YEAR, month = INITIAL_MONTH) {
   days.forEach((day) => {
     appendDay(day, calendarDaysElement);
   });
+
+ 
 }
 
 function appendDay(day, calendarDaysElement) {
@@ -166,10 +148,30 @@ function getWeekday(date) {
   return dayjs(date).weekday();
 }
 
-const testingSubject = (mnum) => {
-    
-    let currentMonth = document.getElementById("selected-month").innerText.split(" ")[0]
+
+
+
+const month_changed = () => {
+  let calendar = document.getElementById("calendar")
+  let calendar_days = document.querySelectorAll('.calendar-day')
+  console.log("helllo")
+  calendar_days.forEach( day => {
+    day.addEventListener('click',(id)=> {
+       let clicked_date   = day.innerHTML
+       let selected_month = document.getElementById('selected-month').innerHTML
+       let mon            = selected_month.split(" ")[0]
+       let year           = selected_month.split(" ")[1]
+       console.log(id)
+       let target = document.getElementById("calendar_type").innerHTML.toLowerCase()
+       console.log(target)
+       document.getElementById(target).value = mon + " " + clicked_date + ", " + year
+       calendar.classList.add("hide")
+    })
+ })
 }
+
+month_changed()
+
 function initMonthSelectors() {
   document
     .getElementById("previous-month-selector")
@@ -178,12 +180,18 @@ function initMonthSelectors() {
 
       selectedMonth = dayjs(selectedMonth).subtract(1, "month");
       createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
+
+      month_changed()
+
+
     });
 
   document
     .getElementById("present-month-selector")
     .addEventListener("click", function () {
       selectedMonth = dayjs(new Date(INITIAL_YEAR, INITIAL_MONTH - 1, 1));
+      console.log(selectedMonth)
+      console.log(selectedMonth.format("YYYY"), selectedMonth.format("M"))
       createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
     });
 
@@ -192,5 +200,12 @@ function initMonthSelectors() {
     .addEventListener("click", function () {
       selectedMonth = dayjs(selectedMonth).add(1, "month");
       createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
+
+      month_changed()
+
+
     });
 }
+// let ss= dayjs(new Date('2020', '06' - 1, 1))
+// console.log(ss.format("YYYY"), ss.format("M"))
+

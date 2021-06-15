@@ -15,23 +15,7 @@ const Open_Close = (id) => {
   }, 1000)
    
 }
-let calendar = document.getElementById("calendar")
-let calendar_days = document.querySelectorAll('.calendar-day')
 
-calendar_days.forEach( day => {
-   day.addEventListener('click',(id)=> {
-      let clicked_date   = day.innerHTML
-      let selected_month = document.getElementById('selected-month').innerHTML
-      let mon            = selected_month.split(" ")[0]
-      let year           = selected_month.split(" ")[1]
-      console.log(id)
-      let target = document.getElementById("calendar_type").innerHTML.toLowerCase()
-      console.log(target)
-      document.getElementById(target).value = mon + " " + clicked_date + ", " + year
-      calendar.classList.add("hide")
-
-   })
-})
 const choose_date = (id) => {
 
    document.getElementById("calendar_type").innerHTML = id
