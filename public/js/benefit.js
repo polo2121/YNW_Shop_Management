@@ -76,6 +76,9 @@ const calculate = () => {
           'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
       }
   });
+//   width: 50%;
+//   margin: auto;
+//   grid-template-columns: 1fr;
   $.ajax({
       type: 'GET',
       url: 'benefits/calculate_benefit',
@@ -84,11 +87,12 @@ const calculate = () => {
       success: function (data) {
          let ddd = 
          "<div class='total_sale_card'>"                    +
+            "<div class='UpperWave'></div>"                 +
             "<h1>Total Sale</h1>"                           +
-            "<div>"                                         +
+            "<div id='total_sale_results'>"                 +
                "<h5>"                                       +
                   "From"                                    +
-                  " <span>"+stDate+"<span>"         +
+                  " <span>"+stDate+"<span>"                 +
                "</h5>"                                      +
                "<i class='fas fa-arrows-alt-h fa-lg'>"      +
                   "<span>"+generate_num_days(stDate,enDate) +"<span>"                       +                  
@@ -102,8 +106,9 @@ const calculate = () => {
                "<h5>"                                       +
                   "Receieved Amount"                        +
                   "<span class='value'>"+Intl.NumberFormat('en-US').format(data.benefit)+" MMK"+"<span>" +
-               "</h5>"                                                                                   +
-            "</div>"                                                                                     +
+               "</h5>"                                      +   
+            "</div>"                                        +
+            "<div class='LowerWave'></div>"                 +
          "</div>"
          $("#calculate_results").append(ddd)
          console.log(data.benefit)

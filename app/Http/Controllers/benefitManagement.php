@@ -10,7 +10,17 @@ class benefitManagement extends Controller
 {
     public function  benefit(){
 
-        // $benefit=0;
+
+        // $users = DB::table('stationaries_sale_records')->where('name','Files')->sum('price');
+
+        $users = DB::table('stationaries_sale_records')
+        ->select(DB::raw('sum(amount) as total,name,price'))
+        ->groupBy('name')
+        ->orderBy('total','desc')
+        ->get();
+
+
+        echo $users;
         // $users = DB::table('stationaries_sale_records')
         //    ->whereDate('date', '>=','2021-6-6')
         //    ->whereDate('date', '<=','2021-6-10')
@@ -20,7 +30,7 @@ class benefitManagement extends Controller
         //     $benefit+=$user->{'price'};
         // }
         // echo $benefit;
-        return view('benefits/home');
+        // return view('benefits/home');
         
     }
     public function dummy(){
