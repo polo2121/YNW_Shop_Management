@@ -343,27 +343,34 @@
         </div>   
         
         <div id="calculate_results">
+
+
             <div class="actual_benefit_card">
                 <div class="ab_UpperWave"></div>
-                <h1>Most Purchased Items</h1>
-                <div id="actual_benefit_results">
-                    <h5>From 
-                        <span>June 1, 2021<span>
+                <h1>Actual Benefit</h1>
 
-                    </h5>
-                    <i class="fas fa-arrows-alt-h fa-lg">
-                        <span>1 weeks</span>
-                    </i>
-                    <h5>To 
-                        <span>June 7, 2021</span>
-                    </h5>
-                    <i class="fas fa-equals fa-lg"></i>
-                    <h5>Receieved Amount<span class="value">NaN MMK</span>
-                    </h5>
+                <div id="actual_benefit_results">
+                    <!-- <div class="rank">
+                        <h1 class="rank_num">1</h1>
+                        <div class="rank_results">
+                            <label for="" class="item_name">A4 Paper</label>
+                            <label for="" class="item_amount">Amount: 54</label>
+                        </div>
+                    </div>
+
+                    <div class="rank">
+                        <h1 class="rank_num">1</h1>
+                        <div class="rank_results">
+                            <label for="" class="item_name">A4 Paper</label>
+                            <label for="" class="item_amount">Amount: 54</label>
+                        </div>
+                    </div> -->
                 </div>
+
                 <div class="ab_LowerWave"></div>
-            </div>        
+            </div>         
         </div>
+
 
     </section>
     
