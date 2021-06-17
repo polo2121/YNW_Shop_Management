@@ -11,7 +11,13 @@ class benefitManagement extends Controller
     public function  benefit(){
 
 
-        // $users = DB::table('stationaries_sale_records')->where('name','Files')->sum('price');
+        // $users = DB::table('stationaries_sale_records')
+        // ->whereDate('date', '>=',$startDate)
+        // ->whereDate('date', '<=',$endDate) 
+        // ->select(DB::raw('sum(amount) as total, sum(benefit) as something,name'))
+        // ->groupBy('name')
+        // ->orderBy('total','desc')
+        // ->get();
 
         // echo $users;
         return view('benefits/home');
@@ -37,6 +43,18 @@ class benefitManagement extends Controller
         
         return Response::json(array('benefit'=>$benefit));
 
+    }
+    public function getActual_benefit(Request $req){
+        $startDate = $req->stDate;
+        $endDate   = $req->edDate;
+
+        $ab = DB::table('stationaries_sale_records')
+        ->whereDate('date', '>=',$startDate)
+        ->whereDate('date', '<=',$endDate)   
+        ->select(DB::raw('sum(amount) as total,sum(benefit) as benefit,name'))
+        ->groupBy('name')
+        ->orderBy('total','desc')
+        ->get();
     }
     public function generate_mostSaleItems(Request $req){
         $startDate = $req->stDate;

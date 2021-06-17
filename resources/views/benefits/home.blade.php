@@ -350,6 +350,27 @@
                 <h1>Actual Benefit</h1>
 
                 <div id="actual_benefit_results">
+                    <table class="abTable" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Items</th>
+                                <th>Amount</th>
+                                <th></th>
+                                <th></th>
+                                <th colspan="">Total Benefit</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A4 Paper</td>
+                                <td>21</td>
+                                <td></td>
+                                <td></td>
+                                <td>14000</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <!-- <div class="rank">
                         <h1 class="rank_num">1</h1>
                         <div class="rank_results">
