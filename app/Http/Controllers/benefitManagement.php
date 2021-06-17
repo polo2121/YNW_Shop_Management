@@ -13,24 +13,8 @@ class benefitManagement extends Controller
 
         // $users = DB::table('stationaries_sale_records')->where('name','Files')->sum('price');
 
-        $users = DB::table('stationaries_sale_records')
-        ->select(DB::raw('sum(amount) as total,name,price'))
-        ->groupBy('name')
-        ->orderBy('total','desc')
-        ->get();
-
-
-        echo $users;
-        // $users = DB::table('stationaries_sale_records')
-        //    ->whereDate('date', '>=','2021-6-6')
-        //    ->whereDate('date', '<=','2021-6-10')
-        //    ->get();
-
-        // foreach($users as $user){
-        //     $benefit+=$user->{'price'};
-        // }
-        // echo $benefit;
-        // return view('benefits/home');
+        // echo $users;
+        return view('benefits/home');
         
     }
     public function dummy(){
@@ -52,6 +36,21 @@ class benefitManagement extends Controller
         }
         
         return Response::json(array('benefit'=>$benefit));
+
+    }
+    public function generate_mostSaleItems(Request $req){
+        $startDate = $req->stDate;
+        $endDate   = $req->edDate;
+
+        $msi = DB::table('stationaries_sale_records')
+        ->whereDate('date', '>=',$startDate)
+        ->whereDate('date', '<=',$endDate)   
+        ->select(DB::raw('sum(amount) as total,name'))
+        ->groupBy('name')
+        ->orderBy('total','desc')
+        ->get();
+
+        return Response::json(array('msi'=>$msi));
 
     }
 }

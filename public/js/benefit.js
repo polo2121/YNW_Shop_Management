@@ -15,9 +15,22 @@ const Open_Close = (id) => {
   }, 1000)
    
 }
+let que = " "
+const switchBetween = id => {
+   console.log(que)
+   if(que !== " " )
+   {
+      document.getElementById(que).classList.add("hide")
+   }
+  console.log("down")
+  let target = document.getElementById(id)
+  target.classList.remove("hide")
+  que = target.id
+  document.getElementById("switchedValue").value = que
 
+}
 const choose_date = (id) => {
-
+   console.log(document.getElementById("switchedValue").value)
    document.getElementById("calendar_type").innerHTML = id
    calendar.classList.remove("hide")
    // window.scrollTo(0, 200);
@@ -66,7 +79,57 @@ const generate_num_days = (start,end) =>{
    return did
 }
 // console.log(Difference_In_Days)
+const getBenefit = () => {
+   let stDate = document.getElementById('abstartdate').value
+   let enDate = document.getElementById('abenddate').value
 
+   $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+      }
+  });
+
+   $.ajax({
+   type: 'POST',
+   url: 'benefits/most_sale_items',
+   data: {stDate: formatDate(stDate),edDate: formatDate(enDate)},
+   dataType: 'json',
+   success: function (data) {
+      let ddd = 
+      "<div class='total_sale_card'>"                    +
+         "<div class='UpperWave'></div>"                 +
+         "<h1>Total Sale</h1>"                           +
+         "<div id='total_sale_results'>"                 +
+            "<h5>"                                       +
+               "From"                                    +
+               " <span>"+stDate+"<span>"                 +
+            "</h5>"                                      +
+            "<i class='fas fa-arrows-alt-h fa-lg'>"      +
+               "<span>"+generate_num_days(stDate,enDate) +"<span>"                       +                  
+            "</i>"                                       +
+
+            "<h5>"                                       +
+               "To"                                      +
+               " <span>"+enDate+"<span>"                 +
+            "</h5>"                                      +
+            "<i class='fas fa-equals fa-lg'></i>"        +                 
+            "<h5>"                                       +
+               "Receieved Amount"                        +
+               "<span class='value'>"+Intl.NumberFormat('en-US').format()+" MMK"+"<span>" +
+            "</h5>"                                      +   
+         "</div>"                                        +
+         "<div class='LowerWave'></div>"                 +
+      "</div>"
+      $("#calculate_results").append(ddd)
+      console.log(data.msi)
+   },
+   error: function (data) {
+      console.log(data);
+  }
+})
+
+
+}
 const calculate = () => {
    let stDate = document.getElementById('start date').value
    let enDate = document.getElementById('end date').value
@@ -80,7 +143,7 @@ const calculate = () => {
 //   margin: auto;
 //   grid-template-columns: 1fr;
   $.ajax({
-      type: 'GET',
+      type: 'POST',
       url: 'benefits/calculate_benefit',
       data: {stDate: formatDate(stDate),edDate: formatDate(enDate)},
       dataType: 'json',
@@ -118,6 +181,8 @@ const calculate = () => {
      }
   })
 }
+
+
 
 
 

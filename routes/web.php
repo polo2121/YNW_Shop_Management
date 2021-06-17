@@ -134,7 +134,8 @@ Route::prefix('/benefits')->group(function () {
    
    Route::name('benefit.')->group(function () {
       Route::get('/', [benefitManagement::class, 'benefit'])->name('home');
-      Route::get('/calculate_benefit', [benefitManagement::class, 'calculate_benefit'])->name('cal_benefit');
+      Route::POST('/calculate_benefit', [benefitManagement::class, 'calculate_benefit'])->name('cal_benefit');
+      Route::POST('/most_sale_items', [benefitManagement::class, 'generate_mostSaleItems'])->name('most_sale');
       Route::get('/dummy', [benefitManagement::class, 'dummy'])->name('dummy');
 
 
