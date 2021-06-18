@@ -200,8 +200,6 @@ function initMonthSelectors() {
       createCalendar(selectedMonth.format("YYYY"), selectedMonth.format("M"));
 
       month_changed()
-
-
     });
 }
 // let ss= dayjs(new Date('2020', '06' - 1, 1))

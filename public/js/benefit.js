@@ -128,9 +128,10 @@ const getBenefit = () => {
 
 
 }
+
 const calculate = () => {
-   let stDate = document.getElementById('start date').value
-   let enDate = document.getElementById('end date').value
+   let stDate = document.getElementById('tsstartdate').value
+   let enDate = document.getElementById('tsenddate').value
 
    $.ajaxSetup({
       headers: {
@@ -172,7 +173,7 @@ const calculate = () => {
             "<div class='LowerWave'></div>"                 +
          "</div>"
          $("#calculate_results").append(ddd)
-         console.log(data.benefit)
+         console.log(data)
       },
       error: function (data) {
          console.log(data);

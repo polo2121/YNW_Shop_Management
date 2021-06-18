@@ -11,7 +11,7 @@
             </h5>
 
             <h5>                                       
-                to                                 
+                To                                 
                 <span class="to">{{$ed}}<span>                 
             </h5>
         </div>
@@ -37,6 +37,11 @@
                     <td>{{$ab->benefit}}</td>
                 </tr>
                 @endforeach
+                
+                <tr>
+                    <th colspan="4" style="text-align:right;font-size: 1.2rem;">Final Total</th>
+                    <td style="text-align:right;">{{$total} MMK</td>
+                </tr>
             </tbody>
         </table>
     </div>
