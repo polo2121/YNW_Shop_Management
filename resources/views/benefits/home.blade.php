@@ -337,7 +337,7 @@
                         <span class="input__label ab_textShadow_st">End Date</span>
                     </label> 
                     <span></span>
-                    <button type="button" class="applyBtn ms_applyBtn" onclick="getBenefit()">submit</button>
+                    <button type="button" class="applyBtn ms_applyBtn" onclick="getMost_sale()">submit</button>
                 </div> 
                 
             </div>
@@ -372,24 +372,6 @@
 
         </div>   
         
-        <div id="calculate_results">       
-        <div class="most_sale_card">
-            <div class="ms_UW"></div><h1>Total Sale</h1>
-                <div id="most_sale_results">
-                    @foreach($msi as $ms)
-                        <div class="rank">
-                            <h1 class="rank_num">1</h1>
-                            <div class="rank_results">
-                                <label for="" class="item_name">A4 Paper</label>
-                                <label for="" class="item_name">Amount: 54</label>
-                            </div>
-                        </div>
-                    @endforeach
-
-                </div>
-                <div class="ms_LW"></div>
-            </div>
-        </div>
     
     </section>
     

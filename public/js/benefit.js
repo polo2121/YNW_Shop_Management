@@ -182,6 +182,34 @@ const calculate = () => {
 }
 
 
+const getMost_sale = () => {
+   let stDate = document.getElementById('msstartdate').value
+   let enDate = document.getElementById('msenddate').value
+   console.log(stDate)
+   $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+      }
+  });
+//   width: 50%;
+//   margin: auto;
+//   grid-template-columns: 1fr;
+  $.ajax({
+      type: 'POST',
+      url: 'benefits/most_sale_items',
+      data: {stDate: formatDate(stDate),edDate: formatDate(enDate)},
+      dataType: 'html',
+      success: function (data) {
+         console.log(data)
+         $("#mostSale_results").html(data)
+         
+      },
+      error: function (data) {
+         console.log(data);
+     }
+  })
+}
+
 
 
 

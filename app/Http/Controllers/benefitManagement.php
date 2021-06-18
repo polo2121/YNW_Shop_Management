@@ -77,7 +77,8 @@ class benefitManagement extends Controller
         ->orderBy('total','desc')
         ->get();
 
-        return Response::json(array('msi'=>$msi));
+        return view('benefits/most_sale',['msi'=>$msi,'st'=> date_format(date_create($startDate),"F j, Y"),
+        'ed'=> date_format(date_create($endDate),"F j, Y")]);
 
     }
 }
