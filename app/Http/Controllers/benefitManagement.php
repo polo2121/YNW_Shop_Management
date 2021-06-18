@@ -12,14 +12,17 @@ class benefitManagement extends Controller
 
 
         // $users = DB::table('stationaries_sale_records')
-        // ->whereDate('date', '>=',$startDate)
-        // ->whereDate('date', '<=',$endDate) 
+        // ->whereDate('date', '>=','2021-6-6')
+        // ->whereDate('date', '<=','2021-6-10') 
         // ->select(DB::raw('sum(amount) as total, sum(benefit) as something,name'))
         // ->groupBy('name')
         // ->orderBy('total','desc')
         // ->get();
 
         // echo $users;
+
+        // $t = date_format(date_create("2021-6-6"),"F j, Y");
+        // echo $t;
         return view('benefits/home');
         
     }
@@ -49,12 +52,18 @@ class benefitManagement extends Controller
         $endDate   = $req->edDate;
 
         $ab = DB::table('stationaries_sale_records')
-        ->whereDate('date', '>=',$startDate)
-        ->whereDate('date', '<=',$endDate)   
-        ->select(DB::raw('sum(amount) as total,sum(benefit) as benefit,name'))
+        ->whereDate('date', '>=', $startDate)
+        ->whereDate('date', '<=', $endDate)   
+        ->select(DB::raw('sum(amount) as amount,sum(benefit) as benefit,name'))
         ->groupBy('name')
-        ->orderBy('total','desc')
+        ->orderBy('amount','desc')
         ->get();
+
+        
+        // return Response::json(array('benefit'=>$benefit));
+        return view('benefits/actual_benefit',['abs'=>$ab,'st'=> date_format(date_create($startDate),"F j, Y"),
+                        'ed'=> date_format(date_create($endDate),"F j, Y")]);
+
     }
     public function generate_mostSaleItems(Request $req){
         $startDate = $req->stDate;

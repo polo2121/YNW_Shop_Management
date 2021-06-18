@@ -1,6 +1,36 @@
 let weeks  = [7,14,21]
 let months = [31,62,93,124,155,186,217,248,279,310,341,372]
 
+// let from = document.querySelectorAll('.from')
+// let to = document.querySelectorAll('.to')
+
+
+const formatDate = (getDate) => {
+   let date = new Date(getDate)
+   let mon = date.getMonth()+1
+   let dat = date.getDate()
+   let year = date.getFullYear()
+   return year+"-"+mon+"-"+dat
+}
+
+// const formatMDY = date =>{
+//    let dateMe = date.innerHTML
+//    let month          = dateMe.split("-")[1]
+//    let day            = dateMe.split("-")[2]
+//    let year           = dateMe.split("-")[0]
+//    date.innerHTML = dayjs(
+//       new Date(year, month - 1)
+//     ).format("MMMM DD, YYYY ");
+// }
+
+// from.forEach(date => { 
+//    formatMDY(date)
+// })
+
+// to.forEach(date => { 
+//    formatMDY(date)
+// })
+
 const dwm = (id) =>{
    let target =  document.getElementById(id)
    document.getElementById("dwm")
@@ -48,14 +78,6 @@ const choose_date = (id) => {
 // document.getElementById(id)
 // document.getElementById(id).value = m+" "+d+", "+y
 
-const formatDate = (getDate) => {
-   let date = new Date(getDate)
-   let mon = date.getMonth()+1
-   let dat = date.getDate()
-   let year = date.getFullYear()
-   return year+"-"+mon+"-"+dat
-}
-
 const generate_num_days = (start,end) =>{
    let date1 = new Date(start);
    let date2 = new Date(end);
@@ -91,37 +113,13 @@ const getBenefit = () => {
 
    $.ajax({
    type: 'POST',
-   url: 'benefits/most_sale_items',
+   url: 'benefits/actual_benefit',
    data: {stDate: formatDate(stDate),edDate: formatDate(enDate)},
-   dataType: 'json',
+   dataType: 'html',
    success: function (data) {
-      let ddd = 
-      "<div class='total_sale_card'>"                    +
-         "<div class='UpperWave'></div>"                 +
-         "<h1>Total Sale</h1>"                           +
-         "<div id='total_sale_results'>"                 +
-            "<h5>"                                       +
-               "From"                                    +
-               " <span>"+stDate+"<span>"                 +
-            "</h5>"                                      +
-            "<i class='fas fa-arrows-alt-h fa-lg'>"      +
-               "<span>"+generate_num_days(stDate,enDate) +"<span>"                       +                  
-            "</i>"                                       +
+      console.log(data.responseText)
 
-            "<h5>"                                       +
-               "To"                                      +
-               " <span>"+enDate+"<span>"                 +
-            "</h5>"                                      +
-            "<i class='fas fa-equals fa-lg'></i>"        +                 
-            "<h5>"                                       +
-               "Receieved Amount"                        +
-               "<span class='value'>"+Intl.NumberFormat('en-US').format()+" MMK"+"<span>" +
-            "</h5>"                                      +   
-         "</div>"                                        +
-         "<div class='LowerWave'></div>"                 +
-      "</div>"
-      $("#calculate_results").append(ddd)
-      console.log(data.msi)
+      $("#calculate_results").html(data)
    },
    error: function (data) {
       console.log(data);
@@ -155,7 +153,7 @@ const calculate = () => {
             "<div id='total_sale_results'>"                 +
                "<h5>"                                       +
                   "From"                                    +
-                  " <span>"+stDate+"<span>"                 +
+                  " <span>"+stDate+"</span>"                 +
                "</h5>"                                      +
                "<i class='fas fa-arrows-alt-h fa-lg'>"      +
                   "<span>"+generate_num_days(stDate,enDate) +"<span>"                       +                  
@@ -163,7 +161,7 @@ const calculate = () => {
 
                "<h5>"                                       +
                   "To"                                      +
-                  " <span>"+enDate+"<span>"                 +
+                  " <span>"+enDate+"</span>"                 +
                "</h5>"                                      +
                "<i class='fas fa-equals fa-lg'></i>"        +                 
                "<h5>"                                       +
