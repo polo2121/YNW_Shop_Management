@@ -5,11 +5,14 @@ let secBtns            = document.querySelectorAll     ('.btnBgColor')
 let date_inputs        = document.querySelectorAll    ('input[type="date"]')
 let number_inputs      = document.querySelectorAll    ('input[type="number"]')
 
+
 let operator_images    = document.querySelectorAll    ('.circle')
 let predefined_bills   = document.querySelectorAll    (".predefined_bill input")
 let sections           = document.querySelectorAll    ('section')
 
 let formatMe           = document.querySelectorAll('.formatMe')
+let del_or_not         = document.querySelectorAll    ('.del_or_not')
+
 
 const removeStationaryData = () => {
     let data=document.getElementById("stid").value
@@ -19,6 +22,35 @@ formatMe.forEach(fm => {
     price = dollarUSLocale.format(fm.innerHTML)
     fm.innerHTML = price
 })
+
+
+del_or_not.forEach(del => {
+    del.addEventListener("click",(event) => {
+        event.preventDefault()
+        document.getElementById("del_confirm").classList.remove("hide")
+        document.getElementById("confirm").href = del.href
+    })
+})
+
+document.getElementById("cancel").addEventListener("click",() => {
+    document.getElementById("del_confirm").classList.add("hide")
+})
+
+// del_or_not.forEach(del => {
+//     del.addEventListener('click', event => {
+
+        
+//         event.preventDefault()
+//         document.getElementById("del_confirm").classList.remove("hide")
+//         document.getElementById("cancel").addEventListener("click", () => {
+//             document.getElementById("del_confirm").classList.add("hide")
+//         })
+//         document.getElementById("confirm").addEventListener("click", () => {
+//             $().unbind("click");
+//         })
+        
+//     })
+// })
 
 //Insert Form Show and Hide
 const form_showHide = (formType) => {
@@ -105,6 +137,7 @@ const removeAlert = () => {
     document.getElementById('alertMessage').classList.remove("animate__slideInDown")
     document.getElementById('alertMessage').classList.add("animate__slideOutUp")
 }
+
 window.onload = function() {
     setTimeout(removeAlert, 4000)
 }

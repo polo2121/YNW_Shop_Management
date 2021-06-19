@@ -165,6 +165,28 @@
             @yield('location')
             <div class="devider devider_bg2" style="margin-bottom: 10px;"></div>
             @yield('section_name')
+
+            <div class="hide outside" id="del_confirm">
+                <div class="alertBox">
+                    <div class="alertTile">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="80" height="80" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g>
+                            <g xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path d="M503.479,391.66L302.065,58.86c-23.2-38.67-79.44-39.1-103.04,0.26L8.575,391.52c-23.88,40.04,4.95,90.75,51.53,90.75    h391.764C498.759,482.27,527.159,431.1,503.479,391.66z M250.624,422.27c-16.54,0-30-13.46-30-30c0-16.54,13.46-30,30-30    c16.53,0,30,13.46,30,30C280.624,408.81,267.154,422.27,250.624,422.27z M281.024,272.27c0,16.54-13.87,30-30.4,30    c-16.54,0-29.8-13.46-29.8-30v-120c0-16.54,13.26-30,29.8-30c16.53,0,30.4,13.46,30.4,30V272.27z" fill="#f15757" data-original="#000000" style="" class=""/>
+                                </g>
+                            </g>
+                        </svg>
+
+                        <h2>Are you sure?</h2>
+                        <p>if you proceed, you will lose this data permentaly. Are you sure you want to delete this item?</p>
+                    </div>
+                    <div class="btn_panel">
+                        <button class="cancel" id="cancel">Cancel</button>
+                        <a href="" id="confirm"><button class="confirm">Confirm</button></a>
+                    </div>
+                </div>
+            </div>
+
             <div class="contents">
             @yield('content')   
             </div>

@@ -16,6 +16,7 @@
 @endsection
 
 @section('content')
+
     <div class="selection selection_BgColor_st">
         <div class="pill pill_BgColor_st">
             <a href="{{route('sm.st.home')}}">
@@ -120,7 +121,7 @@
 
                     
                     <div class="search disFlex_sb st_BgColor">          
-                        <input class="print_BgColor" type="text" id="st_search" onkeyup="searching(id,'stationaries')" placeholder="Click to search..." title="Type in a name">
+                        <input class="print_BgColor" type="search" id="st_search" onkeyup="searching(id,'stationaries')" placeholder="Click to search..." title="Type in a name">
                         <svg class="searchSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="40" height="40" x="0" y="0" viewBox="0 0 511.977 511.977" style="enable-background:new 0 0 512 512" xml:space="preserve">
                             <g><g xmlns="http://www.w3.org/2000/svg">
                             <path d="m498.237 366.527-114.499-114.527c21.484-48.774 12.291-107.913-27.594-147.808-51.966-51.978-136.081-51.985-188.053 0-51.844 51.856-51.844 136.232 0 188.088 41.198 41.207 101.574 49.053 149.773 26.771l113.914 113.941c18.366 18.37 48.097 18.372 66.463-.004 18.316-18.324 18.314-48.138-.004-66.461zm-308.931-95.458c-40.151-40.16-40.151-105.505 0-145.666 40.24-40.25 105.375-40.257 145.622 0 40.151 40.161 40.151 105.506 0 145.666-40.241 40.251-105.376 40.257-145.622 0zm287.717 140.711c-6.64 6.643-17.388 6.646-24.03.001l-108.834-108.86c8.946-7.042 16.919-15.128 23.842-24.23l109.02 109.046c6.627 6.629 6.628 17.414.002 24.043z" fill="#ffffff" data-original="#000000" style=""/>
@@ -168,7 +169,7 @@
                                             <img class="svgHover" src="../images/edit.svg" alt="" width="23" height="20">
                                         </a>
 
-                                        <a href="{{route('sm.st.toDel',['id'=>$stationareis_info->stid])}}">
+                                        <a class="del_or_not" href="{{route('sm.st.toDel',['id'=>$stationareis_info->stid])}}">
                                             <img onclick="removeStationaryData" class="" src="../images/remove.svg" alt="" width="23" height="20">
                                         </a>
                                     </td>
@@ -186,5 +187,7 @@
 @endsection
 
 @push('scripts')
+    <!-- <script type="text/javascript" src="{{ asset('../js/jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('../js/jquery-ui.min.js')}}"></script> -->
     <script src="{{ asset('../js/storeManagement.js')}}"></script>
 @endpush

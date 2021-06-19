@@ -161,3 +161,48 @@ i{
 .alert label{
     margin:auto;
 }
+.outside{
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.alertBox{
+    /* position: absolute; */
+    text-align: center;
+    margin-left: 630px;
+    width: 30%;
+    background-color: #ffffff;
+    /* padding: 100px 0px 0px 0px; */
+
+}
+.alertTile{
+    padding: 70px 40px 30px 40px;
+}
+.btn_panel{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.btn_panel > button {
+    width: 100%;
+    margin: 0;
+    padding: 22px;
+    border:none;
+    border-radius:0px;
+}
+.cancel{
+    background: #d0d1d0;
+}
+.confirm{
+    border: none;
+    color: #ffffff;
+}
+#confirm{
+    background: #ff595e;
+}

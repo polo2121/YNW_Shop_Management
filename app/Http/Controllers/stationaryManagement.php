@@ -60,8 +60,8 @@ class stationaryManagement extends Controller
         return redirect('/store-management/stationary')->with('success', 'Data is successfully Updated in Stationary Storage');
     }
     public function del_stationary(Request $req){
-        $results         =DB::table('stationaries')->where('stid',  $req->id)->delete();
-        return redirect('store-management/stationary')->with('success', 'Data is successfully Deleted from Phone Bill Record');
+        // $results         =DB::table('stationaries')->where('stid',  $req->id)->delete();
+        // return redirect('store-management/stationary')->with('success', 'Data is successfully Deleted from Phone Bill Record');
     }
     public function DelStationary(Request $req){
         echo "Hello";

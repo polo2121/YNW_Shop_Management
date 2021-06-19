@@ -9,7 +9,7 @@ class PrintManagementController extends Controller
     //
     public function print()
     {
-        $print_items = DB::table('print_items')->get();
+        $print_items = DB::table('print_items')->orderBy('category')->get();
         return view('StoreManagement/Print/print',['print_items'=> $print_items]);
     }
     public function insert_printItems(Request $req){
