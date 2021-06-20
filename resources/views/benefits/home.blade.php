@@ -54,6 +54,9 @@
         <div id="calculate_results">       
         </div>
 
+        <div id="actualBenefit_results">
+        </div>
+        
         <div id="mostSale_results">       
         </div>
 

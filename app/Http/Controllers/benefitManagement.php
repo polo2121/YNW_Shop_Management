@@ -44,13 +44,15 @@ class benefitManagement extends Controller
             $benefit+=$result->{'price'};
         }
         
-        return Response::json(array('benefit'=>$benefit));
+        return view('benefits/total_sale',['benefit'=>$benefit,'st'=> date_format(date_create($startDate),"F j, Y"),
+            'ed'=> date_format(date_create($endDate),"F j, Y")]);
 
     }
     public function getActual_benefit(Request $req){
         $startDate = $req->stDate;
         $endDate   = $req->edDate;
 
+        $benefit=0;
         $ab = DB::table('stationaries_sale_records')
         ->whereDate('date', '>=', $startDate)
         ->whereDate('date', '<=', $endDate)   
@@ -60,8 +62,12 @@ class benefitManagement extends Controller
         ->get();
 
         
+        foreach($ab as $actual){
+            $benefit+=$actual->{'benefit'};
+        }
+
         // return Response::json(array('benefit'=>$benefit));
-        return view('benefits/actual_benefit',['abs'=>$ab,'st'=> date_format(date_create($startDate),"F j, Y"),
+        return view('benefits/actual_benefit',['abs'=>$ab,'total_benefit'=> $benefit,'st'=> date_format(date_create($startDate),"F j, Y"),
                         'ed'=> date_format(date_create($endDate),"F j, Y")]);
 
     }

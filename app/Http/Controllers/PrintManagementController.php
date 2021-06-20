@@ -60,4 +60,8 @@ class PrintManagementController extends Controller
                                 
         return redirect('/store-management/print')->with('success', 'Data is successfully Updated in Print Items Storage');
     }
+    public function del_printItems(Request $req){
+        $results         =DB::table('print_items')->where('printId',  $req->id)->delete();
+        return redirect('store-management/print')->with('success', 'Data is successfully Deleted from Print Items Storage');
+    }
 }

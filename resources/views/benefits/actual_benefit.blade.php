@@ -9,7 +9,9 @@
                 From                                    
                 <span class="from">{{$st}}<span>                 
             </h5>
-
+            <i class='fas fa-arrows-alt-h fa-lg' style="text-align:center;"><br>     
+                <span id="ab_dayBetween"><span>             
+            </i> 
             <h5>                                       
                 To                                 
                 <span class="to">{{$ed}}<span>                 
@@ -39,8 +41,8 @@
                 @endforeach
                 
                 <tr>
-                    <th colspan="4" style="text-align:right;font-size: 1.2rem;">Final Total</th>
-                    <td style="text-align:right;">{{$total} MMK</td>
+                    <th colspan="4" style="text-align:right;font-size: 1.3rem;">Final Total</th>
+                    <td style="text-align:right;font-size: 1.3rem;font-weight: 600;">{{$total_benefit}} MMK</td>
                 </tr>
             </tbody>
         </table>

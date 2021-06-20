@@ -151,7 +151,7 @@ function getWeekday(date) {
 const month_changed = () => {
   let calendar = document.getElementById("calendar")
   let calendar_days = document.querySelectorAll('.calendar-day')
-  console.log("helllo")
+
   calendar_days.forEach( day => {
     day.addEventListener('click',(id)=> {
       let clicked_date   = day.innerHTML

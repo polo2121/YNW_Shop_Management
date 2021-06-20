@@ -119,7 +119,8 @@ const getBenefit = () => {
    success: function (data) {
       console.log(data.responseText)
 
-      $("#calculate_results").html(data)
+      $("#actualBenefit_results").html(data)
+      document.getElementById("ab_dayBetween").innerHTML= generate_num_days(stDate,enDate)
    },
    error: function (data) {
       console.log(data);
@@ -145,35 +146,12 @@ const calculate = () => {
       type: 'POST',
       url: 'benefits/calculate_benefit',
       data: {stDate: formatDate(stDate),edDate: formatDate(enDate)},
-      dataType: 'json',
+      dataType: 'html',
       success: function (data) {
-         let ddd = 
-         "<div class='total_sale_card'>"                    +
-            "<div class='UpperWave'></div>"                 +
-            "<h1>Total Sale</h1>"                           +
-            "<div id='total_sale_results'>"                 +
-               "<h5>"                                       +
-                  "From"                                    +
-                  " <span>"+stDate+"</span>"                 +
-               "</h5>"                                      +
-               "<i class='fas fa-arrows-alt-h fa-lg'>"      +
-                  "<span>"+generate_num_days(stDate,enDate) +"<span>"                       +                  
-               "</i>"                                       +
-
-               "<h5>"                                       +
-                  "To"                                      +
-                  " <span>"+enDate+"</span>"                 +
-               "</h5>"                                      +
-               "<i class='fas fa-equals fa-lg'></i>"        +                 
-               "<h5>"                                       +
-                  "Receieved Amount"                        +
-                  "<span class='value'>"+Intl.NumberFormat('en-US').format(data.benefit)+" MMK"+"<span>" +
-               "</h5>"                                      +   
-            "</div>"                                        +
-            "<div class='LowerWave'></div>"                 +
-         "</div>"
-         $("#calculate_results").append(ddd)
+         $("#calculate_results").append(data)
          console.log(data)
+         document.getElementById("ts_dayBetween").innerHTML= generate_num_days(stDate,enDate)
+         document.getElementById("real_benefit").innerHTML = Intl.NumberFormat('en-US').format(document.getElementById("real_benefit").innerHTML)+" MMK"
       },
       error: function (data) {
          console.log(data);
@@ -202,7 +180,7 @@ const getMost_sale = () => {
       success: function (data) {
          console.log(data)
          $("#mostSale_results").html(data)
-         
+         document.getElementById("ab_dayBetween").innerHTML= generate_num_days(stDate,enDate)         
       },
       error: function (data) {
          console.log(data);
