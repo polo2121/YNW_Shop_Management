@@ -73,7 +73,7 @@
                             </g>
                         </svg>
     
-                        <h3 class="" id="total">10000</h3>
+                        <h3 class="" id="total">{{$all_total}}</h3>
                         <script>
                             let total = document.getElementById("total")
                             let dollarUSLocale = Intl.NumberFormat('en-US');
@@ -160,9 +160,21 @@
                         @csrf
                         @method('POST')
                         <input  class="tdy_date" type="hidden" id="" name="date">
+
                         <label class="input">   
-                            <input name="items" class="input__field" type="text" placeholder=" " value="" />
+                            <input name="items" class="input__field search_input" type="text" placeholder=" " value=""  id="" autocomplete="off" onkeyup="filterMe()"/>
                             <span class="input__label">Items</span>
+                            <div class="dropbox" id="items_dropbox">
+                                <ul id="list">
+                                    @foreach($stat_names as $sn)
+                                        <script>
+                                            st_array.push('{{$sn}}')
+                                        </script>
+                                        <li><a>{{$sn}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+
                         </label>
                         
                         <label class="input">   
@@ -171,12 +183,16 @@
                         </label>
 
                         <label class="input">   
-                            <input name="price" class="input__field" type="number" placeholder=" " value="" />
+                            <input id="print_price" name="price" onkeyup="formatNumber(id)" class="input__field" type="text" placeholder=" " value="" />
                             <span class="input__label">Price</span>
                         </label>
 
                         <button type="submit" class="print-header">Submit</button>
+                        <div class="">
+                                <p id="stNotFound" class="hide"><span id="stationaryName"></span> is not found in Stationary Table</p>
+                        </div>
                     </form>
+
                 </div>
                 <!-- End of table_panel -->
 
@@ -252,11 +268,21 @@
                     <form style="" id="stationary-insert-form" class="hide table-input animate__animated animate__fadeInUp" action="{{route('sa.st.toInsert')}}" method="POST">
                         @csrf
                         @method('POST')
-                        <input  class="tdy_date" type="hidden" id="" name="date">
+                        <input  class="tdy_date" type="hidden" id="" name="date" required>
                         
                         <label class="input">   
-                            <input name="name" class="input__field" type="text" placeholder=" " value="" />
+                            <input name="name" id="Instorage_st" class="input__field search_input" type="text" placeholder=" " value="" autocomplete="off" onkeyup="filterMe()" onclick="search_stationary()"/>
                             <span class="input__label">Name</span>
+                            <div class="dropbox hide" id="name_dropbox">
+                                <ul id="list">
+                                    @foreach($stat_names as $sn)
+                                        <script>
+                                            st_array.push('{{$sn}}')
+                                        </script>
+                                        <li><a onclick="getItem('{{$sn}}','Instorage_st')">{{$sn}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
                         </label>
                         
                         <label class="input">   
@@ -265,11 +291,15 @@
                         </label>
 
                         <label class="input">   
-                            <input id="st_price"  onkeyup="formatNumber(id)" name="price" class="input__field" type="text" placeholder=" " value=""/>
+                            <input id="st_price" onkeyup="formatNumber(id)" name="price" class="input__field" type="text" placeholder=" " value=""/>
                             <span class="input__label">Price</span>
+
                         </label>
 
-                        <button class="st-header" type="submit">Submit</button>
+                        <button class="st-header" type="submit" id="search_submit">Submit</button>
+                        <div class="">
+                                <p id="stNotFound" class="hide"><span id="stationaryName"></span> is not found in Stationary Table</p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -293,7 +323,7 @@
                                     </g>
                                 </g>
                         </svg>
-                        <h3>50,00 MMK</h3>
+                        <h3 class="formatMe">{{$ptp}}</h3><h3>MMK</h3>
                     </div>
                     <div class="wallet st-header">
                         <svg fill="#ffffff" width="40" height="40" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -313,7 +343,7 @@
                                     </g>
                                 </g>
                         </svg>
-                        <h3>50,00 MMK</h3>
+                        <h3 class="formatMe">{{$stp}}</h3><h3>MMK</h3>
                     </div>
                 </div>
 
@@ -518,7 +548,7 @@
                                     </g>
                                 </g>
                         </svg>
-                        <h3>50,00 MMK</h3>
+                        <h3 class="formatMe">{{$ctp}}</h3><h3>MMK</h3>
                     </div>
                     <div class="wallet pb-header">
                         <svg fill="#ffffff" width="40" height="40" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -538,321 +568,15 @@
                                     </g>
                                 </g>
                         </svg>
-                        <h3>50,00 MMK</h3>
+                        <h3>{{$pbtp}} MMK</h3>
                     </div>
                 </div>
         </div>
 
-
+<input class="hide" type="text" id="hello">
+<button onclick="dd()">ddd</button>
     </section>
     <!-- end Show Info Section -->
-
-
-    <section>
-        <h2 class="title">Sale Records Management</h2>
-        <div class="form-entry-buttons">
-            <div class="form-entry">
-                <img class="form_entry_icon" src="../images/form_entry.svg" alt="" width="40" height="40">
-                <label for="" class="form_name">စာရင်းသွင်းမည်</label>
-            </div>
-            <div class="btn-groups">
-                <div class="btn-frame">
-                    <div class="btn">  
-                        <button type="button" id="print" class="" onclick="hide_show('print-form',id)">
-                            Print
-                        </button>
-                    </div>
-                    <div class="svg-group">
-                        <svg width="45px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            viewBox="0 0 477.867 477.867" style="enable-background:new 0 0 477.867 477.867;" xml:space="preserve">
-                            <g>
-                                <g>
-                                    <path d="M392.533,0h-307.2C38.228,0.056,0.056,38.228,0,85.333v307.2c0.056,47.105,38.228,85.277,85.333,85.333h307.2
-                                        c47.105-0.056,85.277-38.228,85.333-85.333v-307.2C477.81,38.228,439.638,0.056,392.533,0z M443.733,392.533
-                                        c0,28.277-22.923,51.2-51.2,51.2h-307.2c-28.277,0-51.2-22.923-51.2-51.2v-307.2c0-28.277,22.923-51.2,51.2-51.2h307.2
-                                        c28.277,0,51.2,22.923,51.2,51.2V392.533z"/>
-                                </g>
-                            </g>
-                            <g>
-                                <g>
-                                    <path d="M324.267,221.867H256V153.6c0-9.426-7.641-17.067-17.067-17.067s-17.067,7.641-17.067,17.067v68.267H153.6
-                                        c-9.426,0-17.067,7.641-17.067,17.067S144.174,256,153.6,256h68.267v68.267c0,9.426,7.641,17.067,17.067,17.067
-                                        S256,333.692,256,324.267V256h68.267c9.426,0,17.067-7.641,17.067-17.067S333.692,221.867,324.267,221.867z"/>
-                                </g>
-                            </g>
-                        </svg>
-                    </div>
-                </div>
-                <div class="btn">
-                    <button type="button" id="computer"   class="" onclick="hide_show('computer-form',id)">
-                        Computer
-                    </button>
-                </div>
-                <div class="btn">
-                    <button type="button" id="stationary" class="" onclick="hide_show('stationary-form',id)">
-                        Stationary
-                    </button>
-                </div>
-                <div class="btn">
-                    <button type="button" id="phone" class="" onclick="hide_show('phone-bill-form',id)">
-                        Phone Bill
-                    </button>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="form hide" id="print-form">   
-            <!-- print Form -->
-            <form class="tc animate__animated" action="{{route('sa.print.toInsert')}}" method="POST">
-                
-                <div class="form_header">
-                    <i class="fas fa-times close " onclick="close_form('print-form')"></i>
-                    <h3 for="" class="form_title ">
-                        <i class="far fa-file-powerpoint fa-2x"></i>
-                        Print Sale Record Form
-                    </h3>
-                </div>
-
-                <div class="form_inputs_group">
-                    <div class="input_groups">
-                        <label for="" class="">
-                            <i class="far fa-calendar-alt pd-r-8"></i>
-                            Date
-                        </label>
-                        <input required class="" type="date" name="pdate" id="print-input" placeholder="e.g 20/12/2021" onChange="highlight_Input(name)">
-                    </div>
-                
-                    <div class="input_groups">
-                        <label for="" class=""><i class="far fa-file pd-r-8"></i>Paper</label>
-                        <input required type="hidden" name="ptype" id="paper">
-                        <div class="">
-                            <button type="button" class="A4 paperBtn" id="A4"    onclick="getPaperType(id)">A4</button>
-                            <button type="button" class="legal paperBtn" id="legal" onclick="getPaperType(id)">Legal</button>
-                            <button type="button" class="A3 paperBtn" id="A3"    onclick="getPaperType(id)">A3</button>
-                        </div>
-                    </div>
-
-                    <div class="input_groups">
-                        <label for="" class=""><i class="fas fa-calculator pd-r-8"></i>
-                            Amount
-                        </label>
-                        <input required class=""type="text" name="pamount" id="print-input" placeholder="e.g 12" onChange="highlight_Input(name,id)">
-                    </div>
-
-                    <div class="input_groups">
-                        <label for="" class="">
-                            <i class="fas fa-money-bill-wave pd-r-8"></i>
-                            Price
-                        </label>
-                        <input required class="print-input" type="text" name="pprice" id="print-input" placeholder="e.g 1000 or 2000" onChange="highlight_Input(name)">
-                    </div>
-
-                    <div></div>
-
-                    <div class="input_groups">
-                        <button type="submit" class="">
-                            <i class="fas fa-cloud-upload-alt pd-r-8"></i>
-                            Submit
-                        </button>
-                    </div>
-                </div>
-
-                
-            </form>
-
-        </div>
-
-        <div class="form hide" id="computer-form">
-            <!-- Stationary Form -->
-            <form class="animate__animated" action="{{route('sa.com.toInsert')}}" method="POST" >
-                @csrf
-                @method('POST')
-                
-                <div class="form_header">
-                    <h3 for="" class="form_title">
-                        <i class="fas fa-desktop fa-lg"></i>
-                        Computer Record Form
-                    </h3>
-                    <i class="fas fa-times close" onclick="close_form('computer-form')"></i>
-                </div>
-
-                <div class="form_inputs_group">             
-                    <div class="input_groups mb2 tc" id="select_date">
-                        <label for="" class="">Date</label>
-                        <div>
-                            <input class="" type="date" name="cmDate" value="Card" id="com-input" onChange="highlight_Input(name)">
-                        </div>
-                    </div>
-
-
-                    <div class="input_groups mb2 ">
-                        <label for="" class="">Task</label>
-                        <div>
-                            <input class="" type="text" placeholder="e.g. pencil/books" name="task" id="com-input" onChange="highlight_Input(name)">
-                        </div>
-                    </div>
-                            
-                    <div class="input_groups mb2 ">
-                        <label for="" class="" >Amount</label>
-                        <input class="" type="text" placeholder="e.g. 3" name="tkAmount" id="com-input"  onChange="highlight_Input(name)">
-                    </div>
-
-                    <div class="input_groups mb2 ">
-                        <label for="" class="">Price</label>
-                        <input class="" type="text" placeholder="e.g. 1000" name="cmPrice" id="com-input" onChange="highlight_Input(name)">
-                    </div>
-
-                    <div class="input_groups">
-
-                        <button type="submit" class="">
-                        <i class="fas fa-cloud-upload-alt pd-r-8"></i>
-                            Submit</button>
-                    </div>
-
-                </div>
-            </form>
-
-        </div>
-
-        <div class="form hide" id="stationary-form">
-            <!-- Copyer Form -->
-            <form class="tc animate__animated" action="{{route('sa.st.toInsert')}}" method="POST">
-                @csrf
-                @method('POST')
-
-                <div class="form_header">
-                    <h3 for="" class="form_title">
-                        <i class="fas fa-pencil-alt fa-lg"></i>
-                        Stationary Record Form
-                    </h3>
-                    <i class="fas fa-times close" onclick="close_form('stationary-form')"></i>
-                </div>
-                
-                <div class="form_inputs_group">
-                    <div class="input_groups">
-                        <label for="" class="">
-                            <i class="far fa-calendar-alt pd-r-8"></i>
-                            Date
-                        </label>
-                        <input class="" type="date" name="stDate" id="st-input" placeholder="e.g 20/12/2021" onChange="highlight_Input(name)">
-                    </div>
-
-                    <div class="input_groups" style="position:relative;">
-                        <label for="" class=""><i class="fas fa-drafting-compass fa-lg pd-r-8"></i>Stationary</label>
-                        <!-- <input class="" type="text" name="stName" id="stationary" placeholder="e.g 12" onChange=""> -->
-                        <div class="">
-                                <p id="stNotFound" class="hide"><span id="stationaryName"></span> is not found in Stationary Table</p>
-                            </div>
-                        <input type="text" id="search_input" name="stName" autocomplete="off" onkeyup="filterMe()" onclick="search_stationary()">
-                        <div class="dropbox hide" id="ss">
-                            <ul id="list">
-                                @foreach($stat_names as $sn)
-                                    <script>
-                                        st_array.push('{{$sn}}')
-                                    </script>
-                                    <li><a onclick="getStName('{{$sn}}')">{{$sn}}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="input_groups">
-                        <label for="" class=""><i class="fas fa-calculator pd-r-8"></i>
-                            Amount
-                        </label>
-                        <input class="" type="text" name="stAmount" id="st_amount" placeholder="e.g 12" onChange="highlight_Input(name)">
-                    </div>
-
-                    <div class="input_groups">
-                        <label for="" class="">
-                            <i class="fas fa-money-bill-wave pd-r-8"></i>
-                            Price
-                        </label>
-                        <input class="" type="text" name="stPrice" id="st-input" placeholder="e.g 1000 or 2000" onChange="highlight_Input(name)">
-                    </div>
-
-                    <div></div>
-
-                    <div class="input_groups form_submit blue">
-                        <button type="submit" class="" id="search_submit">
-                            <i class="fas fa-cloud-upload-alt pd-r-8"></i>
-                            Submit
-                        </button>
-                    </div>
-                </div>
-
-                
-            </form>
-        </div>
-
-        <div class="form hide" id="phone-bill-form">
-            <form class="animate__animated" action="{{route('sa.ph.toInsert')}}" method="POST" >
-                @csrf
-                @method('POST')
-                
-                <div class="form_header">
-                    <h3 for="" class="form_title">
-                        <i class="fas fa-mobile-alt fa-lg"></i>
-                        Phone Bill Record Form
-                    </h3>
-                    <i class="fas fa-times close" onclick="close_form('phone-bill-form')"></i>
-                </div>
-
-                <div class="form_inputs_group">   
-                    <div class="input_groups" id="select_date">
-                        <label for="" class="ph-color">Select Date</label>
-                        <input type="date" name="phDate" value="Card" id="pb-input" onChange="highlight_Input(name)">
-                    </div>
-                    
-                    <div class="input_groups">
-                        <label for="" class="">Operator</label>
-                        <div class="operator_groups">
-                            <input type="hidden" name="operator" id="operator">
-                            <div class="circle" id="telenor">
-                                <img src="../images/telenor.svg" width="25px" onclick="getOperator('telenor')">   
-                            </div>
-
-                            <div class="circle" id="mpt">
-                                <img src="../images/mpt.svg" width="25px" onclick="getOperator('mpt')">
-                            </div>
-
-                            <div class="circle" id="ooredoo">
-                                <img src="../images/ooredoo.svg" width="25px" onclick="getOperator('ooredoo')">
-                            </div>
-                        </div>                  
-                    </div>
-
-                    <div class="input_groups">
-                        <label for="" class="">Bill</label>
-                        <input type="hidden" name="bill" id="bill">
-                        <div class="prebill_Btn_group">
-                            <button type="button" class="" id="1000"    onclick="getPreDefinedBill(id)">1000</button>
-                            <button type="button" class="" id="3000"    onclick="getPreDefinedBill(id)">3000</button>
-                            <button type="button" class="" id="5000"    onclick="getPreDefinedBill(id)">5000</button>
-                        </div>
-                    </div>
-
-                    <div class="input_groups">
-                        <label for="" class="">Amount</label>
-                        <input type="text" name="phAmount" placeholder="e.g. 10" id="pb-input" onChange="highlight_Input(name)">
-                    </div>
-                    
-                    <div></div>
-                    <div class="input_groups">
-                        <button type="submit" class="">
-                            <i class="fas fa-cloud-upload-alt pd-r-8"></i>
-                            Submit
-                        </button>
-                    </div>
-
-                </div>
-
-                
-            </form>
-
-        </div>
-
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -862,72 +586,9 @@
                 </ul>
             </div>
         @endif
-    </section>
-
 
     <script>
 
-        let search_input = document.getElementById("search_input")
-        let dropbox = document.getElementById("ss")
-        let search_Submit = document.getElementById('search_submit')
-
-        search_Submit.addEventListener("click", event => {
-            if(!st_array.includes(search_input.value)){
-               
-                document.getElementById("stationaryName").innerHTML = search_input.value
-                document.getElementById("stNotFound").classList.remove("hide")
-                event.preventDefault();
-                // if(target === null || target === ""){
-                //     document.getElementById("stNotFound").classList.add("hide")
-
-                // }
-                // else{
-                //     document.getElementById("stationaryName").innerHTML = target
-                //     document.getElementById("stNotFound").classList.remove("hide")
-                // }
-            }
-            
-        })
-        // console.log(but)
-        const search_stationary = () => {
-            console.log(dropbox)
-            dropbox.classList.remove("hide")
-            
-        }
-
-        document.addEventListener("click", evt => {
-            if(evt.target !== search_input )
-            {
-                dropbox.classList.add("hide")
-
-            }
-        })
-
-        const getStName = stationary =>{
-            document.getElementById("stNotFound").classList.add("hide")
-            search_input.value = stationary
-        }
-        const filterMe = () =>  {
-            var filter, ul, li, a, i, txtValue;
-
-            filter = search_input.value.toUpperCase();
-
-            ul = document.getElementById("list");
-
-            li = ul.getElementsByTagName("li");
-            
-            for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("a")[0];
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {               
-                    li[i].style.display = "";
-
-                } else {
-                    li[i].style.display = "none";
-                    ul.style.height ="auto";
-                }
-            }
-        }
 
         // When ready.
     </script>

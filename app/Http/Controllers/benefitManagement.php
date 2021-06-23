@@ -87,4 +87,8 @@ class benefitManagement extends Controller
         'ed'=> date_format(date_create($endDate),"F j, Y")]);
 
     }
+    public function get_monthly(){
+        return view('benefits/monthly');
+
+    }
 }

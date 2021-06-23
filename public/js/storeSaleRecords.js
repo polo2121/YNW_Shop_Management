@@ -6,7 +6,7 @@ let tdy_date = document.querySelectorAll('.tdy_date')
 
 let print_inputs       = document.querySelectorAll('input')
 let is                 = document.querySelectorAll('insert-submit')
-let formatMe       = document.querySelectorAll('.formatMe')
+let formatMe           = document.querySelectorAll('.formatMe')
 
 
 console.log(entry_form_buttons)
@@ -28,8 +28,11 @@ const getMdy = () => {
 document.getElementById("tdyDate").innerHTML = getMdy()
 
 formatMe.forEach(fm => {
-    console.log(fm)
+    // console.log(typeof(fm.innerHTML))
+    // fm = fm.innerHTML.split("")
     let dollarUSLocale = Intl.NumberFormat('en-US');
+    console.log(fm.innerHTML)
+
     price = dollarUSLocale.format(fm.innerHTML)
     fm.innerHTML = price
 })
@@ -78,51 +81,6 @@ const rotationAni = (form_id,btn_id) => {
     
 }
 
-let paper_record ="";
-const getPaperType = id => {
-    console.log(id)
-    if(paper_record !== ""){
-        document.getElementById(paper_record).classList.remove("print-active")
-    }
-    let paperType = document.getElementById("paper")
-    paperType.value = id
-    document.getElementById(id).classList.add("print-active")
-    paper_record = id
-}
-
-let bill_record ="";
-const getPreDefinedBill = id => {
-    if(bill_record !== ""){
-        document.getElementById(bill_record).classList.remove("phone-active")
-    }
-    console.log(id)
-    let bill = document.getElementById("bill")
-    bill.value = id
-    document.getElementById(id).classList.add("phone-active")
-    bill_record = id
-}
-
-let op_record =""
-const getOperator = id => {
-    if(op_record !== ""){
-        document.getElementById(op_record).classList.remove("operator-active")
-    }
-    console.log(id)
-    let op = document.getElementById("operator")
-    op.value = id
-    document.getElementById(id).classList.add("operator-active")
-    op_record = id
-
-}
-const highlight_Input = (name,id) => {
-   input =  document.querySelector('input[name='+name+']')
-   if(input.value === "" || input.value === "undefined") { 
-        input.classList.remove(input.id+"-active") 
-    }
-   else{    
-        input.classList.add(input.id+"-active")
-    }
-}
 
 const removeAlert = () => {
     document.getElementById('alertMessage').classList.remove("animate__slideInDown")

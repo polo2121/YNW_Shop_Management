@@ -15,25 +15,46 @@ class saleRecordsManagement extends Controller
     // }
     public function  storeSaleRecords() {
 
-        $St_Infos       = DB::table('stationaries_sale_records')->get();
-        $Print_Infos    = DB::table('print_sale_records')->get();
-        $Com_Infos      = DB::table('com_sale_records')->get();
-        $PB_Infos       = DB::table('pb_sale_records')->get();
+        $getToday = date("Y-m-d");
+        // echo gettype($getToday);
+
+        $St_Infos       = DB::table('stationaries_sale_records')->whereDate('date',$getToday)->get();
+        $stp            = DB::table('stationaries_sale_records')->whereDate('date',$getToday)->sum('price');
+
+
+        $Print_Infos    = DB::table('print_sale_records')->whereDate('date',$getToday)->get();
+        $ptp            = DB::table('print_sale_records')->whereDate('date',$getToday)->sum('price');
+
+        $Com_Infos      = DB::table('com_sale_records')->whereDate('date',$getToday)->get();
+        $ctp            = DB::table('com_sale_records')->whereDate('date',$getToday)->sum('price');
+
+        $PB_Infos       = DB::table('pb_sale_records')->whereDate('date',$getToday)->get();
+        $pbtp           = DB::table('pb_sale_records')->whereDate('date',$getToday)->sum('bill');
 
         $stat_name      = DB::table('stationaries')->pluck('stName');
+
+        $all_total = $stp + $ptp + $ctp + $pbtp;
         // $copySaleRecords = DB::table('copy')->where('date', date("Y-m-d"))->get();
-        return view('saleRecords/storeSaleRecords', ['St_Infos'=> $St_Infos,'Print_Infos'=> $Print_Infos,
-        'Com_Infos'=> $Com_Infos,'PB_Infos'=> $PB_Infos,'stat_names' => $stat_name ]);
+        return view('saleRecords/storeSaleRecords', [
+            'St_Infos'=> $St_Infos,'Print_Infos'=> $Print_Infos,
+            'Com_Infos'=> $Com_Infos,'PB_Infos'=> $PB_Infos,'stat_names' => $stat_name,
+            'stp'=>$stp,'ptp'=>$ptp,'ctp'=>$ctp,'pbtp'=>$pbtp,'all_total'=> $all_total
+        ]);
     }
     
     //Print Management Queries
     public function insert_print(Request $req) {
         
         $date                       = $req->input('date');
-        $items                       = $req->input('items');
-        $amount                     = (int)$req->input('amount');
-        $price                      = (int)$req->input('price');
+        $items                      = $req->input('items');
 
+        $amount                     = $req->input('amount');
+        $price                      = intval(str_replace(",","",$amount));
+
+        $price                      = $req->input('price');
+        $price                      = intval(str_replace(",","",$price));
+
+        echo $price;
         $print_infos       = DB::table('print_items')->select('amount','benefit')->where('items',$items)->get();
         
         $updated_amount = $print_infos[0]->{"amount"} - $amount;
@@ -79,9 +100,8 @@ class saleRecordsManagement extends Controller
         return redirect('/sale-records')->with('success', 'Data is successfully Updated in Print Sale Record');
     }
     public function delete_print(Resquest $req){
-        echo "Hell Yeah";
-        // $results         =DB::table('print_sale_records')->where('pid',  $req->id)->delete();
-        // return redirect('sale-records')->with('success', 'Data is successfully Deleted from Print Sale Record');
+        $results         =DB::table('print_sale_records')->where('pid',  $req->id)->delete();
+        return redirect('sale-records')->with('success', 'Data is successfully Deleted from Print Sale Record');
     }
 
     //Stationary Management Queries
@@ -91,6 +111,7 @@ class saleRecordsManagement extends Controller
         $date                       = $req->input('date');
         $name                       = $req->input('name');
         $amount                     = (int)$req->input('amount');
+        $amount                      = intval(str_replace(",","",$amount));
         $price                      = $req->input('price');
         $price                      = intval(str_replace(",","",$price));
 
